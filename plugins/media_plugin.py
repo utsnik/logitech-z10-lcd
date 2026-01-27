@@ -2,6 +2,7 @@ from .base import BasePlugin
 from PIL import Image, ImageDraw, ImageFont
 import subprocess
 import time
+import threading
 
 try:
     import win32api
@@ -14,7 +15,7 @@ class MediaPlugin(BasePlugin):
         super().__init__(width, height)
         self.name = "Media Info"
         try:
-            self.font_large = ImageFont.truetype("arialbd.ttf", 14) # Increased for visibility
+            self.font_large = ImageFont.truetype("arialbd.ttf", 14)
             self.font_small = ImageFont.truetype("arial.ttf", 10)
         except:
             self.font_large = ImageFont.load_default()
@@ -23,40 +24,47 @@ class MediaPlugin(BasePlugin):
         self.media_data = {"artist": "", "title": "No Media", "album": "", "pos": 0, "dur": 1}
         self.last_check = 0
         self.tick = 0
-        self.scroll_pause = 0
         
-    def get_track_info(self):
-        # Fetch data every 1 second (PowerShell is heavy)
-        if time.time() - self.last_check < 1.0:
+        # Async background fetcher
+        self.is_fetching = False
+        
+    def get_track_info_async(self):
+        """Threaded function to fetch media data without blocking UI"""
+        if self.is_fetching:
             return
-            
-        try:
-            cmd = ["powershell", "-ExecutionPolicy", "Bypass", "-File", "get_media.ps1"]
-            startupinfo = subprocess.STARTUPINFO()
-            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-            
-            output = subprocess.check_output(cmd, startupinfo=startupinfo).decode().strip()
-            parts = output.split('|')
-            if len(parts) >= 5:
-                new_data = {
-                    "artist": parts[0],
-                    "title": parts[1],
-                    "album": parts[2],
-                    "pos": int(parts[3]),
-                    "dur": int(parts[4]) if int(parts[4]) > 0 else 1
-                }
-                # Reset tick if track changed
-                if new_data["title"] != self.media_data["title"]:
-                    self.tick = 0
-                self.media_data = new_data
-            else:
-                self.media_data["title"] = output
-        except:
-            pass
-        self.last_check = time.time()
+        self.is_fetching = True
+        
+        def _fetch():
+            try:
+                cmd = ["powershell", "-ExecutionPolicy", "Bypass", "-File", "get_media.ps1"]
+                startupinfo = subprocess.STARTUPINFO()
+                startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                
+                output = subprocess.check_output(cmd, startupinfo=startupinfo).decode().strip()
+                parts = output.split('|')
+                if len(parts) >= 5:
+                    new_data = {
+                        "artist": parts[0],
+                        "title": parts[1],
+                        "album": parts[2],
+                        "pos": int(parts[3]),
+                        "dur": int(parts[4]) if int(parts[4]) > 0 else 1
+                    }
+                    # Reset tick if track changed
+                    if new_data["title"] != self.media_data["title"]:
+                        # Note: self.tick isn't thread-safe but we just read/write small ints
+                        self.tick = 0 
+                    self.media_data = new_data
+            except:
+                pass
+            finally:
+                self.is_fetching = False
+                self.last_check = time.time()
+
+        thread = threading.Thread(target=_fetch, daemon=True)
+        thread.start()
 
     def draw_scrolling_text(self, draw, text, y, font, limit_w):
-        # Measure text
         bbox = draw.textbbox((0, 0), text, font=font)
         tw = bbox[2] - bbox[0]
         
@@ -64,19 +72,13 @@ class MediaPlugin(BasePlugin):
             draw.text((2, y), text, font=font, fill=1)
             return
 
-        # Scrolling logic
-        # Speed: move 2 pixels per tick (at 10Hz = 20px/sec)
-        # Pause at start and end
-        total_scroll = tw - limit_w + 10 # 10px padding at end
+        total_scroll = tw - limit_w + 20
         
-        # Calculate current x based on tick
-        # Wait 20 ticks (2s) at start
-        if self.tick < 20:
+        if self.tick < 20: 
             scroll_x = 0
         elif self.tick < 20 + total_scroll:
             scroll_x = -(self.tick - 20)
         else:
-            # Wait 20 ticks at end, then loop
             if self.tick > 20 + total_scroll + 20:
                 self.tick = 0
             scroll_x = -total_scroll
@@ -87,15 +89,17 @@ class MediaPlugin(BasePlugin):
         img = Image.new('1', (self.width, self.height), 0)
         draw = ImageDraw.Draw(img)
         
-        self.get_track_info()
-        self.tick += 1 # Called at ~10Hz from app loop
-        
+        # Trigger async fetch every 1 second
+        if time.time() - self.last_check > 1.0:
+            self.get_track_info_async()
+            
+        self.tick += 1
         data = self.media_data
         
-        # 1. Title (Top) - Scrolling
+        # 1. Title
         self.draw_scrolling_text(draw, data['title'], -1, self.font_large, 115)
         
-        # 2. Artist - Album (Middle) - Scrolling
+        # 2. Artist - Album
         info_str = f"{data['artist']}"
         if data['album']:
             info_str += f" - {data['album']}"
@@ -104,7 +108,6 @@ class MediaPlugin(BasePlugin):
         # 3. Progress Bar
         bar_x1, bar_x2 = 2, 115
         bar_y = 32
-        
         draw.line([bar_x1, bar_y, bar_x1, bar_y+8], fill=1)
         draw.line([bar_x2, bar_y, bar_x2, bar_y+8], fill=1)
         draw.line([bar_x1, bar_y+4, bar_x2, bar_y+4], fill=1)
@@ -115,7 +118,6 @@ class MediaPlugin(BasePlugin):
         if fill_width > 0:
             draw.rectangle([bar_x1, bar_y+2, bar_x1 + fill_width, bar_y+6], fill=1)
         
-        # Time Text
         def fmt_time(s):
             m = s // 60
             s = s % 60
@@ -127,20 +129,16 @@ class MediaPlugin(BasePlugin):
         return img
 
     def handle_input(self, btn_id):
+        # ... and media controls remain same ...
         VK_MEDIA_NEXT_TRACK = 0xB0
         VK_MEDIA_PREV_TRACK = 0xB1
         VK_MEDIA_STOP = 0xB2
         VK_MEDIA_PLAY_PAUSE = 0xB3
         
-        if btn_id == 1: # Prev
-            self.send_media_key(VK_MEDIA_PREV_TRACK)
-        elif btn_id == 2: # Next
-            self.send_media_key(VK_MEDIA_NEXT_TRACK)
-        elif btn_id == 3: # Play/Pause
-            self.send_media_key(VK_MEDIA_PLAY_PAUSE)
-        elif btn_id == 4: # Stop
-            self.send_media_key(VK_MEDIA_STOP)
-            
+        if btn_id == 1: self.send_media_key(VK_MEDIA_PREV_TRACK)
+        elif btn_id == 2: self.send_media_key(VK_MEDIA_NEXT_TRACK)
+        elif btn_id == 3: self.send_media_key(VK_MEDIA_PLAY_PAUSE)
+        elif btn_id == 4: self.send_media_key(VK_MEDIA_STOP)
         return True
 
     def send_media_key(self, vk_code):
