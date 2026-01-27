@@ -137,22 +137,20 @@ class Z10App:
             if self.display_btn_hold_start == 0:
                 self.display_btn_hold_start = time.time()
             else:
-                # Still holding? Check duration
                 if time.time() - self.display_btn_hold_start > 2.0:
                     print("!!! Long Press Detected: Exiting App !!!")
                     self.stop()
                     sys.exit(0)
+            return # Don't process other buttons while Display is held
         else:
-            # Button released
+            # Button released - was it a short press?
             if self.display_btn_hold_start > 0:
                 hold_duration = time.time() - self.display_btn_hold_start
                 self.display_btn_hold_start = 0 # Reset
-                
-                # If it was a short press (less than 2s), switch plugin
                 if hold_duration < 1.0:
                     print("Display Button: Short Press -> Next Plugin")
                     self.next_plugin()
-            return # Released, nothing else to do for this scan
+                return # Don't process other buttons on the same frame as a release
 
         # 2. Plugin Inputs (Debounced)
         if time.time() - self.last_press_time < 0.25:
