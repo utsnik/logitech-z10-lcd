@@ -76,7 +76,7 @@ class Z10App:
                     img = plugin.update()
                     if img:
                         self.lcd.display_image(img)
-                    time.sleep(0.5)
+                    time.sleep(0.1) # Faster loop for scrolling (10 FPS)
             except Exception as e:
                 print(f"Device Error: {e}")
                 self.lcd.disconnect() # Reset driver state
