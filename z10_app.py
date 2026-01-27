@@ -10,6 +10,13 @@ Handles:
 import time
 import sys
 import os
+import threading
+try:
+    import pystray
+    from pystray import MenuItem as item
+except ImportError:
+    pystray = None
+
 from z10_driver import Z10LCD
 from plugins.monitor_plugin import MonitorPlugin
 from plugins.system_expanded import EnhancedMonitorPlugin
@@ -28,7 +35,33 @@ class Z10App:
         self.current_plugin_idx = 0
         self.running = True
         self.last_press_time = 0
+        self.display_btn_hold_start = 0
         
+        # Start Tray Icon
+        if pystray:
+            self.tray_thread = threading.Thread(target=self._setup_tray, daemon=True)
+            self.tray_thread.start()
+
+    def _setup_tray(self):
+        try:
+            from PIL import Image, ImageDraw
+            # Create a simple icon
+            icon_img = Image.new('RGB', (64, 64), color=(30, 30, 30))
+            d = ImageDraw.Draw(icon_img)
+            # Draw a stylistic 'Z'
+            d.rectangle([10, 10, 54, 54], outline=(255, 165, 0), width=3)
+            d.text((20, 15), "Z", fill=(255, 255, 255))
+            
+            def on_quit(icon, item):
+                print("Exit via Tray Menu")
+                self.running = False
+                icon.stop()
+
+            menu = pystray.Menu(item('Quit Z-10 App', on_quit))
+            self.icon = pystray.Icon("Z10LCD", icon_img, "Logitech Z-10 LCD Driver", menu)
+            self.icon.run()
+        except Exception as e:
+            print(f"Tray Icon Error: {e}")        
     def start(self):
         print("Starting Z-10 App...")
         
@@ -84,39 +117,57 @@ class Z10App:
                 
     def stop(self):
         self.running = False
+        if hasattr(self, 'icon'):
+            self.icon.stop()
         self.lcd.disconnect()
 
     def on_input(self, data):
         """
         Handles raw input events.
-        Display (Index 8): Switch Plugin
+        Display (Index 8): Switch Plugin (Short press), Exit (Long press 2s)
         Btns 1-4 (Index 2-5): Send to current Plugin
         """
-        # Simple Debounce (ignore rapid fires < 250ms)
+        if len(data) <= 8:
+            return
+
+        # 1. Long-press Exit Logic (Display Button)
+        is_display_pressed = (data[8] == 0x80)
+        
+        if is_display_pressed:
+            if self.display_btn_hold_start == 0:
+                self.display_btn_hold_start = time.time()
+            else:
+                # Still holding? Check duration
+                if time.time() - self.display_btn_hold_start > 2.0:
+                    print("!!! Long Press Detected: Exiting App !!!")
+                    self.stop()
+                    sys.exit(0)
+        else:
+            # Button released
+            if self.display_btn_hold_start > 0:
+                hold_duration = time.time() - self.display_btn_hold_start
+                self.display_btn_hold_start = 0 # Reset
+                
+                # If it was a short press (less than 2s), switch plugin
+                if hold_duration < 1.0:
+                    print("Display Button: Short Press -> Next Plugin")
+                    self.next_plugin()
+            return # Released, nothing else to do for this scan
+
+        # 2. Plugin Inputs (Debounced)
         if time.time() - self.last_press_time < 0.25:
             return
 
-        # Check for Press (0x80 = 128)
         btn_pressed = None
-        
-        if len(data) > 8:
-            if data[8] == 0x80: # Display Button
-                print("Display Button Pressed! Switching Plugin...")
-                self.last_press_time = time.time()
-                self.next_plugin()
-                return
-
-            if data[2] == 0x80: btn_pressed = 1
-            elif data[3] == 0x80: btn_pressed = 2
-            elif data[4] == 0x80: btn_pressed = 3
-            elif data[5] == 0x80: btn_pressed = 4
+        if data[2] == 0x80: btn_pressed = 1
+        elif data[3] == 0x80: btn_pressed = 2
+        elif data[4] == 0x80: btn_pressed = 3
+        elif data[5] == 0x80: btn_pressed = 4
         
         if btn_pressed:
             self.last_press_time = time.time()
             print(f"-> App: Sending Button {btn_pressed} to Plugin '{self.plugins[self.current_plugin_idx].name}'")
-            # Pass to current plugin
             self.plugins[self.current_plugin_idx].handle_input(btn_pressed)
-
     def next_plugin(self):
         self.current_plugin_idx = (self.current_plugin_idx + 1) % len(self.plugins)
         # Show overlay or print

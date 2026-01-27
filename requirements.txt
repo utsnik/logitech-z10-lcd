@@ -2,3 +2,4 @@ pyusb
 psutil
 Pillow
 pywin32
+pystray
