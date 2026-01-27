@@ -1,0 +1,531 @@
+<?xml version='1.0' encoding='utf-8'?>
+<devicemanifest xmlns="http://www.logitech.com/Cassandra/2010.2/DeviceManifest">
+  <device model="Logitech.Gaming.Keyboard.G15.v1" category="Logitech.Gaming.Keyboard">
+    <probes>
+      <hid_probe usagepage="0xff00" pid="0xc222" vid="0x046d"/>
+    </probes>
+    <thumbnails>
+      <thumbnail image="IDR_G15_G15V1_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G15_G15V1_DEVICE" name="device" lu_id="c222_g15v1"/>
+    </image>
+    <profiler category="Logitech.Gaming.Keyboard">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Keyboard"/>
+      </shiftgroups>
+    </profiler>
+    <lcd type="mono" appbtndefault="quickswitch">
+      <brightness default="2" min="0" max="2"/>
+      <contrast default="66" min="0" max="100"/>
+    </lcd>
+    <feature view_id="device_view"/>
+    <feature view_id="macroassignment_view"/>
+    <feature view_id="lcd_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="40" y="147" scale="0.57"/>
+      <hotspots>
+        <hotspot viewid="lcd_view" image="IDR_G15_G15V1_PULSEGLOW_HOME_LCD" left="404" top="150"/>
+        <hotspot viewid="macroassignment_view" image="IDR_G15_G15V1_PULSEGLOW_HOME_GKEY" left="62" top="317"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="356" y="-90" scale="1.0"/>
+      <mstates>
+        <mstate imageNormal="IDR_G15_MKEY_NORMAL" imageOn="IDR_G15_MKEY_ACTIVE" left="417" imageHover="IDR_G15_MKEY_ACTIVE" id="1" top="155"/>
+        <mstate imageNormal="IDR_G15_MKEY_NORMAL" imageOn="IDR_G15_MKEY_ACTIVE" left="473" imageHover="IDR_G15_MKEY_ACTIVE" id="2" top="155"/>
+        <mstate imageNormal="IDR_G15_MKEY_NORMAL" imageOn="IDR_G15_MKEY_ACTIVE" left="531" imageHover="IDR_G15_MKEY_ACTIVE" id="3" top="155"/>
+      </mstates>
+      <pulseGlows>
+        <pulseGlow x="399" y="215" image="IDR_G15_G15V1_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="-1" height="-1">
+        <control id="G1">
+          <points>
+            <point x="424" y="237"/>
+            <point x="461" y="237"/>
+            <point x="461" y="269"/>
+            <point x="424" y="269"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F1">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F1"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="388" y="237" min_width="61" max_width="183"/>
+        </control>
+        <control id="G2">
+          <points>
+            <point x="481" y="237"/>
+            <point x="518" y="237"/>
+            <point x="518" y="269"/>
+            <point x="481" y="269"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F2">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F2"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="463" y="237" min_width="61" max_width="183"/>
+        </control>
+        <control id="G3">
+          <points>
+            <point x="538" y="237"/>
+            <point x="575" y="237"/>
+            <point x="575" y="269"/>
+            <point x="538" y="269"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F3">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F3"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="538" y="237" min_width="61" max_width="183"/>
+        </control>
+        <control id="G4">
+          <points>
+            <point x="424" y="281"/>
+            <point x="461" y="281"/>
+            <point x="461" y="312"/>
+            <point x="424" y="312"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F4">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F4"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="388" y="281" min_width="61" max_width="183"/>
+        </control>
+        <control id="G5">
+          <points>
+            <point x="481" y="281"/>
+            <point x="518" y="281"/>
+            <point x="518" y="312"/>
+            <point x="481" y="312"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F5">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F5"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="463" y="281" min_width="61" max_width="183"/>
+        </control>
+        <control id="G6">
+          <points>
+            <point x="538" y="281"/>
+            <point x="575" y="281"/>
+            <point x="575" y="312"/>
+            <point x="538" y="312"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F6">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F6"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="538" y="281" min_width="61" max_width="183"/>
+        </control>
+        <control id="G7">
+          <points>
+            <point x="425" y="370"/>
+            <point x="461" y="370"/>
+            <point x="461" y="401"/>
+            <point x="425" y="401"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F7">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F7"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="390" y="370" min_width="60" max_width="180"/>
+        </control>
+        <control id="G8">
+          <points>
+            <point x="481" y="370"/>
+            <point x="518" y="370"/>
+            <point x="518" y="401"/>
+            <point x="481" y="401"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F8">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F8"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="463" y="370" min_width="61" max_width="183"/>
+        </control>
+        <control id="G9">
+          <points>
+            <point x="538" y="370"/>
+            <point x="575" y="370"/>
+            <point x="575" y="401"/>
+            <point x="538" y="401"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F9">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F9"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="538" y="370" min_width="61" max_width="183"/>
+        </control>
+        <control id="G10">
+          <points>
+            <point x="425" y="413"/>
+            <point x="461" y="413"/>
+            <point x="461" y="444"/>
+            <point x="425" y="444"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F10">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F10"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="390" y="413" min_width="60" max_width="180"/>
+        </control>
+        <control id="G11">
+          <points>
+            <point x="481" y="413"/>
+            <point x="518" y="413"/>
+            <point x="518" y="444"/>
+            <point x="481" y="444"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F11">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F11"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="463" y="413" min_width="61" max_width="183"/>
+        </control>
+        <control id="G12">
+          <points>
+            <point x="538" y="413"/>
+            <point x="575" y="413"/>
+            <point x="575" y="444"/>
+            <point x="538" y="444"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F12">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F12"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="538" y="413" min_width="61" max_width="183"/>
+        </control>
+        <control id="G13">
+          <points>
+            <point x="426" y="502"/>
+            <point x="462" y="502"/>
+            <point x="462" y="533"/>
+            <point x="426" y="533"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="1">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="1"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="391" y="502" min_width="60" max_width="180"/>
+        </control>
+        <control id="G14">
+          <points>
+            <point x="482" y="501"/>
+            <point x="519" y="501"/>
+            <point x="519" y="533"/>
+            <point x="482" y="533"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="2">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="2"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="464" y="501" min_width="61" max_width="183"/>
+        </control>
+        <control id="G15">
+          <points>
+            <point x="539" y="501"/>
+            <point x="576" y="501"/>
+            <point x="576" y="533"/>
+            <point x="539" y="533"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="3">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="3"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="539" y="501" min_width="61" max_width="183"/>
+        </control>
+        <control id="G16">
+          <points>
+            <point x="426" y="545"/>
+            <point x="462" y="545"/>
+            <point x="462" y="576"/>
+            <point x="426" y="576"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="4">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="4"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="391" y="545" min_width="60" max_width="180"/>
+        </control>
+        <control id="G17">
+          <points>
+            <point x="482" y="545"/>
+            <point x="519" y="545"/>
+            <point x="519" y="576"/>
+            <point x="482" y="576"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="5">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="5"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="464" y="545" min_width="61" max_width="183"/>
+        </control>
+        <control id="G18">
+          <points>
+            <point x="539" y="545"/>
+            <point x="576" y="545"/>
+            <point x="576" y="576"/>
+            <point x="539" y="576"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="6">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="6"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="539" y="545" min_width="61" max_width="183"/>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <lcdviewmetadata viewid="lcd_view" appbuttonbitmap="IDR_G15_APPLICATION_BUTTON">
+      <transform x="-302" y="399" scale="1.0"/>
+    </lcdviewmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G15</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G15</string>
+      </locale>
+    </strings>
+    <mediacontrols/>
+  </device>
+  <device model="Logitech.Gaming.Keyboard.G15.v2">
+        <probes>
+            <hid_probe usagepage="0xff00" pid="0xc227" vid="0x046d"/>
+        </probes>
+        <thumbnails>
+            <thumbnail image="IDR_G15_G15V2_THUMBNAIL_NORMAL" state="normal"/>
+        </thumbnails>
+        <image>
+          <!--For 'lu_id', use the format <pid>_<device short name> for the LU image download identifier, lower case only -->
+          <!--There has to be a matching <pid>_<device short name>.exe on the LU server -->
+          <layer image="IDR_G15_G15V2_DEVICE" name="device" lu_id="c227_g15v2"/>
+        </image>
+        <profiler category="Logitech.Gaming.Keyboard">
+            <shiftgroups>
+                <group category="Logitech.Gaming.Keyboard"/>
+            </shiftgroups>
+        </profiler>
+        <lcd type="mono" appbtndefault="quickswitch">
+            <brightness default="2" min="0" max="2"/>
+            <contrast default="66" min="0" max="100"/>
+        </lcd>
+        <feature view_id="device_view"/>
+        <feature view_id="macroassignment_view"/>
+        <feature view_id="lcd_view"/>
+        <deviceviewmetadata viewid="device_view">
+            <transform x="43" y="160" scale="0.6"/>
+            <hotspots>
+                <hotspot viewid="lcd_view" image="IDR_G15_G15V2_PULSEGLOW_HOME_LCD" left="432" top="168"/>
+                <hotspot viewid="macroassignment_view" image="IDR_G15_G15V2_PULSEGLOW_HOME_GKEY" left="60" top="264"/>
+            </hotspots>
+        </deviceviewmetadata>
+        <macroassignmentmetadata viewid="macroassignment_view">
+            <transform x="419" y="33" scale="1.0"/>
+            <mstates>
+                <mstate imageNormal="IDR_G15_MKEY_NORMAL" imageOn="IDR_G15_MKEY_ACTIVE" left="471" imageHover="IDR_G15_MKEY_ACTIVE" id="1" top="158"/>
+                <mstate imageNormal="IDR_G15_MKEY_NORMAL" imageOn="IDR_G15_MKEY_ACTIVE" left="527" imageHover="IDR_G15_MKEY_ACTIVE" id="2" top="158"/>
+                <mstate imageNormal="IDR_G15_MKEY_NORMAL" imageOn="IDR_G15_MKEY_ACTIVE" left="582" imageHover="IDR_G15_MKEY_ACTIVE" id="3" top="158"/>
+            </mstates>
+            <pulseGlows>
+                <pulseGlow x="452" y="211" image="IDR_G15_G15V2_PULSEGLOW">
+                    <types>
+                        <type name="button"/>
+                    </types>
+                </pulseGlow>
+            </pulseGlows>
+            <controls width="-1" height="-1">
+                <control id="G1">
+                    <points>
+                        <point x="480" y="231"/>
+                        <point x="518" y="231"/>
+                        <point x="518" y="265"/>
+                        <point x="480" y="265"/>
+                    </points>
+                    <types>
+                        <type name="button"/>
+                    </types>
+                    <generic_assignment name="F1">
+                        <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+                            <key value="F1"/>
+                        </keystroke>
+                    </generic_assignment>
+                    <assignment_label custom="false" x="455" y="231" min_width="76" max_width="228"/>
+                </control>
+                <control id="G2">
+                    <points>
+                        <point x="480" y="281"/>
+                        <point x="518" y="281"/>
+                        <point x="518" y="315"/>
+                        <point x="480" y="315"/>
+                    </points>
+                    <types>
+                        <type name="button"/>
+                    </types>
+                    <generic_assignment name="F2">
+                        <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+                            <key value="F2"/>
+                        </keystroke>
+                    </generic_assignment>
+                    <assignment_label custom="false" x="455" y="281" min_width="76" max_width="228"/>
+                </control>
+                <control id="G3">
+                    <points>
+                        <point x="479" y="359"/>
+                        <point x="517" y="359"/>
+                        <point x="517" y="393"/>
+                        <point x="479" y="393"/>
+                    </points>
+                    <types>
+                        <type name="button"/>
+                    </types>
+                    <generic_assignment name="F3">
+                        <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+                            <key value="F3"/>
+                        </keystroke>
+                    </generic_assignment>
+                    <assignment_label custom="false" x="454" y="359" min_width="76" max_width="228"/>
+                </control>
+                <control id="G4">
+                    <points>
+                        <point x="479" y="409"/>
+                        <point x="517" y="409"/>
+                        <point x="517" y="443"/>
+                        <point x="479" y="443"/>
+                    </points>
+                    <types>
+                        <type name="button"/>
+                    </types>
+                    <generic_assignment name="F4">
+                        <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+                            <key value="F4"/>
+                        </keystroke>
+                    </generic_assignment>
+                    <assignment_label custom="false" x="454" y="409" min_width="76" max_width="228"/>
+                </control>
+                <control id="G5">
+                    <points>
+                        <point x="477" y="488"/>
+                        <point x="514" y="488"/>
+                        <point x="514" y="522"/>
+                        <point x="477" y="522"/>
+                    </points>
+                    <types>
+                        <type name="button"/>
+                    </types>
+                    <generic_assignment name="F5">
+                        <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+                            <key value="F5"/>
+                        </keystroke>
+                    </generic_assignment>
+                    <assignment_label custom="false" x="453" y="488" min_width="74" max_width="222"/>
+                </control>
+                <control id="G6">
+                    <points>
+                        <point x="476" y="538"/>
+                        <point x="513" y="538"/>
+                        <point x="513" y="572"/>
+                        <point x="476" y="572"/>
+                    </points>
+                    <types>
+                        <type name="button"/>
+                    </types>
+                    <generic_assignment name="F6">
+                        <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+                            <key value="F6"/>
+                        </keystroke>
+                    </generic_assignment>
+                    <assignment_label custom="false" x="452" y="538" min_width="74" max_width="222"/>
+                </control>
+            </controls>
+        </macroassignmentmetadata>
+        <lcdviewmetadata viewid="lcd_view" appbuttonbitmap="IDR_G15_APPLICATION_BUTTON">
+            <transform x="-264" y="408" scale="1.0"/>
+        </lcdviewmetadata>
+        <strings defaultlocale="en-US">
+            <locale name="en-US">
+                <string id="DEVICE_NAME">Logitech G15</string>
+            </locale>
+            <locale name="ja-JP">
+                <string id="DEVICE_NAME">Logicool G15</string>
+            </locale>
+        </strings>
+        <mediacontrols/>
+    </device>
+</devicemanifest>

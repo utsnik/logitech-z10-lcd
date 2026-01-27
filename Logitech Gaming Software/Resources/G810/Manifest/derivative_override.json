@@ -1,0 +1,11 @@
+{
+    "Ext_Model_1": {
+        "model=\"Logitech.Gaming.Keyboard.G810\"": "model=\"Logitech.Gaming.Keyboard.G810.Ext_1\"",
+
+        "IDR_G810_DEVICE": "IDR_G810_DEVICE_1",
+        "IDR_G810_THUMBNAIL_NORMAL": "IDR_G810_THUMBNAIL_NORMAL_1",
+
+        "Logitech G810 Orion Spectrum": "Logitech G810 Orion Spectrum Battlefield 1 Edition",
+        "Logicool G810 Orion Spectrum": "Logicool G810 Orion Spectrum Battlefield 1 Edition"
+    }
+}

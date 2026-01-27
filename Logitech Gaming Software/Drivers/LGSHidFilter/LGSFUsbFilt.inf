@@ -1,0 +1,131 @@
+;##############################################################################
+;#  LGSUsbFilt.inf - framework HID INF for USB devices
+;#  Copyright (c) 1999-2013 Logitech. All rights reserved.
+;##############################################################################
+
+[Version]
+Signature   = "$Windows NT$"
+CatalogFile = LGSUsbFilt.cat
+Class       = HIDClass
+ClassGuid   = {745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider    = %LOGI%
+DriverVer   = 04/19/2013,8.46.17.1
+
+[SourceDisksNames]
+1 = %DiskName%,
+
+[SourceDisksFiles]
+LGSUsbFilt.sys = 1				; KMDF version of the USB filter driver
+
+[DestinationDirs]
+DefaultDestDir = 12				; DIRID_DRIVERS
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+; ---------------------------------------------------------
+[Manufacturer]
+%LOGI%	= ForAllNT, NTamd64
+
+[ForAllNT.NTamd64]
+;--------------------- Corded Mice ------------------------
+%PID_C01E.Mouse.Desc% = LOGIHIDMOUSE,USB\VID_046D&PID_C01E
+%PID_C051.Mouse.Desc% = LOGIHIDMOUSE,USB\VID_046D&PID_C051
+%PID_C247.Mouse.Desc% = LOGIHIDMOUSE,USB\VID_046D&PID_C247
+%PID_C24C.Mouse.Desc% = LOGIHIDMOUSE,USB\VID_046D&PID_C24C&MI_00
+
+; Install Sections
+; ---------------------------------------------------------
+[CopyFilesLGSUsbFilt]
+LGSUsbFilt.sys
+
+[LOGIHIDMOUSE.NT]
+Include     	= input.inf
+Needs       	= HID_Inst.NT
+CopyFiles  	= CopyFilesLGSUsbFilt
+
+[LOGIHIDMOUSE.NT.HW]
+Include     = input.inf
+Needs       = HID_Inst.NT.HW
+AddReg      = HID_LowerFilter, Hid_WaitWakeEnable
+
+[HID_LowerFilter]
+HKR,,"LowerFilters",%REG_MULTI_SZ%,"LGSUsbFilt"
+
+[Hid_WaitWakeEnable]
+HKR,,"WaitWakeEnabled",0x00010001,0x1
+
+[LOGIHIDMOUSE.NT.Services]
+Include    = input.inf
+Needs      = HID_Inst.NT.Services
+AddService = LGSUsbFilt,,LGSUsbFilt_Service_Inst
+
+[LGSUsbFilt_Service_Inst]
+DisplayName     = %LGSHidUsbFilt.SvcDesc%
+ServiceType     = %SERVICE_KERNEL_DRIVER%
+StartType       = %SERVICE_DEMAND_START%
+ErrorControl    = %SERVICE_ERROR_NORMAL%
+ServiceBinary   = %12%\LGSUsbFilt.Sys
+LoadOrderGroup  = Extended Base
+
+
+;--- WDF Coinstaller installation ------
+
+[DestinationDirs]
+LOGIHIDMOUSE_Inst_CoInstaller_CopyFiles = 11
+
+[LOGIHIDMOUSE.NT.CoInstallers]
+AddReg=LOGIHIDMOUSE_Inst_CoInstaller_AddReg
+CopyFiles=LOGIHIDMOUSE_Inst_CoInstaller_CopyFiles
+
+[LOGIHIDMOUSE_Inst_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "LkmdfCoInst.dll,CoDeviceInstall"
+
+[LOGIHIDMOUSE_Inst_CoInstaller_CopyFiles]
+LkmdfCoInst.dll
+
+[SourceDisksFiles]
+LkmdfCoInst.dll=1		; make sure the number matches with SourceDisksNames
+
+[LOGIHIDMOUSE.NT.Wdf]
+KmdfService = LGSUsbFilt, LOGIHIDMOUSE_wdfsect
+
+[LOGIHIDMOUSE_wdfsect]
+KmdfLibraryVersion = 1.5
+
+;-----------------------------------------------------------
+[Strings]
+LOGI                   	= "Logitech"
+DiskName  		= "Logitech Gaming Driver Disk"
+PID_C01E.Mouse.Desc 	= "Logitech Gaming USB G3 (MX518) Optical Mouse"
+PID_C051.Mouse.Desc 	= "Logitech Gaming USB G3 (MX518) Optical Mouse"
+PID_C247.Mouse.Desc 	= "Logitech Gaming USB Mouse G90/G100/G100s"
+PID_C24C.Mouse.Desc 	= "Logitech Gaming USB Mouse G400s"
+LGSHidUsbFilt.SvcDesc 	= "Logitech Gaming KMDF USB Filter Driver"
+
+SERVICE_KERNEL_DRIVER 	= 0x00000001
+SERVICE_DEMAND_START   	= 0x00000003
+SERVICE_ERROR_IGNORE    = 0x00000000
+SERVICE_ERROR_NORMAL   	= 0x00000001
+REG_MULTI_SZ          	= 0x00010000
+REG_DWORD              	= 0x00010001
+SPSVCINST_ASSOCSERVICE 	= 0x00000002
+COPYFLG_NOSKIP         	= 0x00000002
+
+[Strings.0411]
+LOGI                   	= "Logicool"
+DiskName  	        = "Logicool Gaming Driver Disk"
+PID_C01E.Mouse.Desc 	= "Logicool Gaming USB G3 (MX518) Optical Mouse"
+PID_C051.Mouse.Desc 	= "Logicool Gaming USB G3 (MX518) Optical Mouse"
+PID_C247.Mouse.Desc 	= "Logicool Gaming USB Mouse G90/G100/G100s"
+PID_C24C.Mouse.Desc 	= "Logicool Gaming USB Mouse G400s"
+LGSHidUsbFilt.SvcDesc  	= "Logicool Gaming KMDF USB Filter Driver"
+
+SERVICE_KERNEL_DRIVER 	= 0x00000001
+SERVICE_DEMAND_START    = 0x00000003
+SERVICE_ERROR_IGNORE    = 0x0000000
+SERVICE_ERROR_NORMAL    = 0x00000001
+REG_MULTI_SZ            = 0x00010000
+REG_DWORD               = 0x00010001
+SPSVCINST_ASSOCSERVICE  = 0x00000002
+COPYFLG_NOSKIP          = 0x00000002

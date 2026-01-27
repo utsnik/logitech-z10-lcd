@@ -1,0 +1,522 @@
+; Copyright (c) 2004-2018 Logitech, Inf
+
+[Version]
+Signature="$Windows NT$"
+Class=MEDIA
+ClassGUID={4d36e96c-e325-11ce-bfc1-08002be10318}
+provider=%ProviderName%
+CatalogFile=lgAudio.cat
+DriverVer=03/08/2018,8.98.201
+
+[SourceDisksNames]
+222=%DiskDescription%,,,
+
+[SourceDisksFiles]
+LogiHeadsetCaptureAPO.dll=222
+LogiHeadsetRenderAPO.dll=222
+LogiSpeakerAPO.dll=222
+ladfGSS.sys=222
+
+[SignatureAttributes]
+LogiHeadsetCaptureAPO.dll=SignatureAttributes.PETrust
+LogiHeadsetRenderAPO.dll=SignatureAttributes.PETrust
+LogiSpeakerAPO.dll=SignatureAttributes.PETrust
+
+[SignatureAttributes.PETrust]
+PETrust=true
+
+[DestinationDirs]
+lgAudio.CopySysList=11  ; %windir%\system32
+lgAudio.Speaker.CopySysList=11  ; %windir%\system32
+lgAudio.CopyDrvList=10,system32\drivers
+
+;; Excluding drivers from the "Add New Hardware" list.  Uncomment this when shipping your product.
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%MfgName%=LogitechGserie, NTx86, NTamd64
+
+[LogitechGserie.NTx86]
+%lgAudio_G430_Descr%=lgAudio_G430,USB\VID_046D&PID_0A4D&MI_00   ;; G430 headset
+%lgAudio_G930_Descr%=lgAudio_G930,USB\VID_046D&PID_0A1F&MI_00   ;; G930 headset
+%lgAudio_G35_Descr%=lgAudio_G35,USB\VID_046D&PID_0A15&MI_00     ;; G35 headset
+%lgAudio_G933_Descr%=lgAudio_G933,USB\VID_046D&PID_0A5B&MI_00   ;; G933 headset
+%lgAudio_G633_Descr%=lgAudio_G633,USB\VID_046D&PID_0A5C&MI_00   ;; G633 headset
+%lgAudio_G533_Descr%=lgAudio_G533,USB\VID_046D&PID_0A66&MI_00   ;; G533 headset
+%lgAudio_G433_Descr%=lgAudio_G433,USB\VID_046D&PID_0A6D&MI_00   ;; G533 headset
+%lgAudio_G560_Descr%=lgAudio_G560,USB\VID_046D&PID_0A78&MI_00   ;; G560 speaker
+
+[LogitechGserie.NTamd64]
+%lgAudio_G430_Descr%=lgAudio_G430,USB\VID_046D&PID_0A4D&MI_00   ;; G430 headset
+%lgAudio_G930_Descr%=lgAudio_G930,USB\VID_046D&PID_0A1F&MI_00   ;; G930 headset
+%lgAudio_G35_Descr%=lgAudio_G35,USB\VID_046D&PID_0A15&MI_00     ;; G35 headset
+%lgAudio_G933_Descr%=lgAudio_G933,USB\VID_046D&PID_0A5B&MI_00   ;; G933 headset
+%lgAudio_G633_Descr%=lgAudio_G633,USB\VID_046D&PID_0A5C&MI_00   ;; G633 headset
+%lgAudio_G533_Descr%=lgAudio_G533,USB\VID_046D&PID_0A66&MI_00   ;; G533 headset
+%lgAudio_G433_Descr%=lgAudio_G433,USB\VID_046D&PID_0A6D&MI_00   ;; G533 headset
+%lgAudio_G560_Descr%=lgAudio_G560,USB\VID_046D&PID_0A78&MI_00   ;; G560 speaker
+
+;; G430 specific section
+[lgAudio_G430]
+Include      = ks.inf, wdmaudio.inf, wdma_usb.inf
+Needs        = KS.Registration, WDMAUDIO.Registration, USBAudioOEM.CopyFiles, USBAudioOEM.AddReg
+CopyFiles    = lgAudio.CopySysList,lgAudio.CopyDrvList
+AddProperty  = lgAudio.AddProperty
+AddReg       = lgAudio.HeadsetRender.AddReg, lgAudio.HeadsetCapture.AddReg
+RegisterDlls = lgAudio.RegisterDlls
+
+[lgAudio_G430.HW]
+AddReg=ladfGSS.HW.AddReg
+
+[lgAudio_G430.Services]
+Include = wdma_usb.inf
+Needs   = USBAudio.Services
+AddService = ladfGSS,,ladfGSS_Service_Inst
+
+[lgAudio_G430.Interfaces]
+AddInterface="{6994AD04-93EF-11D0-A3CC-00A0C9223196}", "GLOBAL", lgAudio_G430.Topology
+AddInterface="{65E8773E-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio_G430.Topology
+AddInterface="{DDA54A40-1E4C-11D1-A050-405705C10000}", "GLOBAL", lgAudio_G430.Topology
+AddInterface="{65E8773D-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio.Capture.Topology
+
+[lgAudio_G430.Topology]
+AddReg = lgAudio_G430.AddReg, lgAudioHeadsetRenderFX.AddReg, lgAudioHeadsetCaptureFX.AddReg
+
+
+;; G930 specific section
+[lgAudio_G930]
+Include      = ks.inf, wdmaudio.inf, wdma_usb.inf
+Needs        = KS.Registration, WDMAUDIO.Registration, USBAudioOEM.CopyFiles, USBAudioOEM.AddReg
+CopyFiles    = lgAudio.CopySysList,lgAudio.CopyDrvList
+AddProperty  = lgAudio.AddProperty
+AddReg       = lgAudio.HeadsetRender.AddReg, lgAudio.HeadsetCapture.AddReg
+RegisterDlls = lgAudio.RegisterDlls
+
+[lgAudio_G930.HW]
+AddReg=ladfGSS.HW.AddReg
+
+[lgAudio_G930.Services]
+Include = wdma_usb.inf
+Needs   = USBAudio.Services
+AddService = ladfGSS,,ladfGSS_Service_Inst
+
+
+[lgAudio_G930.Interfaces]
+AddInterface="{6994AD04-93EF-11D0-A3CC-00A0C9223196}", "GLOBAL", lgAudio_G930.Topology
+AddInterface="{65E8773E-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio_G930.Topology
+AddInterface="{DDA54A40-1E4C-11D1-A050-405705C10000}", "GLOBAL", lgAudio_G930.Topology
+AddInterface="{65E8773D-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio.Capture.Topology
+
+[lgAudio_G930.Topology]
+AddReg = lgAudio_G930.AddReg, lgAudioHeadsetRenderFX.AddReg, lgAudioHeadsetCaptureFX.AddReg
+
+;; G35 specific section
+[lgAudio_G35]
+Include      = ks.inf, wdmaudio.inf, wdma_usb.inf
+Needs        = KS.Registration, WDMAUDIO.Registration, USBAudioOEM.CopyFiles, USBAudioOEM.AddReg
+CopyFiles    = lgAudio.CopySysList,lgAudio.CopyDrvList
+AddProperty  = lgAudio.AddProperty
+AddReg       = lgAudio.HeadsetRender.AddReg, lgAudio.HeadsetCapture.AddReg
+RegisterDlls = lgAudio.RegisterDlls
+
+[lgAudio_G35.HW]
+AddReg=ladfGSS.HW.AddReg
+
+[lgAudio_G35.Services]
+Include = wdma_usb.inf
+Needs   = USBAudio.Services
+AddService = ladfGSS,,ladfGSS_Service_Inst
+
+[lgAudio_G35.Interfaces]
+AddInterface="{6994AD04-93EF-11D0-A3CC-00A0C9223196}", "GLOBAL", lgAudio_G35.Topology
+AddInterface="{65E8773E-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio_G35.Topology
+AddInterface="{DDA54A40-1E4C-11D1-A050-405705C10000}", "GLOBAL", lgAudio_G35.Topology
+AddInterface="{65E8773D-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio.Capture.Topology
+
+[lgAudio_G35.Topology]
+AddReg = lgAudio_G35.AddReg, lgAudioHeadsetRenderFX.AddReg, lgAudioHeadsetCaptureFX.AddReg
+
+;; G633 specific section
+[lgAudio_G633]
+Include      = ks.inf, wdmaudio.inf, wdma_usb.inf
+Needs        = KS.Registration, WDMAUDIO.Registration, USBAudioOEM.CopyFiles, USBAudioOEM.AddReg
+CopyFiles    = lgAudio.CopySysList,lgAudio.CopyDrvList
+AddProperty  = lgAudio.AddProperty
+AddReg       = lgAudio.HeadsetRender.AddReg, lgAudio.HeadsetCapture.AddReg
+RegisterDlls = lgAudio.RegisterDlls
+
+[lgAudio_G633.HW]
+AddReg=ladfGSS.HW.AddReg
+
+[lgAudio_G633.Services]
+Include = wdma_usb.inf
+Needs   = USBAudio.Services
+AddService = ladfGSS,,ladfGSS_Service_Inst
+
+[lgAudio_G633.Interfaces]
+AddInterface="{6994AD04-93EF-11D0-A3CC-00A0C9223196}", "GLOBAL", lgAudio_G633.Topology
+AddInterface="{65E8773E-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio_G633.Topology
+AddInterface="{DDA54A40-1E4C-11D1-A050-405705C10000}", "GLOBAL", lgAudio_G633.Topology
+AddInterface="{65E8773D-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio.Capture.Topology
+
+[lgAudio_G633.Topology]
+AddReg = lgAudio_G633.AddReg, lgAudioHeadsetRenderFX.AddReg, lgAudioHeadsetCaptureFX.AddReg
+
+;; G933 specific section
+[lgAudio_G933]
+Include      = ks.inf, wdmaudio.inf, wdma_usb.inf
+Needs        = KS.Registration, WDMAUDIO.Registration, USBAudioOEM.CopyFiles, USBAudioOEM.AddReg
+CopyFiles    = lgAudio.CopySysList,lgAudio.CopyDrvList
+AddProperty  = lgAudio.AddProperty
+AddReg       = lgAudio.HeadsetRender.AddReg, lgAudio.HeadsetCapture.AddReg
+RegisterDlls = lgAudio.RegisterDlls
+
+[lgAudio_G933.HW]
+AddReg=ladfGSS.HW.AddReg
+
+[lgAudio_G933.Services]
+Include = wdma_usb.inf
+Needs   = USBAudio.Services
+AddService = ladfGSS,,ladfGSS_Service_Inst
+
+[lgAudio_G933.Interfaces]
+AddInterface="{6994AD04-93EF-11D0-A3CC-00A0C9223196}", "GLOBAL", lgAudio_G933.Topology
+AddInterface="{65E8773E-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio_G933.Topology
+AddInterface="{DDA54A40-1E4C-11D1-A050-405705C10000}", "GLOBAL", lgAudio_G933.Topology
+AddInterface="{65E8773D-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio.Capture.Topology
+
+[lgAudio_G933.Topology]
+AddReg = lgAudio_G933.AddReg, lgAudioHeadsetRenderFX.AddReg, lgAudioHeadsetCaptureFX.AddReg
+
+;; G533 specific section
+[lgAudio_G533]
+Include      = ks.inf, wdmaudio.inf, wdma_usb.inf
+Needs        = KS.Registration, WDMAUDIO.Registration, USBAudioOEM.CopyFiles, USBAudioOEM.AddReg
+CopyFiles    = lgAudio.CopySysList,lgAudio.CopyDrvList
+AddProperty  = lgAudio.AddProperty
+AddReg       = lgAudio.HeadsetRender.AddReg, lgAudio.HeadsetCapture.AddReg
+RegisterDlls = lgAudio.RegisterDlls
+
+[lgAudio_G533.HW]
+AddReg=ladfGSS.HW.AddReg
+
+[lgAudio_G533.Services]
+Include = wdma_usb.inf
+Needs   = USBAudio.Services
+AddService = ladfGSS,,ladfGSS_Service_Inst
+
+[lgAudio_G533.Interfaces]
+AddInterface="{6994AD04-93EF-11D0-A3CC-00A0C9223196}", "GLOBAL", lgAudio_G533.Topology
+AddInterface="{65E8773E-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio_G533.Topology
+AddInterface="{DDA54A40-1E4C-11D1-A050-405705C10000}", "GLOBAL", lgAudio_G533.Topology
+AddInterface="{65E8773D-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio.Capture.Topology
+
+[lgAudio_G533.Topology]
+AddReg = lgAudio_G533.AddReg, lgAudioHeadsetRenderFX.AddReg, lgAudioHeadsetCaptureFX.AddReg
+
+;; G433 specific section
+[lgAudio_G433]
+Include      = ks.inf, wdmaudio.inf, wdma_usb.inf
+Needs        = KS.Registration, WDMAUDIO.Registration, USBAudioOEM.CopyFiles, USBAudioOEM.AddReg
+CopyFiles    = lgAudio.CopySysList,lgAudio.CopyDrvList
+AddProperty  = lgAudio.AddProperty
+AddReg       = lgAudio.HeadsetRender.AddReg, lgAudio.HeadsetCapture.AddReg
+RegisterDlls = lgAudio.RegisterDlls
+
+[lgAudio_G433.HW]
+AddReg=ladfGSS.HW.AddReg
+
+[lgAudio_G433.Services]
+Include = wdma_usb.inf
+Needs   = USBAudio.Services
+AddService = ladfGSS,,ladfGSS_Service_Inst
+
+[lgAudio_G433.Interfaces]
+AddInterface="{6994AD04-93EF-11D0-A3CC-00A0C9223196}", "GLOBAL", lgAudio_G433.Topology
+AddInterface="{65E8773E-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio_G433.Topology
+AddInterface="{DDA54A40-1E4C-11D1-A050-405705C10000}", "GLOBAL", lgAudio_G433.Topology
+AddInterface="{65E8773D-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio.Capture.Topology
+
+[lgAudio_G433.Topology]
+AddReg = lgAudio_G433.AddReg, lgAudioHeadsetRenderFX.AddReg, lgAudioHeadsetCaptureFX.AddReg
+
+;; G560 specific section
+[lgAudio_G560]
+Include      = ks.inf, wdmaudio.inf, wdma_usb.inf
+Needs        = KS.Registration, WDMAUDIO.Registration, USBAudioOEM.CopyFiles, USBAudioOEM.AddReg
+CopyFiles    = lgAudio.Speaker.CopySysList,lgAudio.CopyDrvList
+AddProperty  = lgAudio.AddProperty
+AddReg       = lgAudio.Speaker.AddReg
+RegisterDlls = lgAudio.Speaker.RegisterDlls
+
+[lgAudio_G560.HW]
+AddReg=ladfGSS.HW.AddReg
+
+[lgAudio_G560.Services]
+Include = wdma_usb.inf
+Needs   = USBAudio.Services
+AddService = ladfGSS,,ladfGSS_Service_Inst
+
+[lgAudio_G560.Interfaces]
+AddInterface="{6994AD04-93EF-11D0-A3CC-00A0C9223196}", "GLOBAL", lgAudio_G560.Topology
+AddInterface="{65E8773E-8F56-11D0-A3B9-00A0C9223196}", "GLOBAL", lgAudio_G560.Topology
+AddInterface="{DDA54A40-1E4C-11D1-A050-405705C10000}", "GLOBAL", lgAudio_G560.Topology
+
+[lgAudio_G560.Topology]
+AddReg = lgAudio_G560.AddReg, lgAudioSpeakerFX.AddReg
+
+
+;; Back to general sections.
+
+[ladfGSS_Service_Inst]
+DisplayName    = %ladfGSS.SvcDesc%
+ServiceType    = 1 ; SERVICE_KERNEL_DRIVER
+StartType      = 3 ; SERVICE_DEMAND_START
+ErrorControl   = 0 ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %10%\system32\drivers\ladfGSS.sys
+
+[ladfGSS.HW.AddReg]
+HKR,,"UpperFilters",0x00010000,"ladfGSS"
+
+[lgAudio.Capture.Topology]
+AddReg = lgAudioHeadsetCaptureFX.AddReg
+
+;;
+;; Register custom system audio effects and property page
+;;
+[lgAudio.RegisterDlls]
+11,,LogiHeadsetCaptureAPO.dll,1
+11,,LogiHeadsetRenderAPO.dll,1
+
+[lgAudio.Speaker.RegisterDlls]
+11,,LogiSpeakerAPO.dll,1
+
+[lgAudio.AddProperty]
+DeviceVendorWebSite,,,,%LogiWebSite%
+
+[lgAudio.HeadsetCapture.AddReg]
+; adding capture APO COM registrations
+HKCR,CLSID\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}",,,"Logitech Microphone Noise Reduction"
+HKCR,CLSID\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}"\InProcServer32,,,%11%\LogiHeadsetCaptureAPO.dll
+HKCR,CLSID\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}"\InProcServer32,ThreadingModel,,"Both"
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "FriendlyName", ,"Logitech Microphone Noise Reduction"
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "Copyright", ,%LogiCopyRight%
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "MajorVersion", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "MinorVersion", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "Flags", 0x00010001, 0x0000000d
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "MinInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "MaxInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "MinOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "MaxOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "MaxInstances", 0x00010001, 0xffffffff
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "NumAPOInterfaces", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}", "APOInterface0", ,"{FD7F2B29-24D0-4B5C-B177-592C39F9CA10}"
+
+[lgAudio.HeadsetRender.AddReg]
+; adding APO COM registrations
+HKCR,CLSID\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}",,,"Logitech Headset Surround Sound Effect"
+HKCR,CLSID\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}"\InProcServer32,,,%11%\LogiHeadsetRenderAPO.dll
+HKCR,CLSID\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}"\InProcServer32,ThreadingModel,,"Both"
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "FriendlyName", ,"Logitech Surround Sound Effect"
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "Copyright", ,%LogiCopyRight%
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "MajorVersion", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "MinorVersion", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "Flags", 0x00010001, 0x0000000d
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "MinInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "MaxInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "MinOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "MaxOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "MaxInstances", 0x00010001, 0xffffffff
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "NumAPOInterfaces", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}", "APOInterface0", ,"{FD7F2B29-24D0-4B5C-B177-592C39F9CA10}"
+
+[lgAudio.Speaker.AddReg]
+; adding APO COM registrations
+HKCR,CLSID\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}",,,"Logitech Speaker Surround Sound Effect"
+HKCR,CLSID\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}"\InProcServer32,,,%11%\LogiSpeakerAPO.dll
+HKCR,CLSID\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}"\InProcServer32,ThreadingModel,,"Both"
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "FriendlyName", ,"Logitech Speaker Surround Sound Effect"
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "Copyright", ,%LogiCopyRight%
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "MajorVersion", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "MinorVersion", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "Flags", 0x00010001, 0x0000000d
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "MinInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "MaxInputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "MinOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "MaxOutputConnections", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "MaxInstances", 0x00010001, 0xffffffff
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "NumAPOInterfaces", 0x00010001, 1
+HKCR,AudioEngine\AudioProcessingObjects\"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}", "APOInterface0", ,"{FD7F2B29-24D0-4B5C-B177-592C39F9CA10}"
+
+[lgAudioHeadsetRenderFX.AddReg]
+; Render FxProperty keys for headset render type
+HKR,FX\0, "{B725F130-47EF-101A-A5F1-02608C9EEBAC},10",,"Logitech Headset Surround Sound Effect"
+HKR,FX\0, "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},1", ,"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}"
+HKR,FX\0, "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},5", ,"{7DB50256-CE07-41D2-9F32-6A07AD88E3BE}"
+HKR,FX\0, "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},3", ,"{7734DE5F-5567-4C16-81A0-8127AFA4F1FC}"
+HKR,FX\0, "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},0", ,"{DFF21CE1-F70F-11D0-B917-00A0C9223196}"
+HKR,FX\0, "{D3993A3F-99C2-4402-B5EC-A92A0367664B},5",0x00010000,"{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}"
+
+[lgAudioHeadsetCaptureFX.AddReg]
+; Capture FxProperty keys for microphone
+HKR,FX\1, "{B725F130-47EF-101A-A5F1-02608C9EEBAC},10",,"Logitech Microphone Noise Reduction"
+HKR,FX\1, "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},1", ,"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}"
+HKR,FX\1, "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},6", ,"{C9B39597-DC01-4A60-A1C2-F7E141DDAEF1}"
+HKR,FX\1, "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},3", ,"{A3B82825-6E21-4249-B372-C2A1F8E948AA}"
+HKR,FX\1, "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},0", ,"{DFF21BE1-F70F-11D0-B917-00A0C9223196}"
+HKR,FX\1, "{D3993A3F-99C2-4402-B5EC-A92A0367664B},5",0x00010000,"{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}"
+
+[lgAudioSpeakerFX.AddReg]
+; Render FxProperty keys for speaker type
+HKR,FX\0, "{B725F130-47EF-101A-A5F1-02608C9EEBAC},10",,"Logitech Speaker Surround Sound Effect"
+HKR,FX\0, "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},1", ,"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}"
+HKR,FX\0, "{D04E05A6-594B-4fb6-A80D-01AF5EED7D1D},5", ,"{59D737B7-4110-44B4-8D79-56FCA65F6B0A}"
+HKR,FX\0, "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},3", ,"{B957A89F-1F2C-4D0F-ABEE-E61E5F698B22}"
+HKR,FX\0, "{D04E05A6-594B-4FB6-A80D-01AF5EED7D1D},0", ,"{DFF21CE1-F70F-11D0-B917-00A0C9223196}"
+HKR,FX\0, "{D3993A3F-99C2-4402-B5EC-A92A0367664B},5",0x00010000,"{C18E2F7E-933D-4965-B7D1-1EEF228D2AF3}"
+
+; Device specific settings
+[lgAudio_G430.AddReg]
+HKR,FX\0,"{25BFB9BF-6CC4-42B5-A4CA-FCA0A6812E0E},0",0x00000001,41,00,00,00,01,00,00,00,00,00,\
+  20,42,00,00,90,42,00,00,54,43,00,00,de,43,00,e0,93,44,00,20,26,45,00,98,9f,\
+  45,00,88,06,46,00,40,32,46,00,6c,43,46,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,\
+  33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,01,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,02,00,00,00
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},100",0x00010001,1
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},1000",,"G430"
+HKR,FX\1,"{06684D57-09A4-430A-9933-4F892A45B9F3},1",0x00010001,1
+
+[lgAudio_G930.AddReg]
+HKR,FX\0,"{25BFB9BF-6CC4-42B5-A4CA-FCA0A6812E0E},0",0x00000001,41,00,e4,00,01,00,00,00,00,00,\
+  20,42,00,00,90,42,00,00,54,43,00,00,de,43,00,e0,93,44,00,20,26,45,00,98,9f,\
+  45,00,88,06,46,00,40,32,46,00,6c,43,46,cd,cc,0c,40,00,00,40,40,cd,cc,ac,40,\
+  66,66,a6,c0,9a,99,c9,c0,cd,cc,bc,40,d7,a3,a0,c0,00,00,60,40,00,00,c0,c0,00,\
+  00,00,40,00,00,80,3f,5c,8f,02,3f,f6,28,fc,3f,66,66,86,3f,0a,d7,23,3f,5c,8f,\
+  82,3f,48,e1,fa,3f,00,00,40,40,7b,14,ae,3f,00,00,80,3f,01,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,02,00,00,00
+HKR,FX\1,"{06684D57-09A4-430A-9933-4F892A45B9F3},1",0x00010001,1
+
+[lgAudio_G35.AddReg]
+HKR,FX\0,"{25BFB9BF-6CC4-42B5-A4CA-FCA0A6812E0E},0",0x00000001,41,00,00,00,01,00,00,00,00,00,\
+  20,42,00,00,90,42,00,00,54,43,00,00,de,43,00,e0,93,44,00,20,26,45,00,98,9f,\
+  45,00,88,06,46,00,40,32,46,00,6c,43,46,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,\
+  33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,01,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,02,00,00,00
+
+[lgAudio_G933.AddReg]
+HKR,FX\0,"{25BFB9BF-6CC4-42B5-A4CA-FCA0A6812E0E},0",0x00000001,41,00,00,00,01,00,00,00,00,00,\
+  20,42,00,00,90,42,00,00,54,43,00,00,de,43,00,e0,93,44,00,20,26,45,00,98,9f,\
+  45,00,88,06,46,00,40,32,46,00,6c,43,46,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,\
+  33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,01,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,02,00,00,00
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},100",0x00010001,1
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},1000",,"G933"
+HKR,FX\1,"{06684D57-09A4-430A-9933-4F892A45B9F3},1",0x00010001,1
+
+[lgAudio_G633.AddReg]
+HKR,FX\0,"{25BFB9BF-6CC4-42B5-A4CA-FCA0A6812E0E},0",0x00000001,41,00,00,00,01,00,00,00,00,00,\
+  20,42,00,00,90,42,00,00,54,43,00,00,de,43,00,e0,93,44,00,20,26,45,00,98,9f,\
+  45,00,88,06,46,00,40,32,46,00,6c,43,46,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,\
+  33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,01,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,02,00,00,00
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},100",0x00010001,1
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},1000",,"G633"
+HKR,EP\0, "{1DA5D803-D492-4EDD-8C23-E0C0FFEE7F0E},2",, "{DFF21CE1-F70F-11D0-B917-00A0C9223196}"
+HKR,EP\0, "{E4870E26-3CC5-4CD2-BA46-CA0A9A70ED04},3",0x00000001, 41,00,87,FC,01,00,00,00,\
+ FE,FF,08,00,44,AC,00,00,40,C4,0A,00,10,00,10,00,16,00,10,00,3F,06,00,00,01,00,\
+ 00,00,00,00,10,00,80,00,00,AA,00,38,9B,71
+
+[lgAudio_G533.AddReg]
+HKR,FX\0,"{25BFB9BF-6CC4-42B5-A4CA-FCA0A6812E0E},0",0x00000001,41,00,00,00,01,00,00,00,00,00,\
+  20,42,00,00,90,42,00,00,54,43,00,00,de,43,00,e0,93,44,00,20,26,45,00,98,9f,\
+  45,00,88,06,46,00,40,32,46,00,6c,43,46,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,\
+  33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,01,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,02,00,00,00
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},100",0x00010001,1
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},1000",,"G533"
+HKR,FX\1,"{06684D57-09A4-430A-9933-4F892A45B9F3},1",0x00010001,1
+
+[lgAudio_G433.AddReg]
+HKR,FX\0,"{25BFB9BF-6CC4-42B5-A4CA-FCA0A6812E0E},0",0x00000001,41,00,00,00,01,00,00,00,00,00,\
+  20,42,00,00,90,42,00,00,54,43,00,00,de,43,00,e0,93,44,00,20,26,45,00,98,9f,\
+  45,00,88,06,46,00,40,32,46,00,6c,43,46,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,\
+  33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,01,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,02,00,00,00
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},100",0x00010001,1
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},1000",,"G433"
+HKR,FX\1,"{06684D57-09A4-430A-9933-4F892A45B9F3},1",0x00010001,1
+
+[lgAudio_G560.AddReg]
+HKR,FX\0,"{25BFB9BF-6CC4-42B5-A4CA-FCA0A6812E0E},0",0x00000001,41,00,00,00,01,00,00,00,00,00,\
+  20,42,00,00,90,42,00,00,54,43,00,00,de,43,00,e0,93,44,00,20,26,45,00,98,9f,\
+  45,00,88,06,46,00,40,32,46,00,6c,43,46,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,\
+  33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,33,33,33,3f,01,00,00,00,00,00,00,\
+  00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,\
+  00,00,00,00,02,00,00,00
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},100",0x00010001,1
+HKR,FX\0,"{91F1336D-C37C-4C48-ADEB-92172FA87EEB},1000",,"G560"
+
+; Copy custom audio Effect and property page
+[lgAudio.CopySysList]
+LogiHeadsetCaptureAPO.dll
+LogiHeadsetRenderAPO.dll
+
+[lgAudio.Speaker.CopySysList]
+LogiSpeakerAPO.dll
+
+[lgAudio.CopyDrvList]
+ladfGSS.sys
+
+[Strings]
+ProviderName          = "Logitech"
+MfgName               = "Logitech G series"
+DiskDescription       = "Logitech G series installation media"
+lgAudio_G430_Descr    = "Logitech G430 Gaming Headset"
+lgAudio_G930_Descr    = "Logitech G930 Gaming Headset"
+lgAudio_G35_Descr     = "Logitech G35 Gaming Headset"
+lgAudio_G933_Descr    = "Logitech G933 Gaming Headset"
+lgAudio_G633_Descr    = "Logitech G633 Gaming Headset"
+lgAudio_G533_Descr    = "Logitech G533 Gaming Headset"
+lgAudio_G433_Descr    = "Logitech G433 Gaming Headset"
+lgAudio_G560_Descr    = "Logitech G560 Gaming Speaker"
+ladfGSS.SvcDesc       = "Logitech USB Surround Filter Driver (LGS)"
+LogiCopyRight         = "Copyright 2004-2018 Logitech"
+LogiWebSite           = "http://www.logitech.com/"
+
+[Strings.0411]
+ProviderName          = "Logicool"
+MfgName               = "Logicool G series"
+DiskDescription       = "Logicool G series installation media"
+lgAudio_G430_Descr    = "Logicool G430 Gaming Headset"
+lgAudio_G930_Descr    = "Logicool G930 Gaming Headset"
+lgAudio_G35_Descr     = "Logicool G35 Gaming Headset"
+lgAudio_G933_Descr    = "Logicool G933 Gaming Headset"
+lgAudio_G633_Descr    = "Logicool G633 Gaming Headset"
+lgAudio_G533_Descr    = "Logicool G533 Gaming Headset"
+lgAudio_G433_Descr    = "Logicool G433 Gaming Headset"
+lgAudio_G560_Descr    = "Logicool G560 Gaming Speaker"
+ladfGSS.SvcDesc       = "Logicool USB Surround Filter Driver (LGS)"
+LogiCopyRight         = "Copyright 2004-2018 Logicool"
+LogiWebSite           = "http://www.logicool.co.jp/ja-jp"

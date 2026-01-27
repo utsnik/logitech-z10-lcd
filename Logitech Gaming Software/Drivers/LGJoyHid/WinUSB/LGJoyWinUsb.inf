@@ -1,0 +1,129 @@
+;; LGJoyWinUSB.inf
+;; Logitech Gaming Devices WinUSB INF file
+;;
+;; Part of Logitech Gaming Software
+;;
+;; Copyright 2015 Logitech. All rights reserved.
+
+[Version]
+Signature = "$Windows NT$"
+Class = LGWinUSB
+ClassGuid= {e24e7a3c-87cd-4ac9-b426-eec8521b7710}
+Provider = %MFGNAME%
+DriverVer=04/24/2015,8.70.161.0
+CatalogFile=LGJoyWinUSB.cat
+
+[Manufacturer]
+%MFGNAME% = Logi_WinUSB,NTx86,NTamd64
+
+;------------------------------------------------------------------------------
+;  Vendor and Product ID Definitions
+;------------------------------------------------------------------------------
+[Logi_WinUSB.NTx86]
+%G920_GIP_Device% =USB_Install, USB\VID_046D&PID_C261
+%G29_PS4_Device% =USB_Install, USB\VID_046D&PID_C260
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1350
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1351
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1352
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1353
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1354
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1355
+
+[Logi_WinUSB.NTamd64]
+%G920_GIP_Device% =USB_Install, USB\VID_046D&PID_C261
+%G29_PS4_Device% =USB_Install, USB\VID_046D&PID_C260
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1350
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1351
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1352
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1353
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1354
+%G29_PS3_Device% =USB_Install, USB\VID_046D&PID_C294&REV_1355
+
+
+;=========================================================================================
+;ClassInstall32 and ClassInstall_AddReg sections used to make new device manager category.
+;=========================================================================================
+[ClassInstall32]
+AddReg=ClassInstall_AddReg
+
+[ClassInstall_AddReg]
+HKR,,,,%DEVICEMANAGERCATEGORY%
+HKR,,Icon,,"-20"
+
+
+; =================== Installation ===================
+
+[USB_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+[USB_Install.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+[USB_Install.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.5
+
+[USB_Install.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{3E5F4563-CDC4-4FB8-AE23-4C9F68EA0CC1}"
+
+[USB_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller","WinUSBCoInstaller.dll"
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller.dll
+WdfCoInstaller01009.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+; ================= Source Media Section =====================
+
+[SourceDisksNames]
+111 = %DISK_NAME%,,,
+111 = %DISK_NAME%,,,
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller.dll=111
+WdfCoInstaller01009.dll=111
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller.dll=111
+WdfCoInstaller01009.dll=111
+
+; =================== Strings ===================
+
+[Strings]
+MFGNAME="Logitech" ; ManufacturerName
+G29_PS3_Device="Logitech G29 Driving Force Racing Wheel (PS3)"
+G29_PS4_Device="Logitech G29 Driving Force Racing Wheel (PS4)"
+G920_GIP_Device="Logitech G920 Driving Force Racing Wheel (XBox One)"
+WinUSB_SvcDesc="WinUSB Device"
+DISK_NAME="Logitech Gaming Software" ; DiskName
+DEVICEMANAGERCATEGORY="Logitech USB Gaming Devices"
+
+[Strings.0411]
+MFGNAME="Logicool" ; ManufacturerName
+G29_PS3_Device="Logicool G29 Driving Force Racing Wheel (PS3)"
+G29_PS4_Device="Logicool G29 Driving Force Racing Wheel (PS4)"
+G920_GIP_Device="Logicool G920 Driving Force Racing Wheel (XBox One)"
+WinUSB_SvcDesc="WinUSB Device"
+DISK_NAME="Logicool Gaming Software" ; DiskName
+DEVICEMANAGERCATEGORY="Logicool USB Gaming Devices"

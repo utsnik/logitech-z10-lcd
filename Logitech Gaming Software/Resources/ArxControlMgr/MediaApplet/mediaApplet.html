@@ -1,0 +1,489 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, target-densityDpi=device-dpi, user-scalable=no" />
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="jquery-ui-1.8.21.min.js"></script>
+        <script type="text/javascript" src="jquery.ui.touch-punch.min.js"></script>
+		<script type="text/javascript" src="jquery.mobile-1.4.2-onlyEvents.js"></script>
+        <style>
+            *
+            {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none; /* Disable selection/copy in UIWebView */
+                -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            }
+            #wrapper
+            {
+                width:100%;
+                height:100%;
+                margin-left:auto;
+                margin-right:auto;
+            }
+            #controlTable
+            {
+                display:table;
+                position:relative;
+                border-spacing: 20px 20px;
+                width:100%;
+                height:50%; 
+            }
+            #muteButtonsTable
+            {
+                display:table;
+                position:relative;
+                border-spacing: 10px;
+                width:100%;
+                margin-top:10%;
+                height:20%; 
+            }
+            #playPauseCell
+            {
+                display:table-cell;	
+                margin-left:auto;
+                margin-right:auto;  
+                width:50%;
+                background-image: url('img/playPauseIcon.png');                       
+                background-size: contain;   
+                background-repeat: no-repeat;   
+                background-position: 50% 50%;
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #playPauseCell {
+                    background-image: url("img/playPauseIcon.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #playPauseCell {
+                    background-image: url("img/Media_PlayPause@3x.png");
+                }
+            }
+
+            #playPauseCell:active, #playPauseCell.androidActive
+            {
+                background-image:url('img/playPauseIconActive.png');
+                background-color:rgb(3, 102, 168);
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #playPauseCell:active, #playPauseCell.androidActive {
+                    background-image: url("img/playPauseIconActive.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #playPauseCell:active, #playPauseCell.androidActive {
+                    background-image: url("img/Media_PlayPause_Active@3x.png");
+                }
+            }
+
+            #stopCell
+            {
+                display:table-cell;	
+                height: 30%;
+                background-image: url('img/stopIcon.png');                       
+                background-size: contain;   
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #stopCell {
+                    background-image: url("img/stopIcon.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #stopCell {
+                    background-image: url("img/Media_Stop@3x.png");
+                }
+            }
+
+            #stopCell:active, #stopCell.androidActive
+            {
+                background-image:url('img/stopIconActive.png');
+                background-color:rgb(3, 102, 168);   
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #stopCell:active, #stopCell.androidActive {
+                    background-image: url("img/stopIconActive.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #stopCell:active, #stopCell.androidActive {
+                    background-image: url("img/Media_Stop_Active@3x.png");
+                }
+            }
+
+            #prevTrackCell
+            {
+                display:table-cell;	
+                margin-left:auto;
+                margin-right:auto;  
+                background-image: url('img/prevTrackIcon.png');                       
+                background-size: contain;   
+                background-repeat: no-repeat;   
+                background-position: 50% 50%;
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #prevTrackCell {
+                    background-image: url("img/prevTrackIcon.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #prevTrackCell {
+                    background-image: url("img/Media_PreviousTrack@3x.png");
+                }
+            }
+
+            #prevTrackCell:active, #prevTrackCell.androidActive
+            {
+                background-image:url('img/prevTrackIconActive.png');  
+                background-color:rgb(3, 102, 168);
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #prevTrackCell:active, #prevTrackCell.androidActive {
+                    background-image: url("img/prevTrackIconActive.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #prevTrackCell:active, #prevTrackCell.androidActive {
+                    background-image: url("img/Media_PreviousTrack_Active@3x.png");
+                }
+            }
+
+            #nextTrackCell
+            {
+                display:table-cell;	
+                margin-left:auto;
+                margin-right:auto;  
+                background-image: url('img/nextTrackIcon.png');                       
+                background-size: contain;   
+                background-repeat: no-repeat;   
+                background-position: 50% 50%;
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #nextTrackCell {
+                    background-image: url("img/nextTrackIcon.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #nextTrackCell {
+                    background-image: url("img/Media_NextTrack@3x.png");
+                }
+            }
+
+            #nextTrackCell:active, #nextTrackCell.androidActive
+            {
+                background-image:url('img/nextTrackIconActive.png');
+                background-color:rgb(3, 102, 168);    
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #nextTrackCell:active, #nextTrackCell.androidActive {
+                    background-image: url("img/nextTrackIconActive.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #nextTrackCell:active, #nextTrackCell.androidActive {
+                    background-image: url("img/Media_NextTrack_Active@3x.png");
+                }
+            }
+
+            #muteMasterCell
+            {
+                display:table-cell;	
+                margin-left:auto;
+                margin-right:auto;  
+                background-image: url('img/muteIcon.png');                       
+                background-size: contain;   
+                background-repeat: no-repeat;   
+                background-position: 50% 50%;
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #muteMasterCell {
+                    background-image: url("img/muteIcon.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #muteMasterCell {
+                    background-image: url("img/Media_MuteAudio@3x.png");
+                }
+            }
+
+            #muteMasterCell:active, #muteMasterCell.androidActive
+            {
+                display:table-cell;	
+                margin-left:auto;
+                margin-right:auto;  
+                background-image: url('img/muteIconActive.png');    
+                background-color:rgb(0, 65, 114);   
+                background-position: 50% 50%;
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #muteMasterCell:active, #muteMasterCell.androidActive {
+                    background-image: url("img/muteIconActive.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #muteMasterCell:active, #muteMasterCell.androidActive {
+                    background-image: url("img/Media_MuteAudio_Active@3x.png");
+                }
+            }
+
+            #muteMicCell
+            {
+                display:table-cell;	
+                margin-left:auto;
+                margin-right:auto;  
+                background-image: url('img/muteMicIcon.png');                       
+                background-size: contain;   
+                background-repeat: no-repeat;   
+                background-position: 50% 50%;
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #muteMicCell {
+                    background-image: url("img/muteMicIcon.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #muteMicCell {
+                    background-image: url("img/Media_MuteMic@3x.png");
+                }
+            }
+
+            #muteMicCell:active, #muteMicCell.androidActive
+            {
+                display:table-cell;	
+                margin-left:auto;
+                margin-right:auto;  
+                background-image: url('img/muteMicIconActive.png');                       
+                background-size: contain;   
+                background-repeat: no-repeat;   
+                background-color:rgb(0, 65, 114);
+                background-position: 50% 50%;
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                #muteMicCell:active, #muteMicCell.androidActive {
+                    background-image: url("img/muteMicIconActive.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                #muteMicCell:active, #muteMicCell.androidActive {
+                    background-image: url("img/Media_MuteMic_Active@3x.png");
+                }
+            }
+
+            #volumeWrapper
+            {
+                width:90%;
+                height:15%;
+                margin-top:5%;
+                margin-left:5%;
+                margin-right:5%;
+                border-style: solid 10px #8ad5f4;
+                background-color: rgba(0,0,0,0);
+	            -webkit-box-shadow: 0 0 20px #8ad5f4;
+	            border-width: 10px;
+	            border-radius: 30px;
+            }
+
+            .ui-slider {
+	            position: relative;
+	            text-align: left;
+            }
+            .ui-slider .ui-slider-handle {
+	            position: absolute;
+	            z-index: 2;
+	            width: 1.2em;
+	            height: 1.2em;
+                -webkit-tap-highlight-color:rgba(0,0,0,0);
+                outline: none;
+            }
+            .ui-slider .ui-slider-range {
+	            position: absolute;
+	            z-index: 1;
+	            font-size: .7em;
+	            display: block;
+	            border: 0;
+	            background-position: 0 0;
+            }
+
+            /* For IE8 - See #6727 */
+            .ui-slider.ui-state-disabled .ui-slider-handle,
+            .ui-slider.ui-state-disabled .ui-slider-range {
+	            filter: inherit;
+            }
+            .ui-slider-horizontal .ui-slider-handle {
+	            margin-left: -.6em;
+            }
+            .ui-slider-horizontal .ui-slider-range {
+	            top: 0;
+	            height: 100%;
+            }
+            .ui-slider-horizontal .ui-slider-range-min {
+	            left: 0;
+            }
+            .ui-slider-horizontal .ui-slider-range-max {
+	            right: 0;
+            }
+            .ui-slider-horizontal
+            {
+                background-color: rgba(0,0,0,0);
+                width:90%;
+                height:100%;
+               /* margin-left:3%;*/
+                margin-right:0%;
+            }
+
+            .ui-slider-horizontal .ui-slider-handle
+            {
+                background-image: url('img/Media_SliderThumb@3x.png');
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                -webkit-tap-highlight-color:rgba(0,0,0,0);
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                .ui-slider-horizontal .ui-slider-handle {
+                    background-image: url("img/Media_SliderThumb@3x.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                .ui-slider-horizontal .ui-slider-handle {
+                    background-image: url("img/Media_SliderThumb@3x.png");
+                }
+            }
+
+            .ui-slider-horizontal .ui-slider-handle:active, .ui-slider-horizontal .ui-slider-handle.androidActive {
+                background-image: url("img/Media_SliderThumb_Active@3x.png");
+            }
+            @media (-webkit-min-device-pixel-ratio: 2) {
+                .ui-slider-horizontal .ui-slider-handle:active, .ui-slider-horizontal .ui-slider-handle.androidActive {
+                    background-image: url("img/Media_SliderThumb_Active@3x.png");
+                }
+            }
+            @media (-webkit-min-device-pixel-ratio: 3) {
+                .ui-slider-horizontal .ui-slider-handle:active, .ui-slider-horizontal .ui-slider-handle.androidActive {
+                    background-image: url("img/Media_SliderThumb_Active@3x.png");
+                }
+            }
+
+            .box{
+	            border-style: solid 10px #8ad5f4;
+	            border-width: 10px;
+	            border-radius: 10px;
+	            -webkit-box-shadow: 0 0 10px #8ad5f4;
+	            box-shadow: 0 0 10px #8ad5f4;
+	            margin:20%;
+	            padding: 15px;
+	            margin-left: 5%;
+            }
+            #volumeSlider
+            {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+        <table id="controlTable">
+            <tr>
+                <td id ="prevTrackCell" rowspan="2" class ="box highlitableCell"></td>
+                <td id ="playPauseCell" class ="box highlitableCell"></td>
+                <td id ="nextTrackCell" rowspan="2" class ="box highlitableCell"></td>
+            </tr>
+            <tr> 
+                <td id ="stopCell" class ="box highlitableCell"></td> 
+            </tr>
+            </table>   
+            <div id="volumeSlider">0</div>
+            <div id="volumeWrapper">
+                <div id="volumeDiv"></div>
+            </div>
+            <table id="muteButtonsTable" >
+                <tr>
+                    <td id ="muteMasterCell" class ="box highlitableCell">
+
+                    </td>
+                    <td id ="muteMicCell" class ="box highlitableCell">
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script>
+		    function handleOrientationChange() {
+			    
+				if (window.orientation == 90 || window.orientation == -90) {
+					//console.log("landscape");
+					$("#controlTable").css('height','40%');
+					$("#muteButtonsTable").css('margin-top','5%');
+				}
+				else
+				{
+					//console.log("portrait");
+					$("#controlTable").css('height','50%');
+					$("#muteButtonsTable").css('margin-top','10%');
+				}
+				var height = $( "#volumeDiv" ).height();
+				var width = $( "#volumeWrapper" ).width();
+				//console.log('width:'+width+' height:'+height);
+				$('.ui-slider-horizontal .ui-slider-handle').height(height);
+				$('.ui-slider-horizontal .ui-slider-handle').width(height);
+				$('.ui-slider-horizontal .ui-slider-handle').css('background-size','contain'); 
+				//$('.ui-slider-horizontal .ui-slider-handle').css('background-size',height+'px '+height+'px'); 
+				$('.ui-slider-handle').css('margin-left','-'+(height/2)+'px');
+				$('.ui-slider-horizontal').css('margin-left',(height/2)+'px');
+				$('.ui-slider-horizontal').css('width',width-height+'px');
+			}
+		    $( document ).ready(function() {
+			    $('body').bind('orientationchange', handleOrientationChange);
+				handleOrientationChange();
+			  });
+			
+			$("#volumeDiv").slider({
+                min: 0,
+                max: 1,
+                step: 0.02,
+                slide: function (event, ui) {
+                    acceptingUpdates = false;
+                    updateSlider(ui.value);
+                },
+                change: function (event, ui) {
+                    acceptingUpdates = true;
+                }
+				});
+            var acceptingUpdates = true;
+
+            $("#volumeWrapper").mousedown(function () {
+                var itm = $('.ui-slider-horizontal .ui-slider-handle');
+                if (!itm.hasClass('androidActive')) {
+                    itm.addClass('androidActive');
+                }
+            });
+            $("#volumeWrapper").mouseup(function () {
+                var itm = $('.ui-slider-horizontal .ui-slider-handle');
+                if (itm.hasClass('androidActive')) {
+                    itm.removeClass('androidActive');
+                }
+            });
+
+            onPropertyUpdate = function () {
+                if (acceptingUpdates)
+				{
+					var sliderPos = parseFloat($("#volumeSlider").html());
+                    $("#volumeDiv").slider("value",sliderPos);
+					//console.log("slider pos is:"+sliderPos);
+				}
+            }
+
+            function updateSlider(value) {
+              ACBridge.click("volumeSliderChange." + value);
+            }
+            $(".highlitableCell")
+                .bind("touchstart", function () {
+                    $(this).addClass("androidActive");
+                })
+                .bind("touchend", function () {
+                    $(this).removeClass("androidActive");
+                })
+                .bind("touchcancel", function () {
+                    $(this).removeClass("androidActive");
+                });
+        </script>
+    </body>
+</html>

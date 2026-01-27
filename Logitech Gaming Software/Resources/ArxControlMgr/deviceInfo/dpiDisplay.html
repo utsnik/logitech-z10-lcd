@@ -1,0 +1,122 @@
+﻿<html lang="en">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="themes-smoothness-jquery-ui-1-10-4.css">
+    <link id="layout" rel="stylesheet" type="text/css"> <!--this will be set through javascript-->
+    <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.8.21.min.js"></script>
+    <script type="text/javascript" src="jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="jquery.mobile-1.4.2-onlyEvents.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <div id="waitingForResponseLayer">
+            <div id="waitingForResponseMessage">
+                <p id="waitingForResponseText"><img src="img/syncingIcon.png"/></p>
+            </div>
+        </div>
+
+
+        <div id="deviceSelectorPhone" class="containerBox">
+            <span class="prevDevice nav back" id="prevDev"></span>
+            <span class="devicePic loading" id="devicePicPhone"></span>
+            <span class="nextDevice nav" id="nextDev"></span>
+        </div>
+
+
+        <div id="deviceInfoPhone">
+            <div id="deviceInfoTextPhone">
+                <div class="padding">
+                    <div id="deviceNamePhone" class="deviceName deviceInfo"></div>
+                    <div id="deviceModePhone" class="deviceMode deviceInfo"></div>
+                    <div id="activeProfilePhone" class="activeProfile deviceInfo"></div>
+                </div>
+            </div>
+
+            <div class="batteryStatusMargin"></div>
+            <div id="batteryIndicatorPhone" class="batteryStatus"></div>
+        </div>
+
+
+        <div id="deviceInfoWrapper">
+            <table id="deviceInfoTable">
+            <tr>
+                <td rowspan="3" id="prevDeviceCell" ><img class="prevDevice" src="img/prevDevice.png"/></td>
+                <td rowspan="3" id="devicePicCell" class="devicePic loading" ></td>
+                <td rowspan="3" id="nextDeviceCell" ><img class="nextDevice" src="img/nextDevice.png"/></td>
+                <td rowspan="3" class="spacingCell"></td>
+                <td id="deviceNameCell" class="deviceName"></td>
+                <td rowspan="3" id="batteryStatusCell" class="batteryStatus"></td>
+            </tr>
+            <tr>
+                <td id="deviceModeCell" class="deviceMode" style="font-size:75%"></td>
+            </tr>
+            <tr>
+                <td id="activeProfileCell" class="activeProfile" style="font-size:75%"></td>
+            </tr>
+            </table>
+        </div>
+
+
+        <div id="initialProperty"></div>
+
+
+        <div id="notSupportedMessage">
+            <p id="notSupportedMessageText"></p>
+        </div>
+
+
+        <div id="dpiSliderX_wrapper" class="dpiSliderWrapper ">
+            <div id="blackBoxSliderX" class="box blackBoxSlider dpiComponent">
+                <div id="dpiSliderX" class="dpiSlider"></div>
+            </div>
+
+            <table id="dpiButtonControlX" class="dpiButtonControl dpiComponent">
+                <tr>
+                    <td class="dpiControlDown_Horizontal dpiStepDownX" rowspan="3"></td>
+                    <td id="dpiControlUp_X" class="dpiControlUp dpiStepUpX"></td>
+                    <td class="dpiControlUp_Horizontal dpiStepUpX" rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td id="dpiControlCurrent_X" class="dpiControlCurrent"></td>
+                </tr>
+                <tr>
+                    <td id="dpiControlDown_X" class="dpiControlDown dpiStepDownX"></td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div id="dpiSliderY_wrapper" class="dpiSliderWrapper">
+            <div id="blackBoxSliderY" class="box blackBoxSlider dpiComponent">
+                <div id="dpiSliderY" class="dpiSlider"></div>
+            </div>
+
+            <table id="dpiButtonControlY" class="dpiButtonControl dpiComponent">
+                <tr>
+                    <td class="dpiControlDown_Horizontal dpiStepDownY" rowspan="3"></td>
+                    <td id="dpiControlUp_Y" class="dpiControlUp dpiStepUpY"></td>
+                    <td class="dpiControlUp_Horizontal dpiStepUpY" rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td id="dpiControlCurrent_Y" class="dpiControlCurrent"></td>
+                </tr>
+                <tr>
+                    <td id="dpiControlDown_Y" class="dpiControlDown dpiStepDownY"></td>
+                </tr>
+            </table>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
+
+

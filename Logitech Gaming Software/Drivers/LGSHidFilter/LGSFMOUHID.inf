@@ -1,0 +1,169 @@
+;##############################################################################
+;#  LGSFMOUHID.inf - framework mouse INF for HID devices
+;#  Copyright (c) 1999-2013 Logitech. All rights reserved.
+;##############################################################################
+
+[Version]
+Signature   = "$Windows NT$"
+CatalogFile = LGSFMOUHID.cat
+Class       = Mouse
+ClassGUID   = {4D36E96F-E325-11CE-BFC1-08002BE10318}
+Provider    = %LOGI%
+DriverVer   = 09/24/2014,8.57.00.0
+
+[SourceDisksNames]
+1 = %DiskName%,
+
+[SourceDisksFiles]
+LGSHidFilt.sys = 1           ; KMDF version of the HID filter driver
+
+[DestinationDirs]
+DefaultDestDir       = 12    ; DIRID_DRIVERS
+
+[ControlFlags]
+ExcludeFromSelect   = *
+; ---------------------------------------------------------
+
+[Manufacturer]
+%LOGI%	= ForAllNT,NTamd64
+
+[ForAllNT.NTamd64]
+;----------------- Corded Mice ------------------------
+%PID_C245.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C245&MI_00
+%PID_C246.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C246&MI_00
+%PID_C24A.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C24A&MI_00
+%PID_C06B.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C06B&Mi_00
+%PID_C048.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C048&Mi_00
+%PID_C066.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C066&Mi_00
+%PID_C249.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C249&Mi_00
+%PID_C068.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C068&Mi_00
+%PID_C01E.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C01E
+%PID_C051.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C051
+%PID_C247.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C247
+%PID_C531.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C531&Mi_00
+%PID_C24C.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C24C&MI_00
+%PID_C24E.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C24E&MI_00
+%PID_C07C.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C07C&MI_00
+%PID_C537.Mouse.Desc% = LOGIHIDMOUSE,HID\VID_046D&PID_C537&Mi_00
+
+[LOGIHIDMOUSE.NT]
+Include     = msmouse.inf
+Needs       = HID_Mouse_Inst.NT
+CopyFiles   = LGSHidFilt.CopyFiles
+
+[LOGIHIDMOUSE.NT.HW]
+Include     = msmouse.inf
+Needs       = HID_Mouse_Inst.NT.HW
+AddReg      = Hid_LowerFilter, Hid_WaitWakeEnable
+
+[Hid_WaitWakeEnable]
+HKR,,"WaitWakeEnabled",0x00010001,1
+
+[Hid_LowerFilter]
+HKR,,"LowerFilters",%REG_MULTI_SZ%,"LGSHidFilt"
+
+[LOGIHIDMOUSE.NT.Services]
+Include    = msmouse.inf
+Needs      = HID_Mouse_Inst.NT.Services
+AddService = LGSHidFilt, , LGSHidFilt_Service_Inst	; HID/USB Mouse Filter Driver
+
+[LGSHidFilt_Service_Inst]
+DisplayName     = %LGSHidFilt.SvcDesc%
+ServiceType     = %SERVICE_KERNEL_DRIVER%
+StartType       = %SERVICE_DEMAND_START%
+ErrorControl    = %SERVICE_ERROR_NORMAL%
+ServiceBinary   = %12%\LGSHidFilt.Sys
+LoadOrderGroup  = Pointer Port
+
+[LGSHidFilt.CopyFiles]
+LGSHidFilt.Sys
+
+;---- Coinstaller Section -------
+
+[DestinationDirs]
+LOGIHIDMOUSE_Inst_CoInstaller_CopyFiles = 11
+
+[LOGIHIDMOUSE.NT.CoInstallers]
+AddReg=LOGIHIDMOUSE_Inst_CoInstaller_AddReg
+CopyFiles=LOGIHIDMOUSE_Inst_CoInstaller_CopyFiles
+
+[LOGIHIDMOUSE_Inst_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "LkmdfCoInst.dll,CoDeviceInstall"
+ 
+
+[LOGIHIDMOUSE_Inst_CoInstaller_CopyFiles]
+LkmdfCoInst.dll
+
+[SourceDisksFiles]
+LkmdfCoInst.dll=1 		; make sure the number matches with SourceDisksNames
+
+
+[LOGIHIDMOUSE.NT.Wdf]
+KmdfService = LGSHidFilt, LOGIHIDMOUSE_wdfsect
+
+[LOGIHIDMOUSE_wdfsect]
+KmdfLibraryVersion = 1.5
+
+;--- end of Coinstaller section ---
+
+
+[Strings]
+LOGI="Logitech"
+ProviderSer = "Logitech "
+DiskName  = "Logitech Gaming Driver Disk"
+PID_C245.Mouse.Desc = "Logitech Optical Gaming Mouse G400"
+PID_C246.Mouse.Desc = "Logitech Optical Gaming Mouse G300/G300s"
+PID_C24A.Mouse.Desc = "Logitech Gaming Mouse G600"
+PID_C06B.Mouse.Desc = "Logitech HID-compliant G700 Gaming Mouse"
+PID_C531.Mouse.Desc = "Logitech Cordless Gaming Receiver"
+PID_C048.Mouse.Desc = "Logitech HID-compliant G9 Laser Mouse"
+PID_C066.Mouse.Desc = "Logitech HID-compliant G9x Laser Mouse"
+PID_C249.Mouse.Desc = "Logitech HID-compliant G9x Laser Mouse Call of Duty: MW3"
+PID_C068.Mouse.Desc = "Logitech HID-compliant G500 Gaming Mouse"
+PID_C01E.Mouse.Desc = "Logitech HID-compliant G3/MX518 Optical Mouse"
+PID_C051.Mouse.Desc = "Logitech HID-compliant G3/MX518 Optical Mouse"
+PID_C247.Mouse.Desc = "Logitech HID-compliant Gaming Mouse G90/G100/G100s"
+PID_C24C.Mouse.Desc = "Logitech Optical Gaming Mouse G400s"
+PID_C24E.Mouse.Desc = "Logitech G500s Gaming Mouse"
+LGSHidFilt.SvcDesc  = "Logitech Gaming KMDF HID Filter Driver"
+PID_C07C.Mouse.Desc = "Logitech G700s Rechargeable Gaming Mouse"
+PID_C537.Mouse.Desc = "Logitech Cordless Gaming Receiver"
+
+SERVICE_KERNEL_DRIVER       = 0x00000001
+SERVICE_DEMAND_START        = 0x00000003
+SERVICE_ERROR_NORMAL        = 0x00000001
+REG_MULTI_SZ                = 0x00010000
+REG_DWORD                   = 0x00010001
+SPSVCINST_ASSOCSERVICE      = 0x00000002
+COPYFLG_NOSKIP              = 0x00000002
+
+[Strings.0411]
+LOGI="Logicool"
+ProviderSer = "Logicool "
+DiskName  = "Logicool Gaming Driver Disk"
+PID_C245.Mouse.Desc = "Logicool Optical Gaming Mouse G400"
+PID_C246.Mouse.Desc = "Logicool Optical Gaming Mouse G300/G300s"
+PID_C24A.Mouse.Desc = "Logicool Gaming Mouse G600"
+PID_C06B.Mouse.Desc = "Logicool HID-compliant G700 Gaming Mouse"
+PID_C531.Mouse.Desc = "Logicool HID-compliant G700 Cordless Gaming Mouse"
+PID_C048.Mouse.Desc = "Logicool HID-compliant G9 Laser Mouse"
+PID_C066.Mouse.Desc = "Logicool HID-compliant G9x Laser Mouse"
+PID_C249.Mouse.Desc = "Logicool HID-compliant G9x Laser Mouse Call of Duty: MW3"
+PID_C068.Mouse.Desc = "Logicool HID-compliant G500 Gaming Mouse"
+PID_C01E.Mouse.Desc = "Logicool HID-compliant G3/MX518 Optical Mouse"
+PID_C051.Mouse.Desc = "Logicool HID-compliant G3/MX518 Optical Mouse"
+PID_C247.Mouse.Desc = "Logicool HID-compliant Gaming Mouse G90/G100/G100s"
+PID_C24C.Mouse.Desc = "Logicool Optical Gaming Mouse G400s"
+PID_C24E.Mouse.Desc = "Logicool G500s Gaming Mouse"
+LGSHidFilt.SvcDesc  = "Logicool Gaming KMDF HID Filter Driver"
+PID_C07C.Mouse.Desc = "Logicool G700s Rechargeable Gaming Mouse"
+PID_C537.Mouse.Desc = "Logicool HID-compliant G602 Cordless Gaming Mouse"
+
+SERVICE_KERNEL_DRIVER       = 0x00000001
+SERVICE_DEMAND_START        = 0x00000003
+SERVICE_ERROR_NORMAL        = 0x00000001
+REG_MULTI_SZ                = 0x00010000
+REG_DWORD                   = 0x00010001
+SPSVCINST_ASSOCSERVICE      = 0x00000002
+COPYFLG_NOSKIP              = 0x00000002
+

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Source>
+	<language xml:lang="en-us"/>
+  <!-- LUpdate config file for Logitech Gaming Software 7, Logitech, production -->
+	<ActiveStringSet ID="Main"/>
+	<StringSet ID="Main">
+    <String ALIAS="IDS_PRODUCT_NAME_KEY" translate="0">Gaming Software 7 Updater</String>
+    <String ALIAS="IDS_PRODUCT_BRAND" translate="0">Logitech</String>
+    <String ALIAS="IDS_PAYLOAD_FILENAME" translate="0">lgs7</String>
+    <String ALIAS="IDS_PRODUCT_ABBR" translate="0">lgs7</String>
+    <String ALIAS="IDS_PAYLOAD_SERVER"  translate="0">http://updates.logitech.com/logitech/gaming/gamingsw</String>
+    <String ALIAS="IDS_PAYLOAD2_SERVER" translate="0">http://updates.logitech.com/logitech/gaming/lgs7/devices</String>
+    <String ALIAS="IDS_PAYLOAD2_VER" translate="0">2</String>
+    <!-- -->
+    <String ALIAS="IDS_PAYLOAD2_ARGS" translate="0">/s</String>
+    <String ALIAS="IDS_QS_SEND_QUERYSTRING" translate="0">1</String>
+    <String ALIAS="IDS_QS_SEND_UPDATER_GUID" translate="0">1</String>
+    <String ALIAS="IDS_PAYLOAD_SEND_LANG" translate="0">0</String>
+	</StringSet>
+</Source>

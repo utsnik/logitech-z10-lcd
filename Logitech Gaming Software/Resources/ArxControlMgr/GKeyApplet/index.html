@@ -1,0 +1,42 @@
+<html lang="en"> 
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+    <link rel="stylesheet" type="text/css" href="GKeyStyle.css">
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="jquery.mobile-1.4.2-onlyEvents.js"></script>
+    <script src="device_assignments.js"></script>
+    <script src="device_assignment_labels.js"></script>
+    <script src="src/SVGMaker.js"></script>
+    <script src="src/rendering_full.js"></script>
+    <script src="src/Parsing.js"></script>
+</head>
+<body>
+        <div id="deviceInfoWrapper">
+                <table id="deviceInfoTable">
+                    <tr>
+                        <td rowspan="3" id="prevDeviceCell" ><img class="prevDevice" src="img/prevDevice.png"/></td>
+                        <td rowspan="3" id="devicePicCell" class="devicePic loading"></td>
+                        <td rowspan="3" id="nextDeviceCell" ><img class="nextDevice" src="img/nextDevice.png"/></td>
+                        <td rowspan="3" class="spacingCell"></td>
+                        <td id="deviceNameCell" class="deviceName resizableText"></td>
+                        <td rowspan="3" id="batteryStatusCell" class="batteryStatus"></td>
+                    </tr>
+                    <tr>
+                        <td id="deviceModeCell" class="deviceMode resizableText" style="font-size:75%"></td>
+                    </tr>
+                    <tr>
+                        <td id="activeProfileCell" class="activeProfile resizableText" style="font-size:75%"></td>
+                    </tr>
+
+                </table>
+            </div>
+                <div id="notSupportedMessage">
+                    <p id="notSupportedMessageText"></p>
+                </div>
+            <div id="gView">
+            </div>
+        <p class="prop" id="deviceVersion">0</p>
+        <p class="prop" id="activeProfile">0</p>
+</body>
+</html>
+

@@ -1,0 +1,219 @@
+<html>
+	<head>
+	<meta name="viewport" content="user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="PerfMon.css">
+	<script src="jquery-1.10.1.js"></script>
+	<script src="jquery.mobile-1.4.2.js"></script>
+
+	<script src="GPUTab.js" > </script>
+	<script src="updateFunctions.js" > </script>
+	<script type="text/javascript">
+	var GPUTabModule;
+	    var htmlInit = function () {
+			GPUTabModule = tabModule("GPU");
+			if(isiPhone){
+				$('body').css("-webkit-text-size-adjust", "210%");
+				$('h3').css("-webkit-text-size-adjust", "180%");
+				$('#piechart').css("-webkit-text-size-adjust","none");
+			}
+			$("#GPUTempBlock").on("touchend", function(){
+				$("#GPUTempC").toggle();
+				$("#GPUTempF").toggle();
+			});
+			$(window).resize(fullRedistribute);
+			fullRedistribute();
+		};
+	</script>
+	
+	<!-- -->
+	<style type="text/css">
+	@media (orientation: landscape) {
+		#CPU, #RAM, #GPU {
+		    position: absolute;
+			margin: 0%;
+			margin-left: 2%;
+			width: inherit;
+		}
+
+		#GPU {
+			bottom: 2%;
+			top: 2%;
+			right: 53%;
+			left: 0%;
+		}
+
+		#RAM {
+			right: 2%;
+			left: 47%;
+			
+			top: 63%;
+			bottom: 2%;
+		}
+
+		#CPU {
+			right: 2%;
+			left: 47%;
+			
+			top: 2%;
+			bottom: 42%;
+		}
+	}
+	@media (orientation: portrait) {
+		#CPU, #RAM, #GPU {
+		    position: absolute;
+			margin: 0%;
+			right: 2%;
+			left: 2%;
+
+			width: inherit;
+		}
+		#CPU {
+			top: 2%;
+			bottom: 70%;
+		}
+		#GPU {
+			top: 32%;
+			bottom: 24%;
+		}
+		#RAM {
+			top: 78%;
+			bottom: 2%;
+		}
+	}
+	</style>
+
+	</head>
+	<body>
+
+
+	<div id="CPU" class="CPU box">
+		<h2 class="categoryHeader cpuIcon" data-trstring="CPU">CPU</h2>
+		<h2 class="tempIcon" style="float:right" id="CPUTempBlock">
+			<span id="CPUTempC"> <span id="CPUTempv" ></span>&deg;C</span>
+			<span id="CPUTempF" style="display:none"></span>
+		</h2>
+		<div class="CPUBadges">
+			<h3 class="usageIcon" id="CPUUsagev">0%</h3>
+			<h3 class="clockIcon" id="CPUClockSpeed"></h3>
+		</div>
+		<!--<h3 id="CPUTempv">0c</h3>-->
+		<ul id='CPUTemps' class="category">
+			<!-- barPrefab -->
+		</ul>
+	</div>
+	<div id="GPU" class="GPU box">
+	<div id="GPUscroll">
+	<div id="GPUcontain">
+	<div id="GPUprefab" class="GPUtab">
+        <h2 id="GPUTitle" class="gpuIcon"><span data-trstring="GPU">GPU</span> <span id="GPUcount"></span></h2>
+		<h2 class="tempIcon" style="float:right" id="GPUTempBlock">
+			<span id="GPUTempC"> <span id="GPUTempv" ></span></span>
+			<span id="GPUTempF" style="display:none"></span>
+		</h2>
+        <div class="GPUBadges">
+            <h3 class="usageIcon" id="GPUUsagev" style="float:left">C% </h3>
+ 		    <h3 class="clockIcon" id="GPUClockSpeedv">425</h3>
+ 		    <h3 class="fanIcon" id="GPUFanSpeedv">0</h3>
+        </div>
+        <div id="ATIBlock" class="gpuBlock" >
+        <table id="ATITable" class="GPUTable"  >
+			<tbody>
+				<tr id="ati_engineClock">
+					<td class="gpuDescriptor" data-trstring="engineClock">Engine Clock</td>
+					<td class="horizBar"><div><span id="EngineClockB"> </span></div></td>
+					<td id="EngineClockv">  </td>
+				</tr>
+				<tr id="ati_memoryClock">
+					<td class="gpuDescriptor" data-trstring="memoryClock">Memory Clock</td>
+					<td class="horizBar"><div><span id="MemoryClockB"> </span></div></td>
+					<td id="MemoryClockv">   </td>
+				</tr>
+				<tr id="ati_gpuVoltage">
+					<td class="gpuDescriptor" data-trstring="gpuVoltage">GPU Voltage  </td>
+					<td class="horizBar"><div><span id="GPUVoltageB"> </span></div></td>
+					<td id="GPUVoltagev">   </td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<div id="NvidiaBlock" class="gpuBlock" >
+			<table id="NVIDIATable" class="GPUTable">
+			<tbody>
+			<tr id="usageBlock" >
+				<td class="gpuDescriptor" data-trstring="gpuUsage">GPU Usage</td>
+				<td class="horizBar"><div><span id="GPUUsageB"> </span></div></td>
+				<td id="altGPUUsagev">   </td>
+			</tr>
+			<tr id="nv_frameBuffer">
+				<td class="gpuDescriptor" data-trstring="frameBuffer">Frame Buffer</td>
+				<td class="horizBar"><div><span id="FrameBufferB"> </span></div></td>
+				<td id="FrameBufferv">   </td>
+			</tr>
+			<tr id="nv_videoEngine">
+				<td class="gpuDescriptor" data-trstring="videoEngine">Video Engine</td>
+				<td class="horizBar"><div><span id="VideoEngineB"> </span></div></td>
+				<td id="VideoEnginev">   </td>
+			</tr>
+			<tr id="nv_gpuMemory">
+				<td class="gpuDescriptor" data-trstring="gpuMemory">GPU Memory</td>
+				<td class="horizBar"><div><span id="GPUMemoryB"> </span></div></td>
+				<td id="GPUMemoryv">   </td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
+		</div>
+		</div>
+	</div>
+	<div id="GPUpips">
+		<div class="active"> </div>
+	</div>
+	</div>
+
+	<div id="RAM" class="RAM box">
+		<h2 class="ramIcon" data-trstring="RAM">RAM</h2>
+        <table id="ramTable">
+            <tr>
+                <td id="ramPieTableCell">
+                    <div id="piechart" class="circle">
+			            <div id="piece1" class="hold">
+    			            <div class="pie"></div>
+			            </div>
+			            <div class="overlay">
+				            <span>$PERCENT</span>
+				            <p class="centered"></p>
+			            </div>
+                    </div>
+                </td>
+		        <td>
+		            <div id="RAMcontainer">
+			            <div id="ramF"><div class="squareIcon ramFree"></div> <span id="RAMFree">0</span><span> </span><span data-trstring="used">used</span></div>
+			            <div id="ramT"><div class="squareIcon ramTotal"></div> <span id="RAMTotal"></span><span> </span><span data-trstring="total">total</span></div>
+		            </div>
+                </td>
+            </tr>
+        </table>
+	</div>
+<div class="prop" id="prop">
+  <p id="numGPU">1</p>
+  <p id="CPUTemp">0|99&#176;c</p>
+  <p id="CPUUsage">0|100%  </p>
+  <p id="RAMUsage"> 0|16 gb  </p>
+  <p id="GPUTemp" > 0|70&#176;c</p>
+  <p id="GPUFanSpeed">0|100rpm</p>
+  <p id="GPUUsage">0|100%</p>
+  <p id="FrameBuffer" > 0|100%</p>
+  <p id="VideoEngine" > 0|100%</p>
+  <p id="BusInterface" > 0|100%</p>
+  <p id="GPUMemory" > 0|100%</p>
+  <p id="GPUClockSpeed" > 0|100%</p>
+  <p id="MemoryClockSpeed" > 0|100%</p>
+  <p id="EngineClock">0</p>
+  <p id="MemoryClock">0</p>
+  <p id="BusSpeed">0 </p>
+  <p id="GPUVoltage">0</p>
+</div>
+	</body>
+</html>
+
+

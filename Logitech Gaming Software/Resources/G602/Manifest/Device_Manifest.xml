@@ -1,0 +1,355 @@
+<?xml version='1.0' encoding='utf-8'?>
+<devicemanifest xmlns="http://www.logitech.com/Cassandra/2010.3/DeviceManifest">
+  <device model="Logitech.Gaming.Mouse.G602">
+    <probes>
+      <hid_probe usagepage="0xFF00" usage="1" pid="0xC537" vid="0x046d"/>
+      <hid_probe usagepage="0xFF00" usage="2" pid="0xC537" vid="0x046d"/>
+      <hid_probe usagepage="0xFF80" pid="0xC537" vid="0x046d"/>
+      <hidfilter_probe pid="0xC537" vid="0x046d"/>
+    </probes>
+    <battery turnOffInterval="900" lowBattTime="3600" pollInterval="120" lowBattInformInterval="900"/>
+    <indicator name="BatteryWidget"/>
+    <indicator name="hppOnboardHostSelector"/>
+    <indicator name="sleepIndicator"/>
+    <indicator name="powerIndicator"/>
+    <thumbnails>
+      <thumbnail image="IDR_G602_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G602_DEVICE_REGION" name="device" lu_id="c06b_G602"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.G602">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.G602"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="true"/>
+      <dpitable defaultindex="2" shiftindex="0">
+        <dpi x="500" y="500"/>
+        <dpi x="1000" y="1000"/>
+        <dpi x="1500" y="1500"/>
+        <dpi x="2000" y="2000"/>
+        <dpi x="2500" y="2500"/>
+      </dpitable>
+      <reportrate default="500"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="onboard_view"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="170" y="154" scale="0.75"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_G602_PULSEGLOW" left="157" top="140"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" image="IDR_G602_PULSEGLOW" left="157" top="140"/>
+      </hotspots>
+      <pulseGlows>
+        <pulseGlow x="695" y="163" scale="1.0" image="IDR_ONBOARD_MOUSE_SETTINGS_PULSEGLOW" mode="onboard">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+        <pulseGlow x="840" y="163" scale="1.0" image="IDR_PROFILE_MOUSE_SETTINGS_PULSEGLOW" mode="host">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="456" y="198" scale="1.0"/>
+      <pulseGlows>
+        <pulseGlow x="439" y="179" image="IDR_G602_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="-1" height="-1" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN1" x="-8" y="45" outline="IDR_G602_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="620" y="320"/>
+          </context_button>
+          <assignment_label custom="false" x="450" y="300" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN2" x="81" y="-18" outline="IDR_G602_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="750" y="235"/>
+          </context_button>
+          <assignment_label custom="false" x="768" y="236" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN3" x="136" y="12" outline="IDR_G602_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="660" y="245"/>
+          </context_button>
+          <assignment_label custom="false" x="590" y="185" min_width="110" max_width="200">
+            <connect_line y1="197" x1="650" y2="250" x2="650"/>
+          </assignment_label>
+        </control>
+        <control id="Button4">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN4" x="71" y="226" outline="IDR_G602_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="forward"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="580" y="470"/>
+          </context_button>
+          <assignment_label custom="false" x="440" y="470" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN5" x="137" y="262" outline="IDR_G602_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="back"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="640" y="510"/>
+          </context_button>
+          <assignment_label custom="false" x="510" y="520" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN6" x="208" y="313" outline="IDR_G602_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="702" y="550"/>
+          </context_button>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="batterylevel"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="580" y="560" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN7" x="64" y="200" outline="IDR_G602_OUTLINE_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="559" y="430"/>
+          </context_button>
+          <generic_assignment shiftstate="1" hidden="true" required="true" name="1">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="1"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="580" y="420" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN8" x="127" y="227" outline="IDR_G602_OUTLINE_BTN8"/> 
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="615" y="460"/>
+          </context_button>
+          <generic_assignment shiftstate="1" hidden="true" required="true" name="2">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="2"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x="650" y="470" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button9">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN9" x="203" y="277" outline="IDR_G602_OUTLINE_BTN9"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true" name="3">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="3"/>
+            </keystroke>
+          </generic_assignment>
+          <context_button>
+            <point x="720" y="540"/>
+          </context_button>
+          <assignment_label custom="false" x="710" y="520" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button10">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN10" x="-18" y="108" outline="IDR_G602_OUTLINE_BTN10"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpiup"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="483" y="340"/>
+          </context_button>
+          <assignment_label custom="false" x="340" y="350" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button11">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN11" x="19" y="128" outline="IDR_G602_OUTLINE_BTN11"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpidown"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="510" y="360"/>
+          </context_button>
+          <assignment_label custom="false" x="375" y="390" min_width="110" max_width="200"/>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <onboardmetadata viewid="onboard">
+      <transform x="130" y="150" scale="0.75"/>
+      <pulseGlows>
+        <pulseGlow x="90" y="138" image="IDR_G602_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls>
+        <control id="Button1">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN1" relative_x="-8" relative_y="45" outline="IDR_G602_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="0" relative_y="-100"/>
+          <assignment_label custom="false" x="50" y="65" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN2" relative_x="81" relative_y="-18" outline="IDR_G602_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="0" relative_y="-120"/>
+          <assignment_label custom="false" x="300" y="20" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN3" relative_x="136" relative_y="12" outline="IDR_G602_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-80" relative_y="-130"/>
+          <assignment_label custom="false" x="140" y="-25" min_width="110" max_width="200">
+            <connect_line x1="-70" y1="-132" x2="-70" y2="-85"/>
+          </assignment_label>
+          </control>
+        <control id="Button4">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN4" relative_x="71" relative_y="226" outline="IDR_G602_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-95" relative_y="-120"/>
+          <assignment_label custom="false" x="15" y="200" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN5" relative_x="137" relative_y="262" outline="IDR_G602_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-100" relative_y="-110"/>
+          <assignment_label custom="false" x="65" y="235" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN6" relative_x="208" relative_y="313" outline="IDR_G602_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-90" relative_y="-115"/>
+          <assignment_label custom="false" x="120" y="275" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN7" relative_x="64" relative_y="200" outline="IDR_G602_OUTLINE_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-85" relative_y="-120"/>
+          <assignment_label custom="false" x="150" y="160" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN8" relative_x="127" relative_y="227" outline="IDR_G602_OUTLINE_BTN8"/> 
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-85" relative_y="-120"/>
+          <assignment_label custom="false" x="210" y="200" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button9">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN9" relative_x="203" relative_y="277" outline="IDR_G602_OUTLINE_BTN9"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-90" relative_y="-120"/>
+          <assignment_label custom="false" x="260" y="250" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button10">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN10" relative_x="-18" relative_y="108" outline="IDR_G602_OUTLINE_BTN10"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-90" relative_y="-130"/>
+          <assignment_label custom="false" x="-60" y="100" min_width="100" max_width="200"/>
+        </control>
+        <control id="Button11">
+          <pixmap image="IDR_G602_PULSEGLOW_BTN11" relative_x="19" relative_y="128" outline="IDR_G602_OUTLINE_BTN11"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-90" relative_y="-130"/>
+          <assignment_label custom="false" x="-35" y="135" min_width="110" max_width="200"/>
+        </control>
+      </controls>
+    </onboardmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="30" y="164" scale="0.69"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G602</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G602</string>
+      </locale>
+    </strings>
+  </device> 
+</devicemanifest>

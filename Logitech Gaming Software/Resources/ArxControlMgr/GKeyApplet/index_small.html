@@ -1,0 +1,40 @@
+<html>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+    <link rel="stylesheet" type="text/css" href="GKeyStyle.css">
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="src/rendering_mini.js"></script>
+    <script src="src/Parsing.js"></script>
+    <script src="device_assignments.js"></script>
+    <script src="device_assignment_labels.js"></script>
+    <script src="jquery.mobile-1.4.2-onlyEvents.js"></script>
+</head>
+<body style="margin: 0; padding: 1%">
+    <div id="deviceSelector" class="containerBox">
+        <span class="nav back" id="prevDev"></span>
+        <img class="devImg" id="deviceImage" style="height: 100%;"/><!-- loading src="img/loading.png" -->
+        <span class="nav" id="nextDev"></span>
+    </div>
+
+        <div id="notSupportedMessagePhone">
+            <p id="notSupportedMessageTextPhone"></p>
+        </div>
+
+    <div id="navbar" class="containerBox">
+        <h3 class="title vertCenter" id="profileName">DefaultProfile</h3>
+    </div>
+
+    <div id="gTable" class="containerBox">
+        <!--/*//FIX: task #1888*/-->
+        <div class="gTableScroll">
+            <table id="GKeyAssignments">
+            </table>
+        </div>
+    </div>
+
+    <p class="prop" id="deviceVersion">0</p>
+    <p class="prop" id="activeProfile">0</p>
+
+</body>
+</html>
+

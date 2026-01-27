@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='utf-8'?>
+<devicemanifest xmlns="http://www.logitech.com/Cassandra/2010.3/DeviceManifest">
+  <device model="Logitech.Gaming.Mouse.G303.Daedalus.Apex">
+    <probes>
+      <hid_probe usagepage="0xFF00" usage="1" pid="0xC080" vid="0x046d"/>
+      <hid_probe usagepage="0xFF00" usage="2" pid="0xC080" vid="0x046d"/>
+      <hidfilter_probe pid="0xC080" vid="0x046d"/>
+    </probes>
+    <fwupdate minVersion="95.1.26" updatetool="G303/G303Update_v26.exe"/>
+    <indicator name="firmwareUpdateIndicator"/>
+    <indicator name="hppOnboardHostSelector"/>
+    <thumbnails>
+      <thumbnail image="IDR_G303_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G303_DEVICE" name="device"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.303">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.303"/>
+      </shiftgroups>
+    </profiler>
+      <colorLEDEffects enableLookup="0">
+        <logo enabled="false" effectId="1" intensity="100" rate="3000" color="#FF0000"/>
+        <primary enabled="false" effectId="10" intensity="100" rate="3000" color="#00FFFF"/>
+        <sleepTimer enabled="false" timeout="30" />
+      </colorLEDEffects>
+    <pointer>
+      <hardwaremode default="true"/>
+      <dpitable defaultindex="2" shiftindex="0">
+        <dpi x="400" y="400"/>
+        <dpi x="800" y="800"/>
+        <dpi x="1600" y="1600"/>
+        <dpi x="3200" y="3200"/>
+      </dpitable>
+      <reportrate default="1000"/>
+    </pointer>
+
+    <lighting_zone_customization>
+      <zone id="1" label="Sides"/>
+    </lighting_zone_customization>
+
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="onboard_view"/>
+    <feature view_id="f8100_lighting_view"/>
+    <feature view_id="pointersettings_view"/>
+    <feature view_id="f8070_colorLEDEffects_view"/>
+    <f8070_colorLEDEffects_view viewid="f8070_colorLEDEffects_view">
+      <transform x="130" y="110" scale="0.8"/>
+      <ledoff image="IDR_G303_NO_GLOW"/>
+      <logoGlow image="IDR_G303_LOGO_GLOW" x="498" y="270"/>
+      <primaryGlow image="IDR_G303_SIDE_GLOW" x="230" y="333"/>
+    </f8070_colorLEDEffects_view>
+    <feature view_id="surface_tuning_view"/>
+    <surface_tuning_view viewid="surface_tuning_view">
+      <transform x="600" y="30" scale="0.5" fade="0.5"/>
+      <focusing_image image="IDR_G303_DEVICE" scale="0.5" />
+    </surface_tuning_view>
+	<feature view_id="input_tracker_view"/>
+    <input_tracker_view viewid="input_tracker_view">
+      <transform x="310" y="153" scale="0.8"/>
+      <heatmap image="IDR_LINE_MOUSE_G303_SVG" x="311" y="152" scale="0.8"/>
+    </input_tracker_view>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="210" y="153" scale="0.8"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_G303_PULSEGLOW" left="215" top="160"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" image="IDR_G303_PULSEGLOW"  left="215" top="160"/>
+      </hotspots>
+      <pulseGlows>
+        <pulseGlow x="695" y="163" scale="1.0" image="IDR_ONBOARD_MOUSE_SETTINGS_PULSEGLOW" mode="onboard">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+        <pulseGlow x="840" y="163" scale="1.0" image="IDR_PROFILE_MOUSE_SETTINGS_PULSEGLOW" mode="host">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="406" y="165" scale="1.0"/>
+      <gshifttoggle x="400" y ="570" scale="1.0"/>
+      <pulseGlows>
+        <pulseGlow x="410" y="175" image="IDR_G303_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="81" height="70">
+        <control id="Button1">
+          <pixmap  x=" 410 " y=" 195 "  image="IDR_G303_PULSEGLOW_BTN1" outline="IDR_G303_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x=" 470 " y=" 300 " />
+          </context_button>
+          <assignment_label custom="false" x=" 322 " y=" 275 "  min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap x=" 490 " y=" 180 " image="IDR_G303_PULSEGLOW_BTN2" outline="IDR_G303_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false"  x=" 719 " y=" 187 "  min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap   x=" 540 " y=" 205 " image="IDR_G303_PULSEGLOW_BTN3" outline="IDR_G303_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false"  x=" 500 " y=" 160 "   min_width="110" max_width="200">
+            <connect_line  x1=" 550 " y1=" 173 "  y2="220" x2="580"/>
+          </assignment_label>
+        </control>
+        <control id="Button4">
+          <pixmap x=" 562 " y=" 422 "  image="IDR_G303_PULSEGLOW_BTN4" outline="IDR_G303_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="back"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="630 " y="490 " />
+          </context_button>
+          <assignment_label custom="false" x=" 449 " y=" 486 "  min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap x=" 485 " y=" 355 "  image="IDR_G303_PULSEGLOW_BTN5" outline="IDR_G303_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="forward"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 356 " y=" 388 "   min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap  x=" 662 " y=" 255 " image="IDR_G303_PULSEGLOW_BTN6" outline="IDR_G303_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpicycling"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false"  x=" 708 " y=" 329 " min_width="110" max_width="200" />
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <onboardmetadata viewid="onboard">
+      <transform x="15" y="210" scale="0.7"/>
+      <pulseGlows>
+        <pulseGlow x="57" y="211" image="IDR_G303_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls>
+        <control id="Button1">
+          <pixmap relative_x=" 5 " relative_y=" 30 " image="IDR_G303_PULSEGLOW_BTN1" outline="IDR_G303_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="60" relative_y="-120"/>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false"  x=" 56 " y=" 82 "  min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap relative_x=" 91 "  relative_y=" 16 " image="IDR_G303_PULSEGLOW_BTN2" outline="IDR_G303_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false"  x=" 260 " y=" 21 "  min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap relative_x=" 135 "  relative_y=" 38 " image="IDR_G303_PULSEGLOW_BTN3" outline="IDR_G303_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false"  x=" 118 " y=" -34 " min_width="110" max_width="200">
+            <connect_line x1="50" y1="-190" x2="50" y2="-130"/>
+          </assignment_label>
+
+        </control>
+        <control id="Button4">
+          <pixmap relative_x=" 157 "  relative_y=" 262 " image="IDR_G303_PULSEGLOW_BTN4" outline="IDR_G303_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="back"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 105 " y=" 245 "  min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap relative_x=" 80 " relative_y=" 195 "  image="IDR_G303_PULSEGLOW_BTN5" outline="IDR_G303_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="forward"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false"  x=" 41 " y=" 162 " min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap relative_x=" 250 " relative_y=" 90 "  image="IDR_G303_PULSEGLOW_BTN6" outline="IDR_G303_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpicycling"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 286 " y=" 104 "  min_width="110" max_width="200" />
+        </control>
+      </controls>
+    </onboardmetadata>
+    <f8100viewmetadata viewid="f8100_lighting_view">
+      <transform x="140" y="110" scale="0.8"/>
+      <logoGlow image="IDR_G303_LOGO_GLOW" x="498" y="270"/>
+      <primaryGlow image="IDR_G303_SIDE_GLOW" x="230" y="333"/>
+    </f8100viewmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="0" y="205" scale="0.59"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G303 Daedalus Apex</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G303 Daedalus Apex</string>
+      </locale>
+    </strings>
+  </device>
+ </devicemanifest>

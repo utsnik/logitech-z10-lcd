@@ -1,0 +1,115 @@
+;; LGVirHid.inf
+;; Logitech Virtual HID Devices INF file
+;;
+;; Part of Logitech Gaming Software
+;;
+;; Copyright 2001-2021 Logitech. All rights reserved.
+
+[Version]
+Signature="$CHICAGO$"
+Class=HIDClass
+ClassGuid={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider=%Vendor%
+DriverVer=04/22/2022, 9.04.030.0
+CatalogFile=LGVirHid.cat
+PnpLockdown=1
+
+[SourceDisksNames]
+55=%DiskDesc%,,,
+
+[SourceDisksFiles]
+LGVirHid32.sys=55
+LGVirHid64.sys=55
+
+[DestinationDirs]
+LGVirHid_Device32.CopyFilesSYS  = 10,system32\drivers
+LGVirHid_Device64.CopyFilesSYS  = 10,system32\drivers
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%StdMfg%=Standard, NTx86, NTamd64
+
+[Standard.NTx86]
+%LGVirHidDevice.DeviceDesc%=LGVirHid_Device32, LogiDevice\LGVirtualDevice
+%LGVirHidG13Joystick.DeviceDesc%=LGVirHid_Device32, LogiDevice\VID_046D&PID_C2AB
+%LGVirHidKeyboard.DeviceDesc%=LGVirHid_Device32, LogiDevice\VID_046D&PID_C232
+%LGVirHidMouse.DeviceDesc%=LGVirHid_Device32, LogiDevice\VID_046D&PID_C231
+
+[Standard.NTamd64]
+%LGVirHidDevice.DeviceDesc%=LGVirHid_Device64, LogiDevice\LGVirtualDevice
+%LGVirHidG13Joystick.DeviceDesc%=LGVirHid_Device64, LogiDevice\VID_046D&PID_C2AB
+%LGVirHidKeyboard.DeviceDesc%=LGVirHid_Device64, LogiDevice\VID_046D&PID_C232
+%LGVirHidMouse.DeviceDesc%=LGVirHid_Device64, LogiDevice\VID_046D&PID_C231
+
+[LGVirHid_Device32]
+CopyFiles = LGVirHid_Device32.CopyFilesSYS
+AddReg    = LGVirHid_Device.AddReg
+
+[LGVirHid_Device64]
+CopyFiles = LGVirHid_Device64.CopyFilesSYS
+AddReg    = LGVirHid_Device.AddReg
+
+[LGVirHid_Device32.CopyFilesSYS]
+LGVirHid32.sys
+
+[LGVirHid_Device64.CopyFilesSYS]
+LGVirHid64.sys
+
+[LGVirHid_Device32.Services]
+AddService = LGVirHid, 0x00000002, Logi_Virtual_Device_Service_Inst32
+
+[LGVirHid_Device64.Services]
+AddService = LGVirHid, 0x00000002, Logi_Virtual_Device_Service_Inst64
+
+[Logi_Virtual_Device_Service_Inst32]
+DisplayName    = %LGVirHid32.SVCDESC%
+ServiceType    = 1 ; SERVICE_KERNEL_DRIVER
+StartType      = 3 ; SERVICE_DEMAND_START
+ErrorControl   = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\LGVirHid32.sys
+LoadOrderGroup = Extended Base
+
+[Logi_Virtual_Device_Service_Inst64]
+DisplayName    = %LGVirHid64.SVCDESC%
+ServiceType    = 1 ; SERVICE_KERNEL_DRIVER
+StartType      = 3 ; SERVICE_DEMAND_START
+ErrorControl   = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\LGVirHid64.sys
+LoadOrderGroup = Extended Base
+
+;-------------ADD REGs ---------------------------------------------
+[LGVirHid_Device.AddReg]
+HKLM,%LogiDevice.G13Joystick%,OEMName,,%LGVirHidG13Joystick.DeviceDesc%
+HKLM,%LogiDevice.G13Joystick%,OEMData, 00, 00, 00, 00, 10, 01, 00, 00, 00
+
+[Strings]
+Vendor = "Logitech"
+DiskDesc="Logitech GamePanel Software"
+StdMfg = "(Standard system devices)"
+
+LGVirHid32.SVCDESC = "Logitech Gamepanel Virtual HID Device Driver (32-bit)"
+LGVirHid64.SVCDESC = "Logitech Gamepanel Virtual HID Device Driver (64-bit)"
+
+LGVirHidDevice.DeviceDesc = "Logitech Gamepanel Virtual HID Device"
+LGVirHidG13Joystick.DeviceDesc = "Logitech G13 Joystick"
+LGVirHidKeyboard.DeviceDesc = "Logitech Gaming Virtual Keyboard"
+LGVirHidMouse.DeviceDesc = "Logitech Gaming Virtual Mouse"
+
+LogiDevice.G13Joystick = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C2AB"
+
+[Strings.0411]
+Vendor = "Logicool"
+DiskDesc="Logicool GamePanel Software"
+StdMfg = "(Standard system devices)"
+
+LGVirHid32.SVCDESC = "Logicool Gamepanel Virtual HID Device Driver (32-bit)"
+LGVirHid64.SVCDESC = "Logicool Gamepanel Virtual HID Device Driver (64-bit)"
+
+LGVirHidDevice.DeviceDesc = "Logicool Gamepanel Virtual HID Device"
+LGVirHidG13Joystick.DeviceDesc = "Logicool G13 Joystick"
+LGVirHidKeyboard.DeviceDesc = "Logicool Gaming Virtual Keyboard"
+LGVirHidMouse.DeviceDesc = "Logicool Gaming Virtual Mouse"
+
+LogiDevice.G13Joystick = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C2AB"

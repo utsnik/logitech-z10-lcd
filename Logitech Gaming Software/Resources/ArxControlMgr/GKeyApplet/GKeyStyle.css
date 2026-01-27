@@ -1,0 +1,550 @@
+*
+{
+    font-family: Impact;
+    font-size: 25px;
+    color: #BDBDBD;
+    line-height: 1.5em;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; /* Disable selection/copy in UIWebView */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.spacingVertical
+{
+    height:2%;
+}
+
+body{
+    color:#9A9A9A;
+    overflow:hidden;
+}
+
+#gView{
+    width: 100%;
+    height: 67%;
+    overflow: auto;
+}
+
+#gView::-webkit-scrollbar { 
+    display: none; 
+}
+
+#nestedView {
+    position: relative;
+    padding: 0;
+}
+
+#svgView
+{
+    padding:10em;
+    -webkit-transform-origin: 50% 50%;
+}
+
+#content{
+    height:100%;
+}
+
+.prop
+{
+    display:none;
+}
+.tag{
+    border: 1px solid white;
+    background-color: rgba(100,100,100,.5);
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    text-overflow:ellipsis;
+    margin:0;
+    padding:.1em;
+    max-width:3.5em;
+    font-size: 16px;
+}
+
+.tag:empty{
+    border-color: red;
+    height:1.4em;
+}
+
+.line{
+    position:absolute;
+    border: 1px solid white;
+}
+
+#notSupportedMessage
+{
+    display: table;
+    position:absolute;
+    vertical-align: middle;
+    text-align: center;
+    margin: auto;
+    top: 40%;
+    left: 30%;
+    bottom: 20%;
+    right: 30%;
+    width: 30%;
+    height: 30%;
+    background: black;
+    border-style: solid 10px #8ad5f4;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    border-width: 1px;
+    border-radius: 10px;
+    z-index:999999;
+    background-color: black;
+    opacity: 0.9;
+    padding: 15px;
+}
+
+#notSupportedMessage p
+{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+#notSupportedMessagePhone
+{
+    display: table;
+    vertical-align: middle;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    bottom: 20%;
+    right: 20%;
+    width: 50%;
+    height: 30%;
+    background: black;
+    border-style: solid 10px #8ad5f4;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: black;
+    opacity: 0.9;
+    padding: 15px;
+    z-index:999999;
+}
+
+#notSupportedMessagePhone p
+{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+#deviceInfoTable
+{
+    display:table;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+ /*   border-spacing: 10px;
+    border-collapse: separate;
+    */
+}
+
+.spacingCell
+{
+    width: 5%;
+}
+
+#deviceNameCell
+{
+    font-size: 40px;
+    color: white;
+    text-overflow:ellipsis;
+}
+
+.loading{
+    background-image: url('img/loading.gif');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .loading{
+        background-image: url('img/loading.gif');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .loading{
+        background-image: url('img/LoadingSpinner@3x.gif');
+    }
+}
+
+#devicePicCell
+{
+    display: table-cell;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    /*background-image: url('img/loading.gif');*/
+}
+
+#nextDeviceCell
+{
+    display: table-cell;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5%;
+}
+
+#prevDeviceCell
+{
+    display: table-cell;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5%;
+}
+.prevDevice{
+    margin-right: 15px;
+}
+.nextDevice{
+    margin-left:15px;
+}
+
+#devicePic
+{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#deviceInfoWrapper
+{
+    margin-top: 2%;
+    margin-right: auto;
+    margin-left:auto;
+    width: 95%;
+    height:25%;
+    display:table;
+    vertical-align:middle;
+    border-style: solid none solid none 10px #8ad5f4;
+    border-width: 1px;
+    padding: 20px;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    background-color: rgba(0,0,0,0.8);
+}
+
+/**/
+.battery0 {
+    background-image: url('img/battery0.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery0 {
+        background-image: url('img/battery0.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery0 {
+        background-image: url('img/Battery_0@3x.png');
+    }
+}
+
+.battery20 {
+    background-image: url('img/battery20.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery20 {
+        background-image: url('img/battery20.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery20 {
+        background-image: url('img/Battery_20@3x.png');
+    }
+}
+
+.battery40 {
+    background-image: url('img/battery40.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery40 {
+        background-image: url('img/battery40.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery40 {
+        background-image: url('img/Battery_40@3x.png');
+    }
+}
+
+.battery60 {
+    background-image: url('img/battery60.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery60 {
+        background-image: url('img/battery60.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery60 {
+        background-image: url('img/Battery_60@3x.png');
+    }
+}
+
+.battery80 {
+    background-image: url('img/battery80.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery80 {
+        background-image: url('img/battery80.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery80 {
+        background-image: url('img/Battery_80@3x.png');
+    }
+}
+
+.battery100 {
+    background-image: url('img/battery100.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery100 {
+        background-image: url('img/battery100.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery100 {
+        background-image: url('img/Battery_100@3x.png');
+    }
+}
+.battery0, .battery20, .battery40, .battery60, .battery80, .battery100 {
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: initial;
+    min-width: initial;
+
+    /*border: 0 !important;*/
+}
+/**/
+
+#batteryPic  {
+    height: 60%;
+    width:auto;
+}
+@media (orientation: landscape) {
+    #batteryPic {
+        height: 50%;
+    }
+}
+
+#batteryStatusCell
+{
+    width: 10%;
+}
+
+#activeProfileCell
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.activeProfileCellContent
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5%;
+}
+
+#profileNameText
+{
+    width:70%;
+}
+
+#waitingForResponseMessage
+{
+    display: table;
+    vertical-align: middle;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 20%;
+    height: 20%;
+    background: black;
+    border-style: solid 10px #8ad5f4;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: black;
+    padding: 15px;
+}
+
+#waitingForResponseMessage p
+{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+/*FIX: task #1888*/
+/* media iphone? */
+.containerBox{
+    border-radius: 10px;
+    /*margin-bottom:-21px;*/
+    background-color: rgba(0,0,0,.5);
+    text-align: center;
+    border-style: solid 2px #8ad5f4;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    box-shadow: 0 0 10px #8ad5f4;
+}
+
+/*FIX: task #1888*/
+#navbar{
+    height: 10%;
+    text-align: center;
+    text-overflow:hidden;
+    /*margin-bottom:5px;*/
+    margin: 3% 0 3% 0;
+}
+@media (orientation: landscape) {
+    #navbar{
+        height: 17%;
+        margin: 1% 0 1% 0;
+    }
+}
+
+
+li{
+    display: inline-block;
+    float:left;
+    width: 90%;
+    padding: 5%;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #707070;
+}
+
+.nav{
+    float:right;
+    display: inline-block;
+    background-repeat: no-repeat;
+    /*background-image: url("img/arrow.png");*/
+    background-image: url("img/nextDevice.png");
+    height: 100%;
+    width: 10%;
+    background-size: contain;
+    position: relative;
+    z-index: 1;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .nav {
+        background-image: url("img/nextDevice.png");
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .nav {
+        background-image: url("img/MouseInfo_RightPointer@3x.png");
+    }
+}
+
+.nav.back{
+    background-image: url("img/prevDevice.png");
+    /*-webkit-transform: scaleX(-1);
+    transform: scaleX(-1);*/
+    float:left;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .nav.back {
+        background-image: url("img/prevDevice.png");
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .nav.back {
+        background-image: url("img/MouseInfo_LeftPointer@3x.png");
+    }
+}
+
+/*FIX: task #1888*/
+#profileName{
+    white-space: nowrap; overflow: hidden; text-overflow:ellipsis;
+    margin: 0;
+}
+@media (orientation: landscape) {
+    #profileName{
+        font-size: 75%;
+    }
+}
+
+.macroBtn{
+    display: inline-block;
+    color: white;
+    background-color: #555;
+    border-radius: 3px;
+    padding: 5px 10px ;
+    margin:5px;
+}
+.vertCenter{
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/*FIX: task #1888*/
+#gTable td:nth-of-type(2){
+    border-bottom: solid 1px rgba(255,255,255,.4);
+    border-left: 20px solid rgba(0,0,0,0);
+    border-right: 20px solid rgba(0,0,0,0);
+    padding-bottom: 1%;
+}
+#gTable{
+    height: 70%;
+}
+@media (orientation: landscape) {
+    #gTable{
+        height: 50%;
+    }
+}
+#gTable td {
+    margin: 5%;
+}
+
+.gTableScroll {
+    overflow-y: scroll; display: block; height: 100%;
+}
+
+#GKeyAssignments {
+    width: 100%; text-align: center;
+}
+
+.devImg{
+    position: relative;
+}
+#deviceSelector{
+    height: 13%;
+    padding:2%;
+    overflow: hidden;
+}
+
+.sliding{
+    position:relative;
+    left:0;
+    float: left;
+    
+}
+svg{
+    -webkit-transform-origin: 0% 0%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.textpath{
+    font-family: Arial;
+    font-size: 15;
+}

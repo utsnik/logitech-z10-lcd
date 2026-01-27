@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<devicemanifest xmlns="http://www.logitech.com/Cassandra/2010.3/DeviceManifest">
+  <device model="Logitech.Gaming.Keyboard.G103">
+    <probes>
+      <hid_probe usagepage="0xff00" pid="0xC24B" vid="0x046d"/>
+    </probes>
+    <thumbnails>
+      <thumbnail image="IDR_G103_G103_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <!--For 'lu_id', use the format <pid>_<device short name> for the LU image download identifier, lower case only -->
+      <!--There has to be a matching <pid>_<device short name>.exe on the LU server -->
+      <layer image="IDR_G103_G103DEVICE" name="device" lu_id="c24b_g103"/>
+    </image>
+    <profiler category="Logitech.Gaming.Keyboard"/>
+    <feature view_id="device_view"/>
+    <feature view_id="macroassignment_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="40" y="173" scale="0.63"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_G103_PULSEGLOW_HOME_GKEY" left="48" top="226"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="387" y="120" scale="1.0"/>
+      <pulseGlows>
+        <pulseGlow x="397" y="206" image="IDR_G103_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="-1" height="-1">
+        <control id="G1">
+          <points>
+            <point x="415" y="230"/>
+            <point x="415" y="262"/>
+            <point x="465" y="262"/>
+            <point x="465" y="230"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F1">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F1"/>
+            </keystroke>
+          </generic_assignment>
+          <context_button>
+            <point x="445" y="252"/>
+          </context_button>
+          <assignment_label custom="false" x="383" y="230" min_width="95" max_width="252"/>
+        </control>
+        <control id="G2">
+          <points>
+            <point x="415" y="275"/>
+            <point x="415" y="306"/>
+            <point x="465" y="306"/>
+            <point x="465" y="275"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F2">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F2"/>
+            </keystroke>
+          </generic_assignment>
+          <context_button>
+            <point x="445" y="302"/>
+          </context_button>
+          <assignment_label custom="false" x="383" y="276" min_width="95" max_width="252"/>
+        </control>
+        <control id="G3">
+          <points>
+            <point x="415" y="367"/>
+            <point x="415" y="398"/>
+            <point x="465" y="398"/>
+            <point x="465" y="367"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F3">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F3"/>
+            </keystroke>
+          </generic_assignment>
+          <context_button>
+            <point x="445" y="386"/>
+          </context_button>
+          <assignment_label custom="false" x="383" y="362" min_width="95" max_width="246"/>
+        </control>
+        <control id="G4">
+          <points>
+            <point x="415" y="410"/>
+            <point x="415" y="440"/>
+            <point x="465" y="440"/>
+            <point x="465" y="410"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F4">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F4"/>
+            </keystroke>
+          </generic_assignment>
+          <context_button>
+            <point x="445" y="430"/>
+          </context_button>
+          <assignment_label custom="false" x="383" y="412" min_width="95" max_width="246"/>
+        </control>
+        <control id="G5">
+          <points>
+            <point x="415" y="490"/>
+            <point x="415" y="525"/>
+            <point x="465" y="525"/>
+            <point x="465" y="490"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F5">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F5"/>
+            </keystroke>
+          </generic_assignment>
+          <context_button>
+            <point x="445" y="519"/>
+          </context_button>
+          <assignment_label custom="false" x="383" y="494" min_width="95" max_width="246"/>
+        </control>
+        <control id="G6">
+          <points>
+            <point x="415" y="535"/>
+            <point x="415" y="571"/>
+            <point x="465" y="571"/>
+            <point x="465" y="535"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F6">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F6"/>
+            </keystroke>
+          </generic_assignment>
+          <context_button>
+            <point x="445" y="564"/>
+          </context_button>
+          <assignment_label custom="false" x="383" y="542" min_width="95" max_width="246"/>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G103</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G103</string>
+      </locale>
+    </strings>
+    <mediacontrols/>
+  </device>
+</devicemanifest>

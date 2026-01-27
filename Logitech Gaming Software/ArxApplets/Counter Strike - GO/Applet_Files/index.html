@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script src="jquery-1.10.1.js"></script>
+        <script src="script.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="dataDiv"> 
+            name:<div id="name">Waiting for match to start...</div>
+            health:<div id="health">0</div>
+            armor:<div id="armor">0</div>
+            money:<div id="money">0</div>
+            kills:<div id="kills">0</div>
+            assists:<div id="assists">0</div>
+            deaths:<div id="deaths">0</div>
+            mvps:<div id="mvps">0</div>
+            score:<div id="score">0</div>
+            team:<div id="team">0</div>
+        </div>
+        <div id="nameDiv" class="inLine"></div>
+        <div id="teamPic" class="inLine"></div>
+        <div id="moneyDiv" class="inLine"></div>
+        <div id="nameSeparator"></div>
+        
+        <table id="scoreTable" class="secondLine">
+            <tr>
+                <td>Kills</td><td id="killsCell">0</td>
+            </tr>
+            <tr>
+                <td>Assists</td><td id="assistsCell">15</td>
+            </tr>
+            <tr>
+                <td>Deaths</td><td id="deathsCell">4</td>
+            </tr>
+            <tr>
+                <td>Mvps</td><td id="mvpsCell">6</td>
+            </tr>
+            <tr>
+                <td>Score</td><td id="scoreCell">3005</td>
+            </tr>
+        </table>
+        <div id="healthAndArmor" class="secondLine inLine">
+            <div id="healthDiv">
+                <img id="healthLogo.png" src="healthLogo.png" class="inLine logo" />
+                <div id="healthProgressbar" class="inLine">
+                    <div id="healthProgressbarProgress"></div>
+                </div>
+            </div>
+            <div id="armorDiv">
+                <img id="armorLogo" src="shieldLogo.png" class="inLine logo" />
+                <div id="armorProgressbar" class="inLine">
+                    <div id="armorProgressbarProgress"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

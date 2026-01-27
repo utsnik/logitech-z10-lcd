@@ -1,0 +1,710 @@
+body
+{
+    background-color:#232425;
+    color:white;
+    padding: 0px;
+    margin: 0px;
+}
+
+#proWrapper 
+{
+    padding-top: 25%;
+}
+
+#foregroundWrapper
+{
+	position: absolute;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+}
+
+#popupOverlay
+{
+	position: absolute;
+	z-index:9999;
+	top:0%;
+	left:0%;
+	width:100%;
+	height:100%;
+	background-color: rgba(0,0,0,0.7);
+}
+
+#popupBox
+{
+	position:absolute;
+	left:30%;
+	top:30%;
+	width:40%;
+	height:40%;
+	border: medium solid;
+	border-color:  rgba(141, 119, 106, 1);
+	border-radius: 1em;
+	background-color: rgba(188, 35, 27, 0.9);
+	text-align: center;
+}
+
+#popupText
+{
+	position: relative;
+  	top: 50%;
+  	font-size: 3em;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+}
+
+.proLabel
+{
+    text-align: center; 
+    font-size: 72px;
+}
+
+#timeInGame
+{
+	position:absolute;
+	right: 1%;
+	top:2%;
+	font-size:2em;
+}
+
+#playerStatusContainer
+{
+	margin-top:7%;
+    width:90%; 
+    height:20%;
+}
+
+.boxContainer
+{
+	margin-left:5%;
+}
+
+.progressIndicator
+{
+	position: absolute;
+	top:50%;
+	width:100%;
+	text-align: center;
+	z-index:999;
+	color:white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	font-weight:bold;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+}
+
+#playerProgressBars{
+    margin-top:5%;
+    background-color:#101210;
+    border-spacing: 10px;
+    border: solid rgb(128, 0, 0);
+    box-shadow: 0px 0px 5px 5px rgba(255,0,0,0.28);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+#healthProgressbar 
+{
+	position: relative;
+    border-radius: 5px; 
+    width:100%;
+    height:30%;
+    padding: 2px 0;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#healthProgressbarProgress 
+{
+    width: 0%; 
+    height: 100%;
+    border-radius: 10px;
+    background-image: url("health.png");
+    background-size: 100% 100%;
+    background-repeat: repeat-x;
+}
+
+#manaProgressbar 
+{
+	position: relative;
+    padding: 2px 0;
+    border-radius: 5px; 
+    width:100%;
+    height:15%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#manaProgressbarProgress 
+{
+    width: 0%; 
+    height: 100%;
+    border-radius: 10px;
+    background-image: url("mana.png");
+    background-size: 100% 100%;
+    background-repeat: repeat-x;
+}
+
+#goldContainer
+{
+	width: 100%;
+	height: 25%;
+	margin-top: 3%;
+	font-size: 1.4em;
+	text-align:justify;
+}
+
+.goldIcon
+{
+	height: 25px;
+    width: 17px;
+	display:inline-block;
+	vertical-align:middle;
+	width:auto;
+}
+#goldNumber
+{
+	display:inline-block;
+	vertical-align:middle;
+	width:20%;
+    font-weight: bold;
+    color: #f5c433;
+}
+
+.goldItem
+{
+	display:inline-block;
+	vertical-align: middle;
+	width:30%;
+}
+
+#goldContainer:after 
+{
+	content: "";
+	width: 100%;
+	display: inline-block;
+}
+
+.inlineElement
+{
+	display:inline-block;
+	vertical-align: middle;
+}
+
+#heroImgContainer
+{
+	height: 100%;
+    margin-right: 2.5%;
+	background: rgba(255, 255, 255, 0.5);
+	border: 0.5em solid rgba(141, 119, 106, 1);
+	border-radius: 5px;
+	position:relative;
+}
+
+#heroLevel
+{
+	position: absolute;
+    bottom: 3%;
+    left: 5%;
+    font-size: 1.2em;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bold;
+}
+
+.badge {
+    height: 40px;
+    width: 40px;
+    padding: 4px 3px 0 3px;
+    text-align: center;
+    background-image: url("orb.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#heroLevelText
+{
+	position: relative;
+  	top: 40%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+}
+
+#playerAndHeroContainer
+{
+	width:25%;
+    margin-right: 2.5%;
+}
+
+#countDownOverlay
+{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background: rgba(155, 155, 155, 0.85);
+	z-index:99;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#countDownText
+{
+	position: absolute;
+	text-align:center;
+	font-size:2em;
+	width:100%;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+}
+
+#heroPic
+{
+	height: 100%;
+	width: auto;
+}
+
+#playerStatsContainer
+{
+	width:90%;
+	height: 22%;
+	text-align:justify;
+	font-size: 1.3em;
+    margin-top: 1%;
+}
+
+#playerStatsContainer:after 
+{
+	content: "";
+	width: 100%;
+	display: inline-block;
+}
+
+#kdaContainer
+{
+    box-shadow: 0px 0px 5px 5px rgba(255,0,0,0.28);
+}
+
+#kdaTable
+{
+	display:inline-table;
+    vertical-align:middle;
+	width: 30%;
+	font-size: 1.4em;
+	letter-spacing: 2px;
+	text-align: center;
+	border-spacing: 10px;
+	border:solid rgb(128, 0, 0);
+	border-radius: 4px;
+	background-color: rgb(50, 50, 50);
+}
+
+#playerName
+{
+	font-size: 2em;
+}
+
+#heroName
+{
+	font-size:1.5em;
+}
+
+#itemsContainer
+{
+	height:30%;
+	margin-top:8%;
+}
+
+#itemTable
+{
+    display:inline-table;
+    vertical-align:middle;
+	width:50%;
+}
+
+.itemCell
+{
+    display:table-cell;
+	border:solid thin;
+	border-color:  rgba(141, 119, 106, 1);
+	border-radius: 0.2em;
+	width: 85px;
+	height: 64px;
+}
+
+.itemCellActive
+{
+	border-color: rgb(128,0,0);
+	box-shadow: 0px 0px 5px 5px rgb(128,0,0);
+}
+
+.itemImage
+{
+	width:100%;
+	height: auto;
+}
+
+.playerStatsHeaders
+{
+	font-size:0.8em;
+}
+
+#deathsTd
+{
+	color:#fb9797;
+}
+
+#itemDescriptionBox
+{
+	position: absolute;
+	width : 40%;
+	height:37%;
+	bottom:1%;
+	right:1%;
+	border-radius: 5px;
+	border: solid 0.3em rgba(141, 119, 106, 1);
+	background-color: black;
+	padding:1em;
+	overflow: scroll;
+	z-index: 999999;
+}
+
+#itemTitle
+{
+	font-size: 2em;
+}
+
+#itemCost
+{
+	display:inline-block;
+	vertical-align:middle;
+	width:20%;
+    font-size:1.4em;
+    font-weight: bold;
+    color: #f5c433;
+}
+
+#itemDescription
+{
+	font-size:1.3em;
+	color:lightgray;
+}
+
+#itemAttribute
+{
+	font-size:1.5em;
+	color:gray;
+}
+
+.attribVal
+{
+	color: #fbb040;
+}
+
+.innerShadow {
+   -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 20px #000000;
+}
+
+.dotaBadgeCenter
+{
+	top:30%;
+	left:33%;
+	width: 33%;
+	height: 40%;
+	z-index:9999;
+	box-shadow: 0px 20px 50px 30px rgba(255,0,0,0.78);
+}
+.dotaBadgeBottom
+{
+	top:68%;
+	left:78%;
+	width: 22%;
+	height: 30%;
+	z-index:1;
+	box-shadow: -5px -5px 5px 1px rgba(255,0,0,0.28);
+}
+
+#dotaBadge
+{
+	position: absolute;
+	border-radius:5px 5px 0 0;
+	background: url('empty_item.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	transition: all 2s ease;
+}
+
+#dotaBadgeImg
+{
+	width:auto;
+	height: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#dotaBadgeTxt
+{
+	height: 30%;
+	display: block;
+	background: url('empty_item.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	text-align: center;
+	color: white;
+	margin-top:-1%;
+	font-size: 2em;
+	border-radius:0 0 5px 5px;
+	box-shadow: 0px 20px 100px -20px  rgba(255,0,0,0.78);
+	line-height: 130%;
+}
+
+#dotaBadgeLayer
+{
+	position: absolute;
+	top:0%;
+	left:0%;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.8);
+	z-index:9999;
+}
+
+@font-face {
+    font-family: 'Radiance';
+    src: url("http://cdn.dota2.com/apps/dota2/fonts/radiance.eot");
+    src: url("http://cdn.dota2.com/apps/dota2/fonts/radiance.eot?#iefix") format("embedded-opentype"),url("http://cdn.dota2.com/apps/dota2/fonts/radiance.woff") format("woff"),url("http://cdn.dota2.com/apps/dota2/fonts/radiance.ttf") format("truetype"),url("http://cdn.dota2.com/apps/dota2/fonts/radiance.svg#ywftsvg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Radiance-SemiBold';
+    src: url("http://cdn.dota2.com/apps/dota2/fonts/radiance-semibold.eot");
+    src: url("http://cdn.dota2.com/apps/dota2/fonts/radiance-semibold.eot?#iefix") format("embedded-opentype"),url("http://cdn.dota2.com/apps/dota2/fonts/radiance-semibold.woff") format("woff"),url("http://cdn.dota2.com/apps/dota2/fonts/radiance-semibold.ttf") format("truetype"),url("http://cdn.dota2.com/apps/dota2/fonts/radiance-semibold.svg#ywftsvg") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.DotaFont{
+    font-family:"Radiance",Verdana
+}
+
+.InfoFont{
+    font-family: arial, helvetica, sans-serif;
+}
+
+.TooltipFont{
+    font-family: KoreanFont,georgia,serif;
+}
+
+.itemConsumable
+{
+    color: #1d80e7;
+}
+
+.itemComponent
+{
+    color: #ffffff;
+}
+
+.itemCommon
+{
+    color: #2bab01;
+}
+
+.itemRare
+{
+    color: #1a87f9;
+}
+
+.itemArtifact
+{
+    color: #e29b01;
+}
+
+/*Media query for tablet in portrait mode*/
+@media only screen and (orientation : portrait) and (min-width: 700px){ 
+	
+	#dotaBadgeImg
+	{
+		width:100%;
+		height: auto;
+	}
+
+	.dotaBadgeCenter
+	{
+		top:25%;
+		left:33%;
+	}
+
+	.dotaBadgeBottom
+	{
+		top:80%;
+		left:78%;
+	}
+
+	#playerAndHeroContainer
+	{
+		width:60%;
+	}
+
+	#playerStatsContainer
+	{
+		height: 13%;
+		margin-top:7%;
+	}
+
+	#playerStatusContainer
+	{
+		margin-top:8%;
+	}
+
+	#kdaTable
+	{
+		margin-top:10%;
+		width:95%;
+	}
+	
+	#itemsContainer
+	{
+		margin-top: 45%;
+	}
+}
+
+/*Media query for phone*/
+@media only screen and (max-width : 736px){
+
+	.boxContainer
+	{
+		margin-left: 2%;
+	}
+
+	.dotaBadgeCenter
+	{
+		top:27%;
+		left:25%;
+		width: 50%;
+    	height: 33%;
+	}
+
+	.dotaBadgeBottom
+	{
+		top:68%;
+		left:50%;
+		width: 50%;
+    	height: 33%;
+	}
+
+	#dotaBadgeTxt
+	{
+		font-size: 1em;
+	}
+
+	#playerStatusContainer
+	{
+		margin-top:14%;
+		height: 30%;
+		font-size:1.1em;
+	}
+
+	#goldContainer
+	{
+		font-size:1em;
+	}
+
+	#timeInGame
+	{
+		font-size:2em;
+		right:5%;
+		top:0%;
+	}
+
+	.progressIndicator
+	{
+		font-size:1em;
+	}
+
+ 	#itemsContainer
+	{
+		display:none;
+	}
+
+	#itemsDescriptionBox
+	{
+		display: none;
+	}
+
+	#kdaTable
+	{
+		width: 100%;
+		margin-top:15%;
+		font-size: 0.8em;
+		float: left;
+	}
+
+	#playerAndHeroContainer
+	{
+		width:40%;
+		font-size: 0.6em;
+	}
+	
+}
+/*Media query for tablet with phone ratio (Nexus 7) in landscape*/
+@media only screen and (orientation: landscape) and (max-height: 600px){
+
+	#dotaBadgeTxt
+	{
+		font-size: 1.5em;
+	}
+	#itemsContainer
+	{
+		display:none;
+	}
+
+	#itemsDescriptionBox
+	{
+		display: none;
+	}
+
+}
+
+/*Media query for phone in landscape*/
+@media only screen and (orientation : landscape) and (max-width : 667px){ 
+	#playerProgressBars
+	{
+		display: none;
+	}
+
+	#playerStatusContainer
+	{
+		margin-top:6%;
+		height: 12%;
+		font-size:1.5em;
+	}
+
+	#playerAndHeroContainer
+	{
+		width: 60%;
+	}
+
+	#kdaTable
+	{
+		margin-top:2%;
+		font-size:0.6em;
+	}
+
+	#dotaBadgeTxt
+	{
+		font-size: 1em;
+	}
+
+
+}
+
+

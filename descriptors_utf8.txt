@@ -1,0 +1,31 @@
+﻿Device: Z-10 USB Speaker
+Vendor ID: 0x46d
+Product ID: 0xa07
+
+Configuration 1:
+  Interface 0, Alt 0:
+  Interface 1, Alt 0:
+  Interface 1, Alt 1:
+    Endpoint 0x1:
+      Type: 1
+      Direction: OUT
+      Max Packet Size: 100
+  Interface 1, Alt 2:
+    Endpoint 0x1:
+      Type: 1
+      Direction: OUT
+      Max Packet Size: 200
+  Interface 2, Alt 0:
+    Endpoint 0x83:
+      Type: 3
+      Direction: IN
+      Max Packet Size: 9
+    Endpoint 0x3:
+      Type: 3
+      Direction: OUT
+      Max Packet Size: 64
+  Interface 3, Alt 0:
+    Endpoint 0x85:
+      Type: 3
+      Direction: IN
+      Max Packet Size: 4

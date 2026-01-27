@@ -1,0 +1,391 @@
+<?xml version='1.0' encoding='utf-8'?>
+<devicemanifest xmlns="http://www.logitech.com/Cassandra/2010.1/DeviceManifest">
+  <device model="Logitech.Gaming.Spectrum.Headset.G933">
+    <probes>
+      <hid_probe pid="0x0a5b" vid="0x046d" usagepage="0xb" usage="0x1"/>
+    </probes>
+    <image>
+      <layer image="IDR_G933_HIGH_RES_IMAGE" name="device"/>
+    </image>
+    <fwupdate minVersion="98.3.27" updatetool="G933/G933Update_v27.exe"/>
+    <thumbnails>
+      <thumbnail image="IDR_G933_PRODUCT_ICON" state="normal"/>
+    </thumbnails>
+    <profiler category="Logitech.Gaming.Spectrum.Headset">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Spectrum.Headset"/>
+      </shiftgroups>
+    </profiler>
+	  <!--<indicator name="WirelessWidget"/>-->
+    <indicator name="BatteryWidget"/>
+    <indicator name="sleepIndicator"/>
+    <indicator name="firmwareUpdateIndicator"/>
+    <indicator name="ripleyConnectHelp"/>
+    <custom-eq enabled="true"/>
+    <custom-lighting enabled="true"/>
+	
+    <wireless_properties helpUrl="http://support.logitech.com/en_us/article/Recover-a-non-responsive-G933-gaming-headset" />
+    
+	<preset-eqs>
+      <![CDATA[{
+	  "settings" : 
+      [
+	  {
+          "advanced_eq" : 
+          {
+            "band_eqs" : 
+            [
+              0,
+              0,
+              1,
+              2,
+              4,
+              5,
+              4,
+              4,
+              2,
+              1
+            ]
+          },
+          "id" : "{c030f398-69e4-4948-b6b7-c80e90929d69}",
+          "name" : "FPS",
+          "readonly" : true,
+          "simple_eq" : 
+          {
+            "band_eqs" : 
+            [
+              0,
+              0
+            ]
+          },
+          "use_simple_eq" : false
+        },
+        {
+          "advanced_eq" : 
+          {
+            "band_eqs" : 
+            [
+              0,
+              -2,
+              -3,
+              0,
+              5,
+              2,
+              4,
+              9,
+              4,
+              0
+            ]
+          },
+          "id" : "{ef41d663-a955-4e22-9572-9c7fd395e526}",
+          "name" : "MOBA",
+          "readonly" : true,
+          "simple_eq" : 
+          {
+            "band_eqs" : 
+            [
+              0,
+              0
+            ]
+          },
+          "use_simple_eq" : false
+        },
+        {
+          "advanced_eq" : 
+          {
+            "band_eqs" : 
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "id" : "{0cbbf073-ffc3-4dd7-a607-8d34749bfa3e}",
+          "name" : "FLAT",
+          "readonly" : true,
+          "simple_eq" : 
+          {
+            "band_eqs" : 
+            [
+              0,
+              0
+            ]
+          },
+          "use_simple_eq" : false
+        },
+		{
+          "advanced_eq" : 
+          {
+            "band_eqs" : 
+            [
+              4,
+              3,
+              2,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "id" : "{ef41d663-a955-4e22-9572-9c7fd395e527}",
+          "name" : "Drop the Bass",
+          "readonly" : true,
+          "simple_eq" : 
+          {
+            "band_eqs" : 
+            [
+              0,
+              0
+            ]
+          },
+          "use_simple_eq" : false
+        },
+		{
+          "advanced_eq" : 
+          {
+            "band_eqs" : 
+            [
+              4,
+              3,
+              2,
+              1,
+              1,
+              2,
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "id" : "{ef41d663-a955-4e22-9572-9c7fd395e528}",
+          "name" : "Cinematic Gaming",
+          "readonly" : true,
+          "simple_eq" : 
+          {
+            "band_eqs" : 
+            [
+              0,
+              0
+            ]
+          },
+          "use_simple_eq" : false
+        },
+		{
+          "advanced_eq" : 
+          {
+            "band_eqs" : 
+            [
+              0,
+              1,
+              1,
+              2,
+              4,
+              5,
+              4,
+              4,
+              2,
+              1
+            ]
+          },
+          "id" : "{ef41d663-a955-4e22-9572-9c7fd395e529}",
+          "name" : "Communications",
+          "readonly" : true,
+          "simple_eq" : 
+          {
+            "band_eqs" : 
+            [
+              0,
+              0
+            ]
+          },
+          "use_simple_eq" : false
+        }
+     ]
+   }
+]]>
+    </preset-eqs>
+    <preset-effects>
+      <![CDATA[{"settings" : 
+      [
+        {
+            "id" : "{ef41d663-a955-4e22-9572-9c7fd395e521}",
+            "name" : "Breathing",
+            "readonly" : true,
+            "zones" :
+            {
+                "1" : 
+                {
+                    "effectid" : 10,
+                    "color" : "#00DCff",
+                    "rate" : 4000,
+                    "intensity" : 100
+                },
+                "2" : 
+                {
+                    "effectid" : 1,
+                    "color" : "#00DCff",
+                    "rate" : 0,
+                    "intensity" : 100
+                }
+            }
+        },
+        {
+            "id" : "{ef41d663-a955-4e22-9572-9c7fd395e522}",
+            "name" : "Color Cycle",
+            "readonly" : true,
+            "zones" :
+            {
+                "1" : 
+                {
+                    "effectid" : 3,
+                    "color" : "#000000",
+                    "rate" : 10000,
+                    "intensity" : 100
+                },
+                "2" : 
+                {
+                    "effectid" : 3,
+                    "color" : "#00ff00",
+                    "rate" : 10000,
+                    "intensity" : 100
+                }
+            }
+        },
+        {
+            "id" : "{ef41d663-a955-4e22-9572-9c7fd395e523}",
+            "name" : "Solid Color",
+            "readonly" : true,
+            "zones" :
+            {
+                "1" : 
+                {
+                    "effectid" : 1,
+                    "color" : "#00DCff",
+                    "rate" : 0,
+                    "intensity" : 100
+                },
+                "2" : 
+                {
+                    "effectid" : 1,
+                    "color" : "#00DCff",
+                    "rate" : 0,
+                    "intensity" : 100
+                }
+            }
+        }
+     ]
+   }
+]]>
+    </preset-effects>
+  <feature view_id="device_view"/>	 
+  <feature view_id="macroassignment_view"/>  
+  <feature view_id="f8070_colorLEDEffects_view"/>
+  <feature view_id="battery_assistant_view"/>
+  <feature view_id="audiolevels_view"/>
+  <feature view_id="surroundsound_view"/>
+
+    <colorLEDEffects enableSimulation="1" enableGamma="1" enableInverseGamma="1">
+        <logo enabled="false" effectId="1" intensity="100" rate="3000" color="#FF0000"/>
+        <primary enabled="false" effectId="10" intensity="100" rate="3000" color="#00FFFF"/>
+        <combined enabled="false" effectId="10" intensity="100" rate="3000" color="#00FFFF"/>
+        <sleepTimer enabled="false" timeout="30" />
+      </colorLEDEffects>
+
+    <f8070_colorLEDEffects_view viewid="f8070_colorLEDEffects_view" >
+      <transform x="150" y="-100" scale="0.8"/>
+		<ledoff image="IDR_G933_NO_GLOW"/>
+		<logoGlow image="IDR_G933_LOGO_GLOW" x="349" y="801"/>
+		<primaryGlow image="IDR_G933_SIDE_GLOW" x="402" y="454"/>
+    </f8070_colorLEDEffects_view>
+
+    <battery_assistant_view viewid="battery_assistant_view">
+      <transform x="150" y="-100" scale="0.8" />
+    </battery_assistant_view>
+    
+    <deviceviewmetadata viewid="device_view">
+      <transform x="100" y="-60" scale=".8"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" scale=".8" image="IDR_G933_GROUP_BUTTON" left="480" top="375"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="150" y="-230" scale="1.0"/>
+      <pulseGlows>
+        <pulseGlow x="624" y="315" scale="1" image="IDR_G933_GROUP_BUTTON">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="81" height="70">
+	  <control id="G1">
+          <pixmap image="IDR_G933_BOTTOM_BUTTON" x="638" y="425" outline="IDR_G933_BOTTOM_BUTTON_OUTLINE"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <function xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Function">
+              <do task="cycle_effect"/>
+            </function>
+          </generic_assignment>
+          <assignment_label custom="false" x="710" y="475" min_width="90" max_width="240"/>
+        </control>
+        <control id="G2">
+          <pixmap image="IDR_G933_MIDDLE_BUTTON" x="645" y="365" outline="IDR_G933_MIDDLE_BUTTON_OUTLINE"/>
+		  <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <audio xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Audio">
+              <task command="surroundsoundtoggle"/>
+            </audio>
+          </generic_assignment>
+          <assignment_label custom="false" x="710" y="415" min_width="90" max_width="240"/>
+        </control>
+	    <control id="G3">
+          <pixmap image="IDR_G933_TOP_BUTTON" x="624" y="315" outline="IDR_G933_TOP_BUTTON_OUTLINE"/>
+          <types>
+            <type name="button"/>
+          </types>          
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <audio xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Audio">
+              <task command="eqcycle"/>
+            </audio>
+          </generic_assignment>
+		  <context_button>
+            <point x="674" y="365"/>
+          </context_button>
+          <assignment_label custom="false" x="710" y="350" min_width="90" max_width="240"/>
+        </control>
+
+	  </controls>
+    </macroassignmentmetadata>
+    <audiolevelsmetadata viewid="audiolevels_view">
+      <transform x="60" y="10" scale=".72"/>
+      <subimages>
+        <subimage scale="2" image="IDR_G35_PULSEGLOW_G35_LEVELS" left="629" top="300"/>
+      </subimages>
+    </audiolevelsmetadata>
+    <surroundsoundmetadata viewid="surroundsound_view">
+      <transform x="60" y="10" scale="0.72"/>
+    </surroundsoundmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G933 Artemis Spectrum</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G933 Artemis Spectrum</string>
+      </locale>
+    </strings>
+  </device>
+</devicemanifest>

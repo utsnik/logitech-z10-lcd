@@ -1,0 +1,84 @@
+; Inf for LGPBTDD LCD Driver.
+;
+; (c) Copyright 2008-2009 Logitech. All rights reserved.
+
+[Version]
+Signature="$CHICAGO$"
+Class=%LGLCD%
+ClassGUID={B91B7968-6435-4966-8928-79BF082E3E30}
+Provider=%LOGI%
+DriverVer=07/01/2009, 3.03.107.0
+CatalogFile.NTx86  = LGPBTDDx86.cat
+CatalogFile.NTAMD64 = LGPBTDDx64.cat
+
+[ClassInstall32]
+AddReg=LGLCDClassReg
+
+[LGLCDClassReg]
+HKR,,,,%LGLCD%
+HKR,,Icon,,-1
+HKR,,NoInstallClass,,1
+
+
+[SourceDisksNames]
+1=%Disk_Description%,,,
+
+[SourceDisksFiles]
+LGPBTDD.sys = 1
+
+[Manufacturer]
+%LOGI%=Models, NTx86, NTamd64
+
+[Models.NTx86]
+%USB\VID_046D&PID_C250.DeviceDesc%=LGPBTDD.Dev, USB\VID_046D&PID_C250
+%USB\VID_046D&PID_C229.DeviceDesc%=LGPBTDD.Dev, USB\VID_046D&PID_C229&MI_00
+%USB\VID_046D&PID_C629.DeviceDesc%=LGPBTDD.Dev, USB\VID_046D&PID_C629&MI_00
+
+[Models.NTamd64]
+%USB\VID_046D&PID_C250.DeviceDesc%=LGPBTDD.Dev, USB\VID_046D&PID_C250
+%USB\VID_046D&PID_C229.DeviceDesc%=LGPBTDD.Dev, USB\VID_046D&PID_C229&MI_00
+%USB\VID_046D&PID_C629.DeviceDesc%=LGPBTDD.Dev, USB\VID_046D&PID_C629&MI_00
+
+[DestinationDirs]
+LGPBTDD.Files.Ext = 10,System32\Drivers
+
+[LGPBTDD.Dev.NT]
+CopyFiles=LGPBTDD.Files.Ext
+
+[LGPBTDD.Dev.NT.Services]
+AddService=LGPBTDD, 0x00000002, LGPBTDD.AddService
+
+[LGPBTDD.AddService]
+DisplayName    = %LGPBTDD.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\LGPBTDD.sys
+AddReg         = LGPBTDD.AddReg
+LoadOrderGroup = Base
+
+[LGPBTDD.AddReg]
+;HKR,"Parameters","DebugLevel",0x10001,2
+
+[LGPBTDD.Files.Ext]
+LGPBTDD.sys
+
+;---------------------------------------------------------------;
+
+[Strings]
+LOGI="Logitech"
+LGLCD="Logitech LCDs"
+Disk_Description="LGPBTDD LCD Installation Disk"
+USB\VID_046D&PID_C250.DeviceDesc="Cartman Prototype"
+USB\VID_046D&PID_C229.DeviceDesc="Logitech G19 LCD"
+USB\VID_046D&PID_C629.DeviceDesc="3Dconnexion SpacePilot PRO"
+LGPBTDD.SvcDesc="LGPBTDD.sys Display Driver"
+
+[Strings.0411]
+LOGI="Logicool"
+LGLCD="Logicool LCDs"
+Disk_Description="LGPBTDD LCD Installation Disk"
+USB\VID_046D&PID_C250.DeviceDesc="Cartman Prototype"
+USB\VID_046D&PID_C229.DeviceDesc="Logicool G19 LCD"
+USB\VID_046D&PID_C629.DeviceDesc="3Dconnexion SpacePilot PRO"
+LGPBTDD.SvcDesc="LGPBTDD.sys Display Driver"

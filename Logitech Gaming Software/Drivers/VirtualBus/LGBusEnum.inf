@@ -1,0 +1,126 @@
+;; LGBusEnum.inf
+;; Logitech Virtual Bus Enumerator INF file
+;;
+;; Part of Logitech Gaming Software
+;;
+;; Copyright 2001-2021 Logitech. All rights reserved.
+
+[Version]
+Signature="$CHICAGO$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%Vendor%
+DriverVer=04/22/2022, 9.04.030.0
+CatalogFile=LGBusEnum.cat
+PnpLockdown=1
+
+[SourceDisksNames]
+55=%DiskDesc%,,,
+
+[SourceDisksFiles]
+LGBusEnum32.sys=55
+LGBusEnum64.sys=55
+LGJoyXlCore32.sys=55
+LGJoyXlCore64.sys=55
+
+[DestinationDirs]
+DefaultDestDir = 12
+Drivers_Dir32 = 12
+Drivers_Dir64 = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%StdMfg%=Standard, NTx86, NTamd64
+
+[Standard.NTx86]
+%LogiVirtualBus.DeviceDesc%=LogiVirtualBus_Device32, root\LogiGamePanelVirtualBus
+
+[Standard.NTamd64]
+%LogiVirtualBus.DeviceDesc%=LogiVirtualBus_Device64, root\LogiGamePanelVirtualBus
+
+[LogiVirtualBus_Device32]
+CopyFiles=Drivers_Dir32
+
+[LogiVirtualBus_Device64]
+CopyFiles=Drivers_Dir64
+
+[Drivers_Dir32]
+LGBusEnum32.sys
+LGJoyXlCore32.sys
+
+[Drivers_Dir64]
+LGBusEnum64.sys
+LGJoyXlCore64.sys
+
+[LogiVirtualBus_Device32.HW]
+AddReg = LGJoyXlCore_LogiBus_Filter.AddReg.HW
+
+[LogiVirtualBus_Device64.HW]
+AddReg = LGJoyXlCore_LogiBus_Filter.AddReg.HW
+
+[LGJoyXlCore_LogiBus_Filter.AddReg.HW]
+HKR,,"UpperFilters",0x00010000,"LGJoyXlCore"
+
+[LogiVirtualBus_Device32.Services]
+AddService = LGBusEnum, 0x00000002, Virtual_Bus_Enum_Service_Inst32
+AddService = LGJoyXlCore, , Virtual_Bus_Enum_LGJoyXlCore_Service_Inst32
+
+[LogiVirtualBus_Device64.Services]
+AddService = LGBusEnum, 0x00000002, Virtual_Bus_Enum_Service_Inst64
+AddService = LGJoyXlCore, , Virtual_Bus_Enum_LGJoyXlCore_Service_Inst64
+
+[Virtual_Bus_Enum_Service_Inst32]
+DisplayName    = %LGBusEnum32.SVCDESC%
+ServiceType    = 1 ; SERVICE_KERNEL_DRIVER
+StartType      = 3 ; SERVICE_DEMAND_START
+ErrorControl   = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\LGBusEnum32.sys
+LoadOrderGroup = Extended Base
+
+[Virtual_Bus_Enum_Service_Inst64]
+DisplayName    = %LGBusEnum64.SVCDESC%
+ServiceType    = 1 ; SERVICE_KERNEL_DRIVER
+StartType      = 3 ; SERVICE_DEMAND_START
+ErrorControl   = 1 ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\LGBusEnum64.sys
+LoadOrderGroup = Extended Base
+
+[Virtual_Bus_Enum_LGJoyXlCore_Service_Inst32]
+DisplayName    = %LGJoyXlCore32.SVCDESC%
+ServiceType    = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType      = 3 ;%SERVICE_DEMAND_START%
+ErrorControl   = 0 ;%SERVICE_ERROR_IGNORE%
+ServiceBinary  = %10%\system32\drivers\LGJoyXlCore32.sys
+LoadOrderGroup = Extended Base
+
+[Virtual_Bus_Enum_LGJoyXlCore_Service_Inst64]
+DisplayName    = %LGJoyXlCore64.SVCDESC%
+ServiceType    = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType      = 3 ;%SERVICE_DEMAND_START%
+ErrorControl   = 0 ;%SERVICE_ERROR_IGNORE%
+ServiceBinary  = %10%\system32\drivers\LGJoyXlCore64.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+Vendor   = "Logitech"
+DiskDesc ="Logitech Gaming Software"
+StdMfg   = "(Standard system devices)"
+
+LogiVirtualBus.DeviceDesc = "Logitech Gaming Virtual Bus Enumerator"
+LGJoyXlCore32.SVCDESC     = "Logitech Translation Layer Driver (LGS, 32-bit)"
+LGJoyXlCore64.SVCDESC     = "Logitech Translation Layer Driver (LGS, 64-bit)"
+LGBusEnum32.SVCDESC       = "Logitech Gaming Virtual Bus Enumerator Driver (32-bit)"
+LGBusEnum64.SVCDESC       = "Logitech Gaming Virtual Bus Enumerator Driver (64-bit)"
+
+[Strings.0411]
+Vendor   = "Logicool"
+DiskDesc ="Logicool Gaming Software"
+StdMfg   = "(Standard system devices)"
+
+LogiVirtualBus.DeviceDesc = "Logicool Gaming Virtual Bus Enumerator"
+LGJoyXlCore32.SVCDESC     = "Logicool Translation Layer Driver (LGS, 32-bit)"
+LGJoyXlCore64.SVCDESC     = "Logicool Translation Layer Driver (LGS, 64-bit)"
+LGBusEnum32.SVCDESC       = "Logicool Gaming Virtual Bus Enumerator Driver (32-bit)"
+LGBusEnum64.SVCDESC       = "Logicool Gaming Virtual Bus Enumerator Driver (64-bit)"

@@ -1,0 +1,299 @@
+* 
+{ 
+-webkit-touch-callout: none;  -webkit-user-select: none;  
+}
+
+body
+{
+    background:rgba(180,180,180,0.8);
+    font-size:25px;
+	font-family: 'LeagueGothicRegular', Arial, sans-serif;
+}
+#notInGameDiv
+{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    z-index:999999;
+    background:rgba(0,0,0,0.8);
+}
+#notInGamePopup
+{
+    display:table;
+    position:absolute;
+    top:33%;
+    left:35%;
+    width:30%;
+    height:33%;
+    padding-top:10px;
+    border-radius:10px;
+    border: solid thick red;
+    background:rgba(180,180,180,0.8);
+    background-image:url('acLogoOpaque.png');
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position: 50% 50%;
+    font-family: 'LeagueGothicRegular', Arial, sans-serif;
+    font-size:35px;
+    text-align:center;
+}
+
+.ac_background
+{
+    background-image:url('acBackground.png');
+    background-size:contain;
+    background-repeat:repeat-x;
+}
+#notInGameText
+{
+    display:table-cell;
+    height:100%;
+    vertical-align:middle;
+}
+#dashContainer
+{
+    width:100%;
+    height:100%;
+    position:relative;
+	top:22px;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position: 45% 45%;
+}
+#header
+{
+    height:10%;
+    background: -webkit-linear-gradient(rgba(187,25,0,1), rgba(154,27,25,.65));
+    background: linear-gradient(rgba(187,25,0,1), rgba(154,27,25,.65));
+    color:#eee;
+    text-align: justify;
+	padding-top:15px;
+    border-radius:5px;
+    z-index:999999;
+}
+#footer
+{
+    height:5%;
+}
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
+.headerElement
+{
+    display:inline-block;
+    vertical-align:middle;
+    width:28%;
+    height:100%;
+    margin-left:1%;
+    margin-right:1%;
+    margin-top:-6%;
+    text-overflow:ellipsis;
+    font-family: 'LeagueGothicRegular', Arial, sans-serif;
+    font-size:25px;
+    text-align:center;
+}
+#playerNameDisplay
+{
+    width:15%;
+}
+#pageIndicator
+{
+    width:4%;
+    height:50%;
+    margin-left:auto;
+    margin-right:auto;
+}
+.pageDot
+{
+    display:inline-block;
+    width:25%;
+    height:55%;
+    border-radius:50%;
+    border:thin solid #aaa;
+    background-color:transparent;
+    margin-left:auto;
+    margin-right:auto;
+}
+#acLogo
+{
+    margin-top:0px;
+    margin-left:0px;
+    width:15%;
+    height:200%;
+    border-radius:5px;
+    padding:0.1%;
+}
+
+#acLogoVerticalHelper
+{
+    display:inline-block;
+    height:100%;
+    width:0%;
+    vertical-align:middle;
+}
+#acLogoImg
+{
+    display:inline-block;
+    margin-left:auto;
+    margin-right:auto;
+    width:90%;
+    vertical-align:middle;
+}
+#pageFrame
+{
+    width:100%;
+    height:82%;
+    margin-top:1%;
+    max-width:100%;
+    overflow:hidden;
+}
+.pageDiv
+{
+    position:relative;
+    width:100%;
+    height:100%;
+    display:block;
+    clear:both;
+}
+#secondPage
+{
+    background-color:transparent;
+    position:absolute;
+    z-index: -1;
+    top:10%;
+    left:100%;
+    height:80%;
+}
+#carStatusWrapper
+{
+    display:inline-block;
+    width:60%;
+    margin-left:5%;
+    height:90%;
+}
+#sessionInfoWrapper
+{
+    display:inline-block;
+    height:100%;
+    margin-left:5%;
+    width:28%;
+    text-align:center;
+    border-radius:5px;
+    vertical-align:top;
+	background-color:rgba(28,28,28,1);
+}
+#sessionInfoTable
+{
+    height:100%;
+    width:100%;
+    font-size:30px;
+    text-align:center;
+   
+}
+.sessioInfoLabel
+{
+   color:#ccc;
+}
+.sessionInfoValue
+{
+   color:rgb(244,244,244);
+}
+.sessionInfoHeader
+{
+   background: -webkit-linear-gradient(rgba(187,25,0,.7), rgba(154,27,25,.55));
+   background: linear-gradient(rgba(187,25,0,.7), rgba(154,27,25,.55));
+   color:#eee;
+}
+.sessionInfoElementTextOdd
+{
+    
+    font-family:'LeagueGothicRegular', Arial, sans-serif;
+    font-size:22px;
+    background-color:rgba(28,28,28,1);
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.sessionInfoElementTextEven
+{
+    color:#bbb;
+    font-family:'LeagueGothicRegular', Arial, sans-serif;
+    font-size:22px;
+    background:rgba(36,36,36,1);
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+#carStatusTable
+{
+    margin-top:6%;
+    width:100%;
+    height:90%;
+}
+
+.tireInfoBox
+{
+    background:rgba(0,0,0,0.8);
+    width:90%;
+    height:9em;
+    max-height:300px;
+    line-height:100%;
+    border-radius:10px;
+    margin-left:auto;
+    margin-right:auto;
+    color:yellow;
+}
+.tireInfoCell
+{
+    width:30%;
+    height:10em;
+}
+.tireInfoText
+{
+    display:inline-block;
+    float:left;
+    width:40%;
+    margin-left:10%;
+    padding-top:2em;
+    vertical-align:middle;
+}
+.tireInfoData
+{
+    display:inline-block;
+    float:right;
+    width:30%;
+    padding-top:2em;
+    vertical-align:middle;
+}
+#damageCell
+{
+    vertical-align:top;
+}
+
+#speedDial
+{
+    display:inline-block;
+    margin-top:2%;
+    width:49%;
+    height:85%;
+}
+#rpmDial
+{
+    display:inline-block;
+    margin-top:2%;
+    width:49%;
+    height:85%;
+}
+#fuelIndicator
+{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    height:15%;
+    width:30%;
+
+}

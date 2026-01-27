@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<devicebar>
+    <logo width="150"/>
+    <deviceBtn width="276" offsetToBottom="8"/>
+    <featureBtn width="70" offsetToBottom="8"/>
+    <separator padding="10"/>
+    <settingsBtn width="70" offsetToBottom="8"/>
+    <helpBtn width="86" offsetToBottom="10"/>
+</devicebar>

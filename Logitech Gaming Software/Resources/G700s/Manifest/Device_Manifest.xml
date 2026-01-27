@@ -1,0 +1,1550 @@
+<?xml version='1.0' encoding='utf-8'?>
+<devicemanifest xmlns="http://www.logitech.com/Cassandra/2010.3/DeviceManifest">
+  <device model="Logitech.Gaming.Mouse.G700">
+    <probes>
+      <hid_probe usagepage="0xFF00" usage="1" pid="0xC531" vid="0x046d"/>
+      <hid_probe usagepage="0xFF00" usage="2" pid="0xC531" vid="0x046d"/>
+      <hidfilter_probe pid="0xC531" vid="0x046d"/>
+    </probes>
+    <equad qid="0x8006"/>
+    <battery turnOffInterval="900" lowBattTime="3600" pollInterval="120" lowBattInformInterval="900"/>
+    <indicator name="BatteryWidget"/>
+    <indicator name="hppOnboardHostSelector"/>
+    <indicator name="sleepIndicator"/>
+    <thumbnails>
+      <thumbnail image="IDR_G700_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G700_DEVICE_REGION" name="device" lu_id="c06b_G700"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.G700">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.G700"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="true"/>
+      <dpitable defaultindex="2" shiftindex="0">
+        <dpi x="400" y="400"/>
+        <dpi x="800" y="800"/>
+        <dpi x="1200" y="1200"/>
+        <dpi x="1600" y="1600"/>
+        <dpi x="3200" y="3200"/>
+      </dpitable>
+      <reportrate default="500"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="onboard_view"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="180" y="164" scale="0.69"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_G700_PULSEGLOW" left="187" top="154"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" image="IDR_G700_PULSEGLOW" left="187" top="154"/>
+      </hotspots>
+      <pulseGlows>
+        <pulseGlow x="695" y="163" scale="1.0" image="IDR_ONBOARD_MOUSE_SETTINGS_PULSEGLOW" mode="onboard">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+        <pulseGlow x="840" y="163" scale="1.0" image="IDR_PROFILE_MOUSE_SETTINGS_PULSEGLOW" mode="host">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="456" y="198" scale="1.0"/>
+      <pulseGlows>
+        <pulseGlow x="468" y="184" image="IDR_G700_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="-1" height="-1" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN1" x="59" y="20" outline="IDR_G700_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="652" y="264"/>
+          </context_button>
+          <assignment_label custom="false" x="512" y="252" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN2" x="282" y="11" outline="IDR_G700_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="898" y="248"/>
+          </context_button>
+          <assignment_label custom="false" x="868" y="236" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN3" x="196" y="-17" outline="IDR_G700_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="713" y="205"/>
+          </context_button>
+          <assignment_label custom="false" x="654" y="172" min_width="110" max_width="200">
+            <connect_line y1="184" x1="714" y2="210" x2="714"/>
+          </assignment_label>
+        </control>
+        <control id="Button4">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN4" x="172" y="241" outline="IDR_G700_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="back"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="718" y="504"/>
+          </context_button>
+          <assignment_label custom="false" x="604" y="536" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN5" x="82" y="193" outline="IDR_G700_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="forward"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="623" y="457"/>
+          </context_button>
+          <assignment_label custom="false" x="483" y="460" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN6" x="165" y="201" outline="IDR_G700_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="702" y="443"/>
+          </context_button>
+          <assignment_label custom="false" x="720" y="465" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN7" x="62" y="150" outline="IDR_G700_OUTLINE_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="559" y="377"/>
+          </context_button>
+          <assignment_label custom="false" x="600" y="396" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN8" x="56" y="78" outline="IDR_G700_OUTLINE_BTN8"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="568" y="307"/>
+          </context_button>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="batterylevel"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="325" y="410" min_width="110" max_width="200">
+            <connect_line x1="445" y1="403" x2="544" y2="336"/>
+          </assignment_label>
+        </control>
+        <control id="Button9">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN9" x="29" y="74" outline="IDR_G700_OUTLINE_BTN9"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpidown"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="514" y="298"/>
+          </context_button>
+          <assignment_label custom="false" x="325" y="360" min_width="110" max_width="200">
+            <connect_line x1="445" y1="358" x2="512" y2="328"/>
+          </assignment_label>
+        </control>
+        <control id="Button10">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN10" x="11" y="58" outline="IDR_G700_OUTLINE_BTN10"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpiup"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="483" y="280"/>
+          </context_button>
+          <assignment_label custom="false" x="325" y="310" min_width="110" max_width="200">
+            <connect_line x1="445" y1="311" x2="483" y2="305"/>
+          </assignment_label>
+        </control>
+        <control id="Button11">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN11" x="313" y="45" outline="IDR_G700_OUTLINE_BTN11"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <assignment_label custom="false" x="844" y="286" min_width="110" max_width="200">
+          </assignment_label>
+        </control>
+        <control id="Button12">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" x="205" y="0" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="scrollleft"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="519" y="186" min_width="110" max_width="200">
+            <connect_line x1="620" y1="198" x2="678" y2="240"/>
+          </assignment_label>
+        </control>
+        <control id="Button13">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" x="270" y="-7" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="scrollright"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="802" y="186" min_width="110" max_width="200">
+            <connect_line x1="820" y1="198" x2="760" y2="225"/>
+          </assignment_label>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <onboardmetadata viewid="onboard">
+      <transform x="80" y="150" scale="0.8"/>
+      <pulseGlows>
+        <pulseGlow x="90" y="138" image="IDR_G700_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls>
+        <control id="Button1">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN1" relative_x="59" relative_y="20" outline="IDR_G700_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="0" relative_y="-100"/>
+          <assignment_label custom="false" x="50" y="40" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN2" relative_x="282" relative_y="11" outline="IDR_G700_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="0" relative_y="-120"/>
+          <assignment_label custom="false" x="400" y="20" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN3" relative_x="196" relative_y="-17" outline="IDR_G700_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-40" relative_y="-130"/>
+          <assignment_label custom="false" x="210" y="-25" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button4">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN4" relative_x="172" relative_y="241" outline="IDR_G700_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-115"/>
+          <assignment_label custom="false" x="130" y="250" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN5" relative_x="82" relative_y="193" outline="IDR_G700_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-120"/>
+          <assignment_label custom="false" x="46" y="202" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN6" relative_x="165" relative_y="201" outline="IDR_G700_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-10" relative_y="-90"/>
+          <assignment_label custom="false" x="234" y="186" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN7" relative_x="62" relative_y="152" outline="IDR_G700_OUTLINE_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-20" relative_y="-110"/>
+          <assignment_label custom="false" x="150" y="140" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN8" relative_x="56" relative_y="78" outline="IDR_G700_OUTLINE_BTN8"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="166" y="96" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button9">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN9" relative_x="29" relative_y="74" outline="IDR_G700_OUTLINE_BTN9"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="-10" y="110" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button10">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN10" relative_x="11" relative_y="58" outline="IDR_G700_OUTLINE_BTN10"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="-20" y="70" min_width="100" max_width="200"/>
+        </control>
+        <control id="Button11">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN11" relative_x="313" relative_y="45" outline="IDR_G700_OUTLINE_BTN11"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="370" y="70" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button12">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" relative_x="205" relative_y="0" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="85" y="5" min_width="110" max_width="200">
+            <connect_line x1="39" y1="-132" x2="57" y2="-110"/>
+          </assignment_label>
+        </control>
+        <control id="Button13">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" relative_x="270" relative_y="-7" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="340" y="-10" min_width="110" max_width="200">
+            <connect_line x1="-104" y1="-104" x2="-80" y2="-134" />
+          </assignment_label>
+        </control>
+      </controls>
+    </onboardmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="30" y="164" scale="0.69"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G700</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G700</string>
+      </locale>
+    </strings>
+  </device>
+  <device model="Logitech.Gaming.Mouse.G700">
+    <probes>
+      <hid_probe usagepage="0xFF00" usage="1" pid="0xC06b" vid="0x046d"/>
+      <hid_probe usagepage="0xFF00" usage="2" pid="0xC06b" vid="0x046d"/>
+      <hidfilter_probe pid="0xC06b" vid="0x046d"/>
+    </probes>
+    <equad qid="0x1023"/>
+    <battery turnOffInterval="900" lowBattTime="3600" pollInterval="120" lowBattInformInterval="900"/>
+    <indicator name="BatteryWidget"/>
+    <indicator name="hppOnboardHostSelector"/>
+    <thumbnails>
+      <thumbnail image="IDR_G700_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G700_DEVICE_REGION" name="device" lu_id="c06b_G700"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.G700">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.G700"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="true"/>
+      <dpitable defaultindex="2" shiftindex="0">
+        <dpi x="400" y="400"/>
+        <dpi x="800" y="800"/>
+        <dpi x="1200" y="1200"/>
+        <dpi x="1600" y="1600"/>
+        <dpi x="3200" y="3200"/>
+      </dpitable>
+      <reportrate default="500"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="onboard_view"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="180" y="164" scale="0.69"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_G700_PULSEGLOW" left="187" top="154"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" image="IDR_G700_PULSEGLOW" left="187" top="154"/>
+      </hotspots>
+      <pulseGlows>
+        <pulseGlow x="695" y="163" scale="1.0" image="IDR_ONBOARD_MOUSE_SETTINGS_PULSEGLOW" mode="onboard">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+        <pulseGlow x="840" y="163" scale="1.0" image="IDR_PROFILE_MOUSE_SETTINGS_PULSEGLOW" mode="host">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>      
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="456" y="198" scale="1.0"/>
+      <pulseGlows>
+        <pulseGlow x="468" y="184" image="IDR_G700_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="-1" height="-1" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN1" x="59" y="20" outline="IDR_G700_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="652" y="264"/>
+          </context_button>
+          <assignment_label custom="false" x="512" y="252" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN2" x="282" y="11" outline="IDR_G700_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="898" y="248"/>
+          </context_button>
+          <assignment_label custom="false" x="868" y="236" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN3" x="196" y="-17" outline="IDR_G700_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="713" y="205"/>
+          </context_button>
+          <assignment_label custom="false" x="654" y="172" min_width="110" max_width="200">
+            <connect_line y1="184" x1="714" y2="210" x2="714"/>
+          </assignment_label>
+        </control>
+        <control id="Button4">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN4" x="172" y="241" outline="IDR_G700_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="back"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="718" y="504"/>
+          </context_button>
+          <assignment_label custom="false" x="604" y="536" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN5" x="82" y="193" outline="IDR_G700_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="forward"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="623" y="457"/>
+          </context_button>
+          <assignment_label custom="false" x="483" y="460" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN6" x="165" y="201" outline="IDR_G700_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="702" y="443"/>
+          </context_button>
+          <assignment_label custom="false" x="720" y="465" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN7" x="62" y="150" outline="IDR_G700_OUTLINE_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="559" y="377"/>
+          </context_button>
+          <assignment_label custom="false" x="600" y="396" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN8" x="56" y="78" outline="IDR_G700_OUTLINE_BTN8"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="568" y="307"/>
+          </context_button>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="batterylevel"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="325" y="410" min_width="110" max_width="200">
+            <connect_line x1="445" y1="403" x2="544" y2="336"/>
+          </assignment_label>
+        </control>
+        <control id="Button9">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN9" x="29" y="74" outline="IDR_G700_OUTLINE_BTN9"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpidown"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="514" y="298"/>
+          </context_button>
+          <assignment_label custom="false" x="325" y="360" min_width="110" max_width="200">
+            <connect_line x1="445" y1="358" x2="512" y2="328"/>
+          </assignment_label>
+        </control>
+        <control id="Button10">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN10" x="11" y="58" outline="IDR_G700_OUTLINE_BTN10"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpiup"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="483" y="280"/>
+          </context_button>
+          <assignment_label custom="false" x="325" y="310" min_width="110" max_width="200">
+            <connect_line x1="445" y1="311" x2="483" y2="305"/>
+          </assignment_label>
+        </control>
+        <control id="Button11">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN11" x="313" y="45" outline="IDR_G700_OUTLINE_BTN11"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <assignment_label custom="false" x="844" y="286" min_width="110" max_width="200">
+          </assignment_label>
+        </control>
+        <control id="Button12">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" x="205" y="0" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="scrollleft"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="519" y="186" min_width="110" max_width="200">
+            <connect_line x1="620" y1="198" x2="678" y2="240"/>
+          </assignment_label>
+        </control>
+        <control id="Button13">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" x="270" y="-7" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="scrollright"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="802" y="186" min_width="110" max_width="200">
+            <connect_line x1="820" y1="198" x2="760" y2="225"/>
+          </assignment_label>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <onboardmetadata viewid="onboard">
+      <transform x="80" y="150" scale="0.8"/>
+      <pulseGlows>
+        <pulseGlow x="90" y="138" image="IDR_G700_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls>
+        <control id="Button1">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN1" relative_x="59" relative_y="20" outline="IDR_G700_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="0" relative_y="-100"/>
+          <assignment_label custom="false" x="50" y="40" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN2" relative_x="282" relative_y="11" outline="IDR_G700_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="0" relative_y="-120"/>
+          <assignment_label custom="false" x="400" y="20" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN3" relative_x="196" relative_y="-17" outline="IDR_G700_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-40" relative_y="-130"/>
+          <assignment_label custom="false" x="210" y="-25" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button4">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN4" relative_x="172" relative_y="241" outline="IDR_G700_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-115"/>
+          <assignment_label custom="false" x="130" y="250" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN5" relative_x="82" relative_y="193" outline="IDR_G700_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-120"/>
+          <assignment_label custom="false" x="46" y="202" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN6" relative_x="165" relative_y="201" outline="IDR_G700_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-10" relative_y="-90"/>
+          <assignment_label custom="false" x="234" y="186" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN7" relative_x="62" relative_y="152" outline="IDR_G700_OUTLINE_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-20" relative_y="-110"/>
+          <assignment_label custom="false" x="150" y="140" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN8" relative_x="56" relative_y="78" outline="IDR_G700_OUTLINE_BTN8"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="166" y="96" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button9">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN9" relative_x="29" relative_y="74" outline="IDR_G700_OUTLINE_BTN9"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="-10" y="110" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button10">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN10" relative_x="11" relative_y="58" outline="IDR_G700_OUTLINE_BTN10"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="-20" y="70" min_width="100" max_width="200"/>
+        </control>
+        <control id="Button11">
+          <pixmap image="IDR_G700_PULSEGLOW_BTN11" relative_x="313" relative_y="45" outline="IDR_G700_OUTLINE_BTN11"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="370" y="70" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button12">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" relative_x="205" relative_y="0" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="85" y="5" min_width="110" max_width="200">
+            <connect_line x1="39" y1="-132" x2="57" y2="-110"/>
+          </assignment_label>
+        </control>
+        <control id="Button13">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" relative_x="270" relative_y="-7" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="340" y="-10" min_width="110" max_width="200">
+            <connect_line x1="-104" y1="-104" x2="-80" y2="-134" />
+          </assignment_label>
+        </control>
+      </controls>
+    </onboardmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="30" y="164" scale="0.69"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G700</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G700</string>
+      </locale>
+    </strings>
+  </device>
+  <device model="Logitech.Gaming.Mouse.G700s">
+    <probes>
+      <hid_probe usagepage="0xFF00" usage="1" pid="0xC531" vid="0x046d"/>
+      <hid_probe usagepage="0xFF00" usage="2" pid="0xC531" vid="0x046d"/>
+      <hidfilter_probe pid="0xC531" vid="0x046d"/>
+    </probes>
+    <equad qid="0x102A"/>
+    <battery turnOffInterval="900" lowBattTime="3600" pollInterval="120" lowBattInformInterval="900"/>
+    <indicator name="BatteryWidget"/>
+    <indicator name="hppOnboardHostSelector"/>
+    <indicator name="sleepIndicator"/>
+    <thumbnails>
+      <thumbnail image="IDR_G700S_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G700S_DEVICE" name="device" lu_id="c531_G700s"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.G700">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.G700"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="true"/>
+      <dpitable defaultindex="1" shiftindex="0">
+        <dpi x="400" y="400"/>
+        <dpi x="800" y="800"/>
+        <dpi x="1200" y="1200"/>
+        <dpi x="1600" y="1600"/>
+        <dpi x="3200" y="3200"/>
+      </dpitable>
+      <reportrate default="500"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="onboard_view"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="180" y="144" scale="0.85"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_G700S_PULSEGLOW" left="192" top="139"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" image="IDR_G700S_PULSEGLOW" left="192" top="139"/>
+      </hotspots>
+      <pulseGlows>
+        <pulseGlow x="695" y="163" scale="1.0" image="IDR_ONBOARD_MOUSE_SETTINGS_PULSEGLOW" mode="onboard">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+        <pulseGlow x="840" y="163" scale="1.0" image="IDR_PROFILE_MOUSE_SETTINGS_PULSEGLOW" mode="host">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="456" y="198" scale="1.0"/>
+      <pulseGlows>
+        <pulseGlow x="474" y="193" image="IDR_G700S_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="-1" height="-1" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN1" x="21" y="69" outline="IDR_G700S_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="590" y="328"/>
+          </context_button>
+          <assignment_label custom="false" x="487" y="323" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN2" x="146" y="-5" outline="IDR_G700S_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="780" y="270"/>
+          </context_button>
+          <assignment_label custom="false" x="727" y="262" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN3" x="116" y="40" outline="IDR_G700S_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="650" y="280"/>
+          </context_button>
+          <assignment_label custom="false" x="545" y="188" min_width="110" max_width="200">
+            <connect_line y1="199" x1="600" y2="275" x2="630"/>
+          </assignment_label>
+        </control>
+        <control id="Button4">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN4" x="209" y="326" outline="IDR_G700S_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="back"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="760" y="575"/>
+          </context_button>
+          <assignment_label custom="false" x="598" y="577" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN5" x="125" y="282" outline="IDR_G700S_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="forward"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="648" y="520"/>
+          </context_button>
+          <assignment_label custom="false" x="500" y="531" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN6" x="188" y="294" outline="IDR_G700S_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="740" y="545"/>
+          </context_button>
+          <assignment_label custom="false" x="745" y="534" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN7" x="108" y="239" outline="IDR_G700S_OUTLINE_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="630" y="495"/>
+          </context_button>
+          <assignment_label custom="false" x="637" y="478" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN8" x="77" y="166" outline="IDR_G700S_OUTLINE_BTN8"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="578" y="400"/>
+          </context_button>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="batterylevel"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="350" y="482" min_width="110" max_width="200">
+            <connect_line x1="470" y1="478" x2="569" y2="416"/>
+          </assignment_label>
+        </control>
+        <control id="Button9">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN9" x="44" y="155" outline="IDR_G700S_OUTLINE_BTN9"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="528" y="393"/>
+          </context_button>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpidown"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="350" y="435" min_width="110" max_width="200">
+            <connect_line x1="470" y1="441" x2="537" y2="411"/>
+          </assignment_label>
+        </control>
+        <control id="Button10">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN10" x="16" y="129" outline="IDR_G700S_OUTLINE_BTN10"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpiup"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="500" y="375"/>
+          </context_button>
+          <assignment_label custom="false" x="351" y="383" min_width="110" max_width="200">
+            <connect_line x1="471" y1="392" x2="509" y2="386"/>
+          </assignment_label>
+        </control>
+        <control id="Button11">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN11" x="261" y="118" outline="IDR_G700S_OUTLINE_BTN11"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <assignment_label custom="false" x="770" y="352" min_width="110" max_width="200">
+          </assignment_label>
+        </control>
+        <control id="Button12">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" x="135" y="75" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="scrollleft"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="450" y="240" min_width="110" max_width="200">
+            <connect_line x1="551" y1="252" x2="619" y2="300"/>
+          </assignment_label>
+        </control>
+        <control id="Button13">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" x="180" y="40" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="scrollright"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="697" y="200" min_width="110" max_width="200">
+            <connect_line x1="720" y1="210" x2="660" y2="280"/>
+          </assignment_label>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <onboardmetadata viewid="onboard">
+      <transform x="80" y="150" scale="0.85"/>
+      <pulseGlows>
+        <pulseGlow x="95" y="147" image="IDR_G700S_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls>
+        <control id="Button1">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN1" relative_x="21" relative_y="69" outline="IDR_G700S_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="60" relative_y="-50"/>
+          <assignment_label custom="false" x="127" y="132" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN2" relative_x="146" relative_y="-5" outline="IDR_G700S_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="50" relative_y="-80"/>
+          <assignment_label custom="false" x="297" y="43" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN3" relative_x="116" relative_y="40" outline="IDR_G700S_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-5" relative_y="-100"/>
+          <assignment_label custom="false" x="140" y="-23" min_width="110" max_width="200">
+            <connect_line x1="-5" y1="-130" x2="-5" y2="-60"/>
+          </assignment_label>
+        </control>
+        <control id="Button4">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN4" relative_x="209" relative_y="326" outline="IDR_G700S_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="10" relative_y="-100"/>
+          <assignment_label custom="false" x="167" y="325" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN5" relative_x="125" relative_y="282" outline="IDR_G700S_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-30" relative_y="-110"/>
+          <assignment_label custom="false" x="81" y="279" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN6" relative_x="188" relative_y="294" outline="IDR_G700S_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-20" relative_y="-110"/>
+          <assignment_label custom="false" x="274" y="266" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN7" relative_x="108" relative_y="239" outline="IDR_G700S_OUTLINE_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-20" relative_y="-95"/>
+          <assignment_label custom="false" x="193" y="227" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN8" relative_x="77" relative_y="166" outline="IDR_G700S_OUTLINE_BTN8"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-30" relative_y="-110"/>
+          <assignment_label custom="false" x="21" y="204" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button9">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN9" relative_x="44" relative_y="155" outline="IDR_G700S_OUTLINE_BTN9"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-40" relative_y="-110"/>
+          <assignment_label custom="false" x="-13" y="172" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button10">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN10" relative_x="16" relative_y="129" outline="IDR_G700S_OUTLINE_BTN10"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-40" relative_y="-110"/>
+          <assignment_label custom="false" x="-12" y="115" min_width="100" max_width="200"/>
+        </control>
+        <control id="Button11">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN11" relative_x="261" relative_y="118" outline="IDR_G700S_OUTLINE_BTN11"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-40" relative_y="-110"/>
+          <assignment_label custom="false" x="272" y="161" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button12">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" relative_x="135" relative_y="75" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="8" y="27" min_width="110" max_width="200">
+            <connect_line x1="9" y1="-130" x2="115" y2="-80"/>
+          </assignment_label>
+        </control>
+        <control id="Button13">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" relative_x="180" relative_y="40" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="280" y="-39" min_width="110" max_width="200">
+            <connect_line x1="-120" y1="-50" x2="-50" y2="-130"/>
+          </assignment_label>
+        </control>
+      </controls>
+    </onboardmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="30" y="164" scale="0.69"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G700s</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G700s</string>
+      </locale>
+    </strings>
+  </device>
+  <device model="Logitech.Gaming.Mouse.G700s">
+    <probes>
+      <hid_probe usagepage="0xFF00" usage="1" pid="0xC07C" vid="0x046d"/>
+      <hid_probe usagepage="0xFF00" usage="2" pid="0xC07C" vid="0x046d"/>
+      <hidfilter_probe pid="0xC07C" vid="0x046d"/>
+    </probes>
+    <equad qid="0x102A"/>
+    <battery turnOffInterval="900" lowBattTime="3600" pollInterval="120" lowBattInformInterval="900"/>
+    <indicator name="BatteryWidget"/>
+    <indicator name="hppOnboardHostSelector"/>
+    <thumbnails>
+      <thumbnail image="IDR_G700S_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G700S_DEVICE" name="device" lu_id="c531_G700s"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.G700">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.G700"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="true"/>
+      <dpitable defaultindex="1" shiftindex="0">
+        <dpi x="400" y="400"/>
+        <dpi x="800" y="800"/>
+        <dpi x="1200" y="1200"/>
+        <dpi x="1600" y="1600"/>
+        <dpi x="3200" y="3200"/>
+      </dpitable>
+      <reportrate default="500"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="onboard_view"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="180" y="144" scale="0.85"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_G700S_PULSEGLOW" left="187" top="154"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="842" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="392"/>
+        <hotspot viewid="onboard_view" image="IDR_G700S_PULSEGLOW" left="187" top="154"/>
+      </hotspots>
+      <pulseGlows>
+        <pulseGlow x="695" y="163" scale="1.0" image="IDR_ONBOARD_MOUSE_SETTINGS_PULSEGLOW" mode="onboard">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+        <pulseGlow x="840" y="163" scale="1.0" image="IDR_PROFILE_MOUSE_SETTINGS_PULSEGLOW" mode="host">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="456" y="198" scale="1.0"/>
+      <pulseGlows>
+        <pulseGlow x="474" y="193" image="IDR_G700S_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="-1" height="-1" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN1" x="21" y="69" outline="IDR_G700S_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="590" y="328"/>
+          </context_button>
+          <assignment_label custom="false" x="487" y="323" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN2" x="146" y="-5" outline="IDR_G700S_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="780" y="270"/>
+          </context_button>
+          <assignment_label custom="false" x="727" y="262" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN3" x="116" y="40" outline="IDR_G700S_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="650" y="280"/>
+          </context_button>
+          <assignment_label custom="false" x="545" y="188" min_width="110" max_width="200">
+            <connect_line y1="199" x1="600" y2="275" x2="630"/>
+          </assignment_label>
+        </control>
+        <control id="Button4">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN4" x="209" y="326" outline="IDR_G700S_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="back"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="760" y="575"/>
+          </context_button>
+          <assignment_label custom="false" x="598" y="577" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN5" x="125" y="282" outline="IDR_G700S_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="forward"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="648" y="520"/>
+          </context_button>
+          <assignment_label custom="false" x="500" y="531" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN6" x="188" y="294" outline="IDR_G700S_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="740" y="545"/>
+          </context_button>
+          <assignment_label custom="false" x="745" y="534" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN7" x="108" y="239" outline="IDR_G700S_OUTLINE_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="630" y="495"/>
+          </context_button>
+          <assignment_label custom="false" x="637" y="478" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN8" x="77" y="166" outline="IDR_G700S_OUTLINE_BTN8"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="578" y="400"/>
+          </context_button>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="batterylevel"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="350" y="482" min_width="110" max_width="200">
+            <connect_line x1="470" y1="478" x2="569" y2="416"/>
+          </assignment_label>
+        </control>
+        <control id="Button9">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN9" x="44" y="155" outline="IDR_G700S_OUTLINE_BTN9"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button>
+            <point x="528" y="393"/>
+          </context_button>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpidown"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="350" y="435" min_width="110" max_width="200">
+            <connect_line x1="470" y1="441" x2="537" y2="411"/>
+          </assignment_label>
+        </control>
+        <control id="Button10">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN10" x="16" y="129" outline="IDR_G700S_OUTLINE_BTN10"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpiup"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="500" y="375"/>
+          </context_button>
+          <assignment_label custom="false" x="351" y="383" min_width="110" max_width="200">
+            <connect_line x1="471" y1="392" x2="509" y2="386"/>
+          </assignment_label>
+        </control>
+        <control id="Button11">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN11" x="261" y="118" outline="IDR_G700S_OUTLINE_BTN11"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <assignment_label custom="false" x="770" y="352" min_width="110" max_width="200">
+          </assignment_label>
+        </control>
+        <control id="Button12">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" x="135" y="75" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="scrollleft"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="450" y="240" min_width="110" max_width="200">
+            <connect_line x1="551" y1="252" x2="619" y2="300"/>
+          </assignment_label>
+        </control>
+        <control id="Button13">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" x="180" y="40" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="scrollright"/>
+            </mousefunction>
+          </generic_assignment>
+          <assignment_label custom="false" x="697" y="200" min_width="110" max_width="200">
+            <connect_line x1="720" y1="210" x2="660" y2="280"/>
+          </assignment_label>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <onboardmetadata viewid="onboard">
+      <transform x="80" y="150" scale="0.85"/>
+      <pulseGlows>
+        <pulseGlow x="95" y="147" image="IDR_G700S_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls>
+        <control id="Button1">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN1" relative_x="21" relative_y="69" outline="IDR_G700S_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="60" relative_y="-50"/>
+          <assignment_label custom="false" x="127" y="132" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN2" relative_x="146" relative_y="-5" outline="IDR_G700S_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="50" relative_y="-80"/>
+          <assignment_label custom="false" x="297" y="43" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN3" relative_x="116" relative_y="40" outline="IDR_G700S_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-5" relative_y="-100"/>
+          <assignment_label custom="false" x="140" y="-23" min_width="110" max_width="200">
+            <connect_line x1="-5" y1="-130" x2="-5" y2="-60"/>
+          </assignment_label>
+        </control>
+        <control id="Button4">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN4" relative_x="209" relative_y="326" outline="IDR_G700S_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="10" relative_y="-100"/>
+          <assignment_label custom="false" x="167" y="325" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN5" relative_x="125" relative_y="282" outline="IDR_G700S_OUTLINE_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-30" relative_y="-110"/>
+          <assignment_label custom="false" x="81" y="279" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN6" relative_x="188" relative_y="294" outline="IDR_G700S_OUTLINE_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-20" relative_y="-110"/>
+          <assignment_label custom="false" x="274" y="266" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN7" relative_x="108" relative_y="239" outline="IDR_G700S_OUTLINE_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-20" relative_y="-95"/>
+          <assignment_label custom="false" x="193" y="227" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN8" relative_x="77" relative_y="166" outline="IDR_G700S_OUTLINE_BTN8"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-30" relative_y="-110"/>
+          <assignment_label custom="false" x="21" y="204" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button9">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN9" relative_x="44" relative_y="155" outline="IDR_G700S_OUTLINE_BTN9"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-40" relative_y="-110"/>
+          <assignment_label custom="false" x="-13" y="172" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button10">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN10" relative_x="16" relative_y="129" outline="IDR_G700S_OUTLINE_BTN10"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-40" relative_y="-110"/>
+          <assignment_label custom="false" x="-12" y="115" min_width="100" max_width="200"/>
+        </control>
+        <control id="Button11">
+          <pixmap image="IDR_G700S_PULSEGLOW_BTN11" relative_x="261" relative_y="118" outline="IDR_G700S_OUTLINE_BTN11"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-40" relative_y="-110"/>
+          <assignment_label custom="false" x="272" y="161" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button12">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" relative_x="135" relative_y="75" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="8" y="27" min_width="110" max_width="200">
+            <connect_line x1="9" y1="-130" x2="115" y2="-80"/>
+          </assignment_label>
+        </control>
+        <control id="Button13">
+          <pixmap image="IDR_KEY_TARGET_GLOW_SMALL" relative_x="180" relative_y="40" outline="IDR_KEY_TARGET_GLOW_SMALL"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <context_button relative_x="-50" relative_y="-130"/>
+          <assignment_label custom="false" x="280" y="-39" min_width="110" max_width="200">
+            <connect_line x1="-120" y1="-50" x2="-50" y2="-130"/>
+          </assignment_label>
+        </control>
+      </controls>
+    </onboardmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="30" y="164" scale="0.69"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G700s</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G700s</string>
+      </locale>
+    </strings>
+  </device>
+</devicemanifest>
+

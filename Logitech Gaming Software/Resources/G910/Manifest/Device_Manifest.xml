@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='utf-8'?>
+<devicemanifest xmlns="http://www.logitech.com/Cassandra/2010.2/DeviceManifest">
+  <device model="Logitech.Gaming.Keyboard.G910">
+    <probes>
+      <hid_probe usagepage="0xFF00" pid="0xC32B" vid="0x046d" bcdDevice="1???"/>
+    </probes>
+    <fwupdate minVersion="92.4.26" updatetool="G910/G910Update_v26.exe"/>
+    <indicator name="firmwareUpdateIndicator"/>
+    <thumbnails>
+      <thumbnail image="IDR_G910_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G910_DEVICE" name="device"/>
+    </image>
+    <profiler category="Logitech.Gaming.Keyboard">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Keyboard"/>
+      </shiftgroups>
+    </profiler>
+    <cyan color="#00CDFF" />
+    <colorLEDEffects enableGamma="0" enableInverseGamma="0">
+      <!-- Color Cycle -->
+      <effect id="3" minPeriod="100" maxPeriod="255" defaultPeriod="178" intensity="255">
+        <fwBuildCondition build="11" condition="LTE" />
+      </effect>
+      <effect id="3" minPeriod="5" maxPeriod="40" defaultPeriod="5" intensity="255" >
+        <fwBuildCondition build="15" condition="LTE" />
+      </effect>
+      <effect id="3" minPeriod="1000" maxPeriod="20000" defaultPeriod="10000" intensity="255" >
+        <fwBuildCondition build="16" condition="GTE" />
+      </effect>
+      <!-- Breathing (Waveform) -->
+      <effect id="10" minPeriod="1000" maxPeriod="10000" defaultPeriod="5000" intensity="255" >
+        <fwBuildCondition build="16" condition="GTE" />
+      </effect>
+      <!-- Color Wave -->
+      <effect id="4" minPeriod="500" maxPeriod="5000" defaultPeriod="2000" intensity="255" >
+        <fwBuildCondition build="16" condition="GTE" />
+      </effect>
+    </colorLEDEffects>
+    <feature view_id="device_view"/>
+    <feature view_id="macroassignment_view"/>
+    <feature view_id="f4522_disablekeys_view"/>
+    <feature view_id="per_key_lighting_view" />
+    <feature view_id="input_tracker_view"/>
+    <input_tracker_view viewid="input_tracker_view">
+      <transform x="55" y="180" scale="0.60"/>
+      <heatmap image="IDR_LINE_KEYBOARD_G910_SVG" x="54" y="179" scale="0.60"/>
+    </input_tracker_view>
+    <f4522viewmetadata viewid="f4522_disablekeys_view">
+      <transform x="40" y="160" scale="0.62"/>
+	  <inactive>
+	    <key zone="0x10" hidden="true" hid="0x01"/>
+		<key zone="0x10" hidden="true" hid="0x02"/>
+		<key zone="0x04" hidden="true" hid="0x01"/>
+		<key zone="0x04" hidden="true" hid="0x02"/>
+		<key zone="0x04" hidden="true" hid="0x03"/>
+		<key zone="0x04" hidden="true" hid="0x04"/>
+		<key zone="0x04" hidden="true" hid="0x05"/>
+		<key zone="0x04" hidden="true" hid="0x06"/>
+		<key zone="0x04" hidden="true" hid="0x07"/>
+		<key zone="0x04" hidden="true" hid="0x08"/>
+		<key zone="0x04" hidden="true" hid="0x09"/>
+	  </inactive>
+    </f4522viewmetadata>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="55" y="120" scale="0.60"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_G910_PULSEGLOW_HOME_GKEY1" left="75" top="207"/>
+        <hotspot viewid="macroassignment_view" image="IDR_G910_PULSEGLOW_HOME_GKEY6" left="180" top="125"/>
+        <hotspot viewid="macroassignment_view" image="IDR_G910_PULSEGLOW_HOME_MKEY" left="75" top="125"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="400" opacity="0.0" y="150" scale="0.9"/>
+      <mstates>
+        <mstate imageNormal="IDR_G910_MKEY_NORMAL" imageOn="IDR_G910_MKEY_ACTIVE" left="433" imageHover="IDR_G910_MKEY_ACTIVE" id="1" top="163"/>
+        <mstate imageNormal="IDR_G910_MKEY_NORMAL" imageOn="IDR_G910_MKEY_ACTIVE" left="470" imageHover="IDR_G910_MKEY_ACTIVE" id="2" top="163"/>
+        <mstate imageNormal="IDR_G910_MKEY_NORMAL" imageOn="IDR_G910_MKEY_ACTIVE" left="509" imageHover="IDR_G910_MKEY_ACTIVE" id="3" top="163"/>
+      </mstates>
+      <pulseGlows>
+        <pulseGlow x="430" y="277" image="IDR_G910_PULSEGLOW_HOME_GKEY1">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+        <pulseGlow x="584" y="157" image="IDR_G910_PULSEGLOW_HOME_GKEY6">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="-1" height="-1">
+        <control id="G1">
+          <points>
+      <point x="447"	y="295" />
+      <point x="487"	y="295" />
+      <point x="487"	y="335" />
+      <point x="447"	y="335" />
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F1">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F1"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 364 " y=" 327 " min_width="80" max_width="240"/>
+        </control>
+        <control id="G2">
+          <points>
+      <point x="447"	y="348" />
+      <point x="487"	y="348" />
+      <point x="487"	y="388" />
+      <point x="447"	y="388" />
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F2">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F2"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 364 " y=" 383 " min_width="80" max_width="240"/>
+        </control>
+        <control id="G3">
+          <points>
+      <point x="447"	y="400" />
+      <point x="487"	y="400" />
+      <point x="487"	y="440" />
+      <point x="447"	y="440" />
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F3">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F3"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 366 " y=" 434 " min_width="80" max_width="240"/>
+        </control>
+        <control id="G4">
+          <points>
+      <point x="447"	y="455" />
+      <point x="487"	y="455" />
+      <point x="487"	y="495" />
+      <point x="447"	y="495" />
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F4">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F4"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 365 " y=" 483 " min_width="80" max_width="240"/>
+        </control>
+        <control id="G5">
+          <points>
+      <point x="447"	y="509" />
+      <point x="487"	y="509" />
+      <point x="487"	y="549" />
+      <point x="447"	y="549" />
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F5">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F5"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 366 " y=" 541 " min_width="80" max_width="240"/>
+        </control>
+        <control id="G6">
+          <points>
+            <point x="605" y="177"/>
+            <point x="645" y="177"/>
+            <point x="645" y="217"/>
+            <point x="605" y="217"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F6">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F6"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 518 " y=" 221 " min_width="80" max_width="240"/>
+        </control>
+        <control id="G7">
+          <points>
+            <point x="655" y="177"/>
+            <point x="695" y="177"/>
+            <point x="695" y="217"/>
+            <point x="655" y="217"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F7">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F7"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 598 " y=" 162 " min_width="80" max_width="240"/>
+        </control>
+        <control id="G8">
+          <points>
+            <point x="705" y="177"/>
+            <point x="745" y="177"/>
+            <point x="745" y="217"/>
+            <point x="705" y="217"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F8">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F8"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 685 " y=" 243 " min_width="80" max_width="240"/>
+        </control>
+        <control id="G9">
+          <points>
+            <point x="762" y="177"/>
+            <point x="802" y="177"/>
+            <point x="802" y="217"/>
+            <point x="762" y="217"/>
+          </points>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment name="F9">
+            <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+              <key value="F9"/>
+            </keystroke>
+          </generic_assignment>
+          <assignment_label custom="false" x=" 811 " y=" 207 " min_width="80" max_width="240"/>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <perkeylightingviewmetadata>
+      <transform x="30" y="95" opacity="1.0" scale=".63" />
+      <mask x="54" y="81" image="IDR_G910_LOGO_MASK" name="logo"/>
+      <mask x="279" y="485" image="IDR_G910_BADGE_MASK" name="badge"/>
+      <modes>
+        <mode id="Effects"></mode>
+        <mode id="Command"></mode>
+        <mode id="PerKey"></mode>
+      </modes>
+  </perkeylightingviewmetadata>
+  
+	<lighting_effect_editor_metadata>
+      <transform scale="0.62" y ="142"/>
+    </lighting_effect_editor_metadata>
+	
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G910 Orion Spark</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G910 Orion Spark</string>
+      </locale>
+    </strings>
+  </device>
+</devicemanifest>

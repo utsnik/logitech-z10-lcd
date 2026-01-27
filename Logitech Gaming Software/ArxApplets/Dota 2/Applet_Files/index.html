@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <script src="jquery-1.10.1.js"></script>
+        <script src="script.js"></script>
+        <script src="jquery-ui-1.11.4.min.js"></script>
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="hiddenDivs">
+            <div id="dataDiv"></div>
+            <div id="itemsDataDiv"></div>
+        </div>
+        <div id="dotaBadgeLayer"></div>
+        <div id="dotaBadge" class='dotaBadgeCenter'>
+            <img id="dotaBadgeImg" src="dotaBadge.png"></img>
+            <div id="dotaBadgeTxt" class="InfoFont">ENTER A GAME TO SEE STATS</div>
+        </div>
+        <div id="foregroundWrapper">
+            <div id="timeInGame" class="DotaFont">00:00:00</div>
+            <div id="playerStatusContainer" class="boxContainer">            
+                <div id="playerProgressBars">
+                    <div id="healthProgressbar">
+                        <div id="healthProgressbarProgress"></div>
+                        <div id="healthIndicator" class="progressIndicator DotaFont">0/0</div>
+                    </div>
+                    <div id="manaProgressBar">
+                        <div id="manaProgressbarProgress"></div>
+                        <div id="manaIndicator" class="progressIndicator DotaFont">0/0</div>
+                    </div>
+                </div>
+                <div id="goldContainer" class="DotaFont">
+                	<div id="goldBlock" class="goldItem">
+                     	<img src="gold.png" class="goldIcon"></img>
+    		            <div id="goldNumber">0</div>
+                    </div>
+
+                    <div id="xpPerMinute" class="goldItem InfoFont">XPM: 0</div>
+        	        <div id="goldPerMinute" class="goldItem InfoFont">GPM: 0</div>
+
+                </div>
+            </div>
+            <div id="playerStatsContainer" class="boxContainer">
+            	<div id="heroImgContainer" class="inlineElement">
+                	<div id="countDownOverlay">
+    	                <div id="countDownText">0</div>
+                    </div>
+            		<img src="tempHero.png" id="heroPic" ></img>
+                    <div id="heroLevel" class="badge">
+                        <div id="heroLevelText">4</div>
+                    </div>
+            	</div>
+                
+                <div id="playerAndHeroContainer" class="inlineElement">
+                            <div id="playerName" class="DotaFont">PLAYER NAME</div>
+                            <div id="heroName" class="DotaFont">HERO NAME</div>
+                </div>
+
+                <table id="kdaTable" class="innerShadow DotaFont">
+                    <tr>
+                        <th class ="kdaCell">KILLS</th>
+                        <th class ="kdaCell">DEATHS</th>
+                        <th class ="kdaCell">ASSISTS</th>
+                    </tr>
+                    <tr>
+                        <td id="killsTd" class ="kdaCell">0</td>
+                        <td id="deathsTd" class ="kdaCell">0</td>
+                        <td id="assistsTd" class ="kdaCell">0</td>
+                    </tr>
+                    <tr>
+                        <th class="playerStatsHeaders">LASTHITS</th>
+                        <th class="playerStatsHeaders">DENIES</th>
+                        <th class="playerStatsHeaders">STREAKS</th>
+                    </tr>
+                    <tr>
+                        <td id="lastHitsTd">0</td>
+                        <td id="DeniesTd">0</td>
+                        <td id="KillStreakTd">0</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="itemsContainer" class="boxContainer">
+                <table id="itemTable">
+                    <tr>
+                        <td id="item0" class="itemCell"><img class="itemImage" src="empty_item.png" /></td>
+                        <td id="item1" class="itemCell"><img class="itemImage" src="empty_item.png" /></td>
+                        <td id="item2" class="itemCell"><img class="itemImage" src="empty_item.png" /></td>
+                    </tr>
+                    <tr>
+                        <td id="item3" class="itemCell"><img class="itemImage" src="empty_item.png" /></td>
+                        <td id="item4" class="itemCell"><img class="itemImage" src="empty_item.png" /></td>
+                        <td id="item5" class="itemCell"><img class="itemImage" src="empty_item.png" /></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="itemDescriptionBox" class="inlineElement">
+                    <div id="itemTitle"></div>
+                    <div><img src="gold.png" class="goldIcon"></img><div id="itemCost" class="DotaFont"></div></div>
+                    <div id="itemDescription" class="DotaFont"></div>
+                    <div id="itemAttribute" class="DotaFont"></div>
+                    <div id="itemLore" class="DotaFont"></div>
+            </div>
+        </div>
+    </body>
+</html>

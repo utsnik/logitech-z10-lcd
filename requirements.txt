@@ -1,0 +1,4 @@
+pyusb
+psutil
+Pillow
+pywin32

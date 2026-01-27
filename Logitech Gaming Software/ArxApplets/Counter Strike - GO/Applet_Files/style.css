@@ -1,0 +1,177 @@
+body
+{
+    background-image: url("background.jpeg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+	  font-family:ariel, helvetica, verdana;
+    color:#d7b970;
+}
+
+#nameDiv
+{
+    margin-top:2%;
+    margin-left:2%;
+    font-size:2em;
+}
+
+#nameSeparator
+{
+   width:90%;
+   height:.75%;
+   margin-top:1%;
+  background:#665d4e;
+   color:green;
+}
+
+#scoreTable
+{
+    font-size:1.5em;
+	color:#d7b970;
+    display:inline-table;
+    vertical-align:middle;
+    /* border-spacing:1.5em;*/
+}
+
+.kdaCell
+{
+    display:table-cell;
+}
+
+#teamPic
+{
+    margin-top:2%;
+    margin-left:10%;
+    width:15%;
+    height:15%;
+    background-image: url("terrorist.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border-color:#d7b970;
+    border: solid 0.2em;
+    border-radius:2px;
+}
+@media (orientation: portrait) {
+    #teamPic
+    {
+        width:30%;
+    }
+}
+
+
+table
+{
+    border:solid 0.25em #686254;
+    border-radius:5px;
+    background-color: rgba(0,0,0,0.8);
+}
+td
+{
+	background-color: rgba(215, 185, 112, .2);
+	padding-left:1.0em;
+	padding-top:.5em;
+	padding-bottom:.5em;
+}
+
+.inLine
+{
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.secondLine
+{
+    margin-top:2%;
+    width:40%;
+}
+
+
+@media (orientation: portrait) {
+    .secondLine
+    {
+        margin-top:10%;
+        margin-left:5%;
+        width:90%;
+        height:30%;
+    }
+}
+
+.bottomLine
+{
+    display:inline-block;
+    vertical-align:bottom;
+    width:40%;
+}
+.topLine
+{
+    display:inline-block;
+    vertical-align:top;
+    width:40%;
+}
+#moneyDiv
+{
+    margin-left:20%;
+    font-size:4em;
+}
+
+#healthAndArmor
+{
+    margin-left:5%;
+    background-color:rgba(0,0,0,0.8);
+    padding:1em;
+    height:20%;
+}
+@media (orientation: portrait) {
+    #healthAndArmor
+{
+    background-color:rgba(0,0,0,0.8);
+    padding:1em;
+    margin-left:2%;
+}
+}
+
+#healthProgressbar {
+    background-color: rgba(215, 185, 112, .2);
+    border-radius: 13px;
+    padding: 3px;
+    width:90%;
+    margin-left:2%;
+
+}
+
+#healthDiv
+{
+    margin-top:5%;
+}
+
+#healthProgressbarProgress {
+    background-color: rgba(215, 185, 112, .8);
+    width: 0%;
+    height: 20px;
+    border-radius: 10px;
+}
+
+#armorDiv
+{
+    margin-top:7%;
+}
+
+#armorProgressbar {
+    background-color: rgba(215, 185, 112, .2);
+    border-radius: 13px;
+    padding: 3px;
+    width:90%;
+    margin-left:2%;
+}
+
+#armorProgressbarProgress {
+    background-color: rgba(215, 185, 112, .8);
+    width: 0%;
+    height: 20px;
+    border-radius: 10px;
+}
+
+.logo
+{
+    width:5%;
+}

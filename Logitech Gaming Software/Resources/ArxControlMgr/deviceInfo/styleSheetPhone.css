@@ -1,0 +1,661 @@
+*
+{
+    font-family: Impact;
+    color: #BDBDBD;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; /* Disable selection/copy in UIWebView */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.blackBoxSlider
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom:5%;
+}
+
+
+#blackBoxSliderX
+{
+    background-image: url('img/xSliderBack.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+#blackBoxSliderY
+{
+    background-image: url('img/ySliderBack.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    #blackBoxSliderY {
+        background-image: url("img/ySliderBack.png");
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    #blackBoxSliderY {
+        background-image: url("img/MouseInfo_AxisLabelY@3x.png");
+    }
+}
+
+.ui-slider-horizontal
+{
+    bottom: 0;
+    height: 100%;
+    margin-bottom: 0;
+    margin-left:auto;
+    margin-right:auto;
+    background:transparent;
+    width:80%;
+    border: none;
+}
+
+.ui-slider-horizontal .ui-slider-handle
+{
+    background: #8ad5f4;
+    height: 60%;
+    width:4%;
+    margin-top: 4em;
+    bottom: 0;
+}
+
+.box
+{
+    border-style: solid 10px #8ad5f4;
+    border-width: 1px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    box-shadow: 0 0 10px #8ad5f4;
+    background-color: black;
+    opacity: 0.7;
+}
+
+.dpiButtonControl
+{
+    display:table;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:2%;
+    width: 50%;
+    height: 10%;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    box-shadow: 0 0 10px #8ad5f4;
+    background-color: black;
+    opacity: 0.7;
+    border-spacing: 5px;
+    border-radius: 10px;
+}
+
+.dpiControlUp_Horizontal
+{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: url('img/dpiControlUp.png');
+    width:30%;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .dpiControlUp_Horizontal {
+        background-image: url("img/dpiControlUp.png");
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .dpiControlUp_Horizontal {
+        background-image: url("img/MouseInfo_StepperIncrease@3x.png");
+    }
+    .dpiControlUp_Horizontal:active {
+        background-image: url("img/MouseInfo_StepperIncreaseActive@3x.png");
+    }
+}
+
+.dpiControlDown_Horizontal
+{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-image: url('img/dpiControlDown.png');
+    width:30%;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .dpiControlDown_Horizontal {
+        background-image: url("img/dpiControlDown.png");
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .dpiControlDown_Horizontal {
+        background-image: url("img/MouseInfo_StepperDecrease@3x.png");
+    }
+    .dpiControlDown_Horizontal:active {
+        background-image: url("img/MouseInfo_StepperDecreaseActive@3x.png");
+    }
+}
+
+.dpiControlCurrent
+{
+    text-align: center;
+    color: white;
+    width:30%;
+    font-size:24px;
+}
+
+.ui-slider-handle.currentDpiIndex
+{
+    box-shadow: 0 0 20px 2px #9ecaed;
+    background: #edfffd;
+}
+
+.ui-slider-handle.shiftDpiIndex
+{
+    background: orange;
+}
+
+.ui-slider-handle.defaultDpiIndex
+{
+    border-color: blue;
+}
+
+.value-label
+{
+    display: block;
+    color: #BDBDBD;
+    background:black;
+    border-radius: 4px;
+    border:solid;
+    border-color:white;
+    border-width:thin;
+    width:550%;
+    text-align:center;
+    font-size: 14px;
+    position: relative;
+    top: -3em;
+    left: -220%;
+}
+
+.value-label.current
+{
+        font-size: 16px;
+}
+
+.diamondDefault
+{
+    display: block;
+    width: 7px;
+    height: 7px;
+    background: #8ad5f4;
+    margin: 3px 0 0 3px;
+    position: relative;
+    top: -2em;
+    left:30%;
+    /* Rotate */
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    /* Rotate Origin */
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    -ms-transform-origin: 0 100%;
+    -o-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+}
+
+.loading{
+    background-image: url('img/loading.gif');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .loading{
+        background-image: url('img/loading.gif');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .loading{
+        background-image: url('img/LoadingSpinner@3x.gif');
+    }
+}
+
+#devicePicPhone
+{
+    display: inline-block;
+    width: 30%;
+    height:100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    /*background-image: url('img/loading.gif');*/
+}
+
+#nextDevicePhone
+{
+    display: inline-block;
+    width: 10%;
+    height:100%;
+    float:right;
+}
+
+#prevDevicePhone
+{
+    display: inline-block;
+    width: 10%;
+    height:100%;
+    float:left;
+}
+
+#activeProfilePhone
+{
+    display: block;
+    vertical-align: middle;
+    width:100%;
+    height:5%;
+    margin-top:1%;
+}
+
+
+
+#deviceSelectorPhone
+{
+    padding:2%;
+    overflow: hidden;
+}
+@media (orientation: landscape) {
+    #deviceSelectorPhone {
+	position: absolute;
+        top: 1%; right: 51%; bottom: 71%; left: 1%;
+    }
+}
+@media (orientation: portrait)
+{
+    #deviceSelectorPhone
+    {
+        height:10%;
+    }
+}
+
+#deviceInfoPhone
+{
+    margin-top:5%;
+}
+
+@media (orientation: landscape) {
+   #deviceInfoPhone {
+	    position : absolute;
+        margin-top:0%;
+        top: 1%; right: 0%; bottom: 1%; left: 50%;
+    }
+}
+
+#dpiSliderY_wrapper
+{
+    display: none;
+}
+@media (orientation: portrait)
+{
+    #dpiSliderY_wrapper
+    {   
+        margin-top:25%;
+        width: 100%;
+    }
+}
+@media (orientation: landscape) {
+    #dpiSliderY_wrapper {
+        position: absolute;
+        top: 38%; right: 1%; bottom: 25%; left: 52%;
+    }
+}
+
+.dpiSliderWrapper
+{
+    height:30%;
+}
+@media (orientation: portrait)
+{
+    #dpiSliderX_wrapper
+    {
+        position: relative;
+        margin-top: 5%;
+        width: 100%;
+    }
+}
+@media (orientation: landscape) {
+    #dpiSliderX_wrapper {
+        position: absolute;
+        top: 38%; right: 1%; bottom: 30%; left: 1%;
+    }
+}
+
+#deviceInfoTextPhone
+{
+    display:table-cell;
+    width:80%;
+    height: 100%;
+
+    vertical-align: top;
+
+    margin:0%;
+
+    border-style: solid 10px #8ad5f4;
+    border-width: 1px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    box-shadow: 0 0 10px #8ad5f4;
+    background-color: black;
+    opacity: 0.7;
+}
+
+#deviceInfoTextPhone .padding {
+    padding:10px;
+}
+
+/**/
+.battery0 {
+    background-image: url('img/battery0.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery0 {
+        background-image: url('img/battery0.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery0 {
+        background-image: url('img/Battery_0@3x.png');
+    }
+}
+
+.battery20 {
+    background-image: url('img/battery20.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery20 {
+        background-image: url('img/battery20.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery20 {
+        background-image: url('img/Battery_20@3x.png');
+    }
+}
+
+.battery40 {
+    background-image: url('img/battery40.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery40 {
+        background-image: url('img/battery40.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery40 {
+        background-image: url('img/Battery_40@3x.png');
+    }
+}
+
+.battery60 {
+    background-image: url('img/battery60.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery60 {
+        background-image: url('img/battery60.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery60 {
+        background-image: url('img/Battery_60@3x.png');
+    }
+}
+
+.battery80 {
+    background-image: url('img/battery80.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery80 {
+        background-image: url('img/battery80.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery80 {
+        background-image: url('img/Battery_80@3x.png');
+    }
+}
+
+.battery100 {
+    background-image: url('img/battery100.png');
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .battery100 {
+        background-image: url('img/battery100.png');
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .battery100 {
+        background-image: url('img/Battery_100@3x.png');
+    }
+}
+.battery0, .battery20, .battery40, .battery60, .battery80, .battery100 {
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 60%;
+    min-width: inherit;
+
+    /*border: 0 !important;*/
+}
+/**/
+
+#batteryPic  {
+    height: 60%;
+    width:auto;
+}
+@media (orientation: landscape) {
+    #batteryPic {
+        height: 50%;
+    }
+    .battery0, .battery20, .battery40, .battery60, .battery80, .battery100 {
+        min-height: 50%;
+    }
+}
+
+.batteryStatusMargin {
+    display:table-cell;
+    width:2%;
+    height:100%;
+}
+
+#batteryIndicatorPhone
+{
+    display:table-cell;
+    width:20%;
+    height:100%;
+
+    margin:0%;
+    padding:10px;
+
+    border-style: solid 10px #8ad5f4;
+    border-width: 1px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    box-shadow: 0 0 10px #8ad5f4;
+    background-color: black;
+    opacity: 0.7;
+}
+
+
+
+.activeProfileCellContent
+{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5%;
+}
+
+/*//FIX: task #1888*/
+#notSupportedMessage
+{
+    display: table;
+    vertical-align: middle;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    line-height:150%;
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    bottom: 40%;
+    right: 15%;
+    width: 30%;
+    height: 30%;
+    background: black;
+    border-style: solid 10px #8ad5f4;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: black;
+    padding: 15px;
+}
+
+#notSupportedMessage p
+{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/*//FIX: task #1888*/
+#notSupportedMessage img
+{
+    /*width:60%;*/
+    width:auto;
+    height:auto;
+}
+
+.profileIcon
+{
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    /*background-image: url('img/loading.gif');*/
+    border-style: none;
+}
+
+.deviceInfo
+{
+    font-size:20px;
+    color:white;
+}
+
+#deviceNamePhone
+{
+    font-size:20px;
+    color:white;
+}
+#waitingForResponseLayer
+{
+    display: none;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    background: rgba(0,0,0,0.3);
+    height: 100%;
+    line-height: 75%;
+    width: 110%;
+    z-index: 999999;
+    margin-left:-5%;
+}
+
+#waitingForResponseMessage
+{
+    display: table;
+    vertical-align: middle;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    height: 30%;
+    background: black;
+    border-style: solid 10px #8ad5f4;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: black;
+    padding: 15px;
+}
+
+#waitingForResponseMessage p
+{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.containerBox{
+    border-radius: 10px;
+    background-color: rgba(0,0,0,.5);
+    text-align: center;
+    border-style: solid 2px #8ad5f4;
+    -webkit-box-shadow: 0 0 10px #8ad5f4;
+    box-shadow: 0 0 10px #8ad5f4;
+}
+
+/*//FIX: task #1888*/
+.nav{
+    float:right;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-image: url("img/nextDevice.png");
+    height: 100%;
+    width: 10%;
+    background-size: contain;
+    /*position: relative;
+    z-index: 1;*/
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .nav {
+        background-image: url("img/nextDevice.png");
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .nav {
+        background-image: url("img/MouseInfo_RightPointer@3x.png");
+    }
+}
+
+.nav.back{
+    background-image: url("img/prevDevice.png");
+    float:left;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .nav.back {
+        background-image: url("img/prevDevice.png");
+    }
+}
+@media (-webkit-min-device-pixel-ratio: 3) {
+    .nav.back {
+        background-image: url("img/MouseInfo_LeftPointer@3x.png");
+    }
+}
+
+.sliding{
+    position:relative;
+    left:0;    
+}
+
+.wrapper{
+    box-sizing:border-box;
+    width: 100%;
+    height: 100%;
+    padding: 1%;
+    overflow: hidden;
+    overflow-y:auto;
+}
+
+
+body{
+    margin:0;
+    padding: 0;
+}

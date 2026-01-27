@@ -1,0 +1,602 @@
+<?xml version='1.0' encoding='utf-8'?>
+<devicemanifest xmlns="http://www.logitech.com/Cassandra/2010.3/DeviceManifest">
+  <device model="Logitech.Gaming.Mouse.G100">
+    <probes>
+      <usbfilter_probe pid="0xC247" vid="0x046d" bcdDevice="7???"/>
+      <hidfilter_probe pid="0xC247" vid="0x046d" bcdDevice="7???"/>
+    </probes>
+    <thumbnails>
+      <thumbnail image="IDR_G100_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G100DEVICE_REGION" name="device" lu_id="c247_g100"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.G100">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.G100"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="false"/>
+      <dpitable defaultindex="0" shiftindex="0">
+        <dpi x="1000" y="1000"/>
+        <dpi x="1750" y="1750"/>
+        <dpi x="2500" y="2500"/>
+      </dpitable>
+      <reportrate default="500"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="310" y="120" scale="0.69"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_100_PULSEGLOW_HOME_BUTTONS" left="304" top="124"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="800" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="200"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="450" y="170" scale="1"/>
+      <pulseGlows>
+        <pulseGlow x="446" y="177" image="IDR_100_PULSEGLOW_HOME_BUTTONS">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="81" height="70" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap x="-3" y="39" image="IDR_G100_PULSEGLOW_BTN1" outline="IDR_G100_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="548" y="318"/>
+          </context_button>
+          <assignment_label custom="false" x="400" y="288" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap x="102" y="8" image="IDR_G100_PULSEGLOW_BTN2" outline="IDR_G100_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="720" y="220"/>
+          </context_button>
+          <assignment_label custom="false" x="576" y="198" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap x="131" y="68" image="IDR_G100_PULSEGLOW_BTN3" outline="IDR_G100_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="664" y="294"/>
+          </context_button>
+          <assignment_label custom="false" x="678" y="300" min_width="110" max_width="200"/>            
+        </control>
+        <control id="Button4">
+          <pixmap x="230" y="152" image="IDR_G100_PULSEGLOW_BTN4" outline="IDR_G100_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpicycling"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="740" y="362"/>
+          </context_button>
+          <assignment_label custom="false" x="594" y="394" min_width="110" max_width="200"/>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="44" y="204" scale="0.69"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G100</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G100</string>
+      </locale>
+    </strings>
+  </device>
+  <device model="Logitech.Gaming.Mouse.G100s">
+    <probes>
+      <usbfilter_probe pid="0xC247" vid="0x046d" bcdDevice="820?"/>
+      <hidfilter_probe pid="0xC247" vid="0x046d" bcdDevice="820?"/>
+    </probes>
+    <thumbnails>
+      <thumbnail image="IDR_G100S_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G100S_DEVICE" name="device" lu_id="c247_g100s"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.G100">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.G100"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="false"/>
+      <dpitable defaultindex="0" shiftindex="0">
+        <dpi x="1000" y="1000"/>
+        <dpi x="1750" y="1750"/>
+        <dpi x="2500" y="2500"/>
+      </dpitable>
+      <reportrate default="500"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="290" y="130" scale="0.82"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_100S_PULSEGLOW_HOME_BUTTONS" left="312" top="130"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="800" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="200"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="400" y="178" scale="1"/>
+      <pulseGlows>
+        <pulseGlow x="426" y="178" image="IDR_100S_PULSEGLOW_HOME_BUTTONS">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="81" height="70" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap x="29" y="94" image="IDR_G100S_PULSEGLOW_BTN1" outline="IDR_G100S_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="540" y="360"/>
+          </context_button>
+          <assignment_label custom="false" x="400" y="350" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap x="134" y="0" image="IDR_G100S_PULSEGLOW_BTN2" outline="IDR_G100S_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="678" y="238"/>
+          </context_button>
+          <assignment_label custom="false" x="640" y="230" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap x="111" y="60" image="IDR_G100S_PULSEGLOW_BTN3" outline="IDR_G100S_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="596" y="278"/>
+          </context_button>
+          <assignment_label custom="false" x="490" y="270" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button4">
+          <pixmap x="229" y="123" image="IDR_G100S_PULSEGLOW_BTN4" outline="IDR_G100S_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpicycling"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="688" y="332"/>
+          </context_button>
+          <assignment_label custom="false" x="696" y="360" min_width="110" max_width="200"/>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="44" y="204" scale="0.69"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G100s</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G100s</string>
+      </locale>
+    </strings>
+  </device>
+  
+  <device model="Logitech.Gaming.Mouse.G90">
+    <probes>
+      <usbfilter_probe pid="0xC247" vid="0x046d" bcdDevice="821?"/>
+      <hidfilter_probe pid="0xC247" vid="0x046d" bcdDevice="821?"/>
+    </probes>
+    <thumbnails>
+      <thumbnail image="IDR_G90_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G90_DEVICE" name="device" lu_id="c247_g90"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.G100">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.G100"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="false"/>
+      <dpitable defaultindex="0" shiftindex="0">
+        <dpi x="1000" y="1000"/>
+        <dpi x="1750" y="1750"/>
+        <dpi x="2500" y="2500"/>
+      </dpitable>
+      <reportrate default="500"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="290" y="130" scale="0.82"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_G90_PULSEGLOW" left="287" top="117"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="800" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="200"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="400" y="178" scale="1"/>
+      <pulseGlows>
+        <pulseGlow x="397" y="162" image="IDR_G90_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="81" height="67" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap x="-4" y="76" image="IDR_G90_PULSEGLOW_BTN1" outline="IDR_G90_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="540" y="360"/>
+          </context_button>
+          <assignment_label custom="false" x="400" y="350" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap x="96" y="-17" image="IDR_G90_PULSEGLOW_BTN2" outline="IDR_G90_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="678" y="238"/>
+          </context_button>
+          <assignment_label custom="false" x="640" y="230" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap x="110" y="60" image="IDR_G90_PULSEGLOW_BTN3" outline="IDR_G90_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="596" y="278"/>
+          </context_button>
+          <assignment_label custom="false" x="490" y="270" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button4">
+          <pixmap x="227" y="122" image="IDR_G90_PULSEGLOW_BTN4" outline="IDR_G90_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpicycling"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="688" y="332"/>
+          </context_button>
+          <assignment_label custom="false" x="696" y="360" min_width="110" max_width="200"/>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="44" y="204" scale="0.69"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G90</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G90</string>
+      </locale>
+    </strings>
+  </device>
+  
+  <device model="Logitech.Gaming.Mouse.Black.G90">
+    <probes>
+      <usbfilter_probe pid="0xC247" vid="0x046d" bcdDevice="822?"/>
+      <hidfilter_probe pid="0xC247" vid="0x046d" bcdDevice="822?"/>
+    </probes>
+    <thumbnails>
+      <thumbnail image="IDR_xC247_THUMBNAIL_BLACK" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_xC247_DEVICE_BLACK" name="device"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.G100">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.G100"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="false"/>
+      <dpitable defaultindex="0" shiftindex="0">
+        <dpi x="1000" y="1000"/>
+        <dpi x="1750" y="1750"/>
+        <dpi x="2500" y="2500"/>
+      </dpitable>
+      <reportrate default="500"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="182" y="150" scale="0.80"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_xC247_PULSEGLOW" left="257" top="157"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="800" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="200"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="250" y="150" scale="1"/>
+      <pulseGlows>
+        <pulseGlow x="397" y="162" image="IDR_xC247_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="81" height="67" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap x="128" y="134" image="IDR_xC247_PULSEGLOW_BTN1" outline="IDR_xC247_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="490" y="385"/>
+          </context_button>
+          <assignment_label custom="false" x="300" y="300" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap x="197" y="39" image="IDR_xC247_PULSEGLOW_BTN2" outline="IDR_xC247_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="590" y="250"/>
+          </context_button>
+          <assignment_label custom="false" x="380" y="200" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap x="210" y="115" image="IDR_xC247_PULSEGLOW_BTN3" outline="IDR_xC247_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="509" y="293"/>
+          </context_button>
+          <assignment_label custom="false" x="548" y="300" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button4">
+          <pixmap x="325" y="162" image="IDR_xC247_PULSEGLOW_BTN4" outline="IDR_xC247_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpicycling"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="605" y="338"/>
+          </context_button>
+          <assignment_label custom="false" x="620" y="370" min_width="110" max_width="200"/>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="-44" y="230" scale="0.69"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G90</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G90</string>
+      </locale>
+    </strings>
+  </device>
+  
+  <device model="Logitech.Gaming.Mouse.White.G90">
+    <probes>
+      <usbfilter_probe pid="0xC247" vid="0x046d" bcdDevice="823?"/>
+      <hidfilter_probe pid="0xC247" vid="0x046d" bcdDevice="823?"/>
+    </probes>
+    <thumbnails>
+      <thumbnail image="IDR_xC247_THUMBNAIL_WHITE" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_xC247_DEVICE_WHITE" name="device"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse.G100">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse.G100"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="false"/>
+      <dpitable defaultindex="0" shiftindex="0">
+        <dpi x="1000" y="1000"/>
+        <dpi x="1750" y="1750"/>
+        <dpi x="2500" y="2500"/>
+      </dpitable>
+      <reportrate default="500"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="182" y="150" scale="0.80"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_xC247_PULSEGLOW" left="257" top="157"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="800" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="200"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="250" y="150" scale="1"/>
+      <pulseGlows>
+        <pulseGlow x="397" y="162" image="IDR_xC247_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="81" height="67" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap x="128" y="134" image="IDR_xC247_PULSEGLOW_BTN1" outline="IDR_xC247_OUTLINE_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="490" y="385"/>
+          </context_button>
+          <assignment_label custom="false" x="300" y="300" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap x="197" y="39" image="IDR_xC247_PULSEGLOW_BTN2" outline="IDR_xC247_OUTLINE_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="590" y="250"/>
+          </context_button>
+          <assignment_label custom="false" x="380" y="200" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap x="210" y="115" image="IDR_xC247_PULSEGLOW_BTN3" outline="IDR_xC247_OUTLINE_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="509" y="293"/>
+          </context_button>
+          <assignment_label custom="false" x="548" y="300" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button4">
+          <pixmap x="325" y="162" image="IDR_xC247_PULSEGLOW_BTN4" outline="IDR_xC247_OUTLINE_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpicycling"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="605" y="338"/>
+          </context_button>
+          <assignment_label custom="false" x="620" y="370" min_width="110" max_width="200"/>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="-44" y="230" scale="0.69"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G90</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G90</string>
+      </locale>
+    </strings>
+  </device>
+  
+</devicemanifest>

@@ -1,0 +1,28 @@
+{
+    "Ext_Model_1": {
+        "model=\"Logitech.Gaming.Spectrum.Headset.G633\"": "model=\"Logitech.Gaming.Spectrum.Headset.G633.Ext_1\"",
+        "IDR_G633_HIGH_RES_IMAGE": "IDR_G633_HIGH_RES_IMAGE_1",
+        "IDR_G633_PRODUCT_ICON": "IDR_G633_PRODUCT_ICON_1",
+
+        "transform x=\"150\" y=\"-100\" scale=\"0.8\"": "transform x=\"175\" y=\"-25\" scale=\"0.8\"",
+        "IDR_G633_NO_GLOW": "IDR_G633_NO_GLOW_1",
+        "logoGlow image=\"IDR_G633_LOGO_GLOW\" x=\"349\" y=\"801\"": "logoGlow image=\"IDR_G633_LOGO_GLOW_1\" x=\"315\" y=\"685\"",
+        "primaryGlow image=\"IDR_G633_SIDE_GLOW\" x=\"402\" y=\"454\"": "primaryGlow image=\"IDR_G633_SIDE_GLOW_1\" x=\"358\" y=\"350\"",
+
+        "transform x=\"100\" y=\"-60\" scale=\".8\"": "transform x=\"175\" y=\"35\" scale=\".75\"",
+
+        "hotspot viewid=\"macroassignment_view\" scale=\".8\" image=\"IDR_G633_GROUP_BUTTON\" left=\"480\" top=\"375\"" : "hotspot viewid=\"macroassignment_view\" scale=\".75\" image=\"IDR_G633_GROUP_BUTTON_1\" left=\"485\" top=\"342\"",
+        "transform x=\"150\" y=\"-230\" scale=\"1.0\"": "transform x=\"165\" y=\"-109\" scale=\"1.0\"",
+
+        "pixmap image=\"IDR_G633_BOTTOM_BUTTON\" x=\"638\" y=\"425\" outline=\"IDR_G633_BOTTOM_BUTTON_OUTLINE\"": "pixmap image=\"IDR_G633_BOTTOM_BUTTON_1\" x=\"626\" y=\"439\" outline=\"IDR_G633_BOTTOM_BUTTON_OUTLINE_1\"",
+        "pixmap image=\"IDR_G633_MIDDLE_BUTTON\" x=\"645\" y=\"365\" outline=\"IDR_G633_MIDDLE_BUTTON_OUTLINE\"": "pixmap image=\"IDR_G633_MIDDLE_BUTTON_1\" x=\"620\" y=\"379\" outline=\"IDR_G633_MIDDLE_BUTTON_OUTLINE_1\"",
+        "pixmap image=\"IDR_G633_TOP_BUTTON\" x=\"624\" y=\"315\" outline=\"IDR_G633_TOP_BUTTON_OUTLINE\"": "pixmap image=\"IDR_G633_TOP_BUTTON_1\" x=\"616\" y=\"333\" outline=\"IDR_G633_TOP_BUTTON_OUTLINE_1\"",
+
+        "transform x=\"60\" y=\"10\" scale=\".72\"": "transform x=\"80\" y=\"40\" scale=\".7\"",
+
+        "transform x=\"-50\" y=\"-50\" scale=\"0.72\"": "transform x=\"0\" y=\"65\" scale=\".7\"",
+
+        "Logitech G633 Artemis Spectrum": "Logitech G633 Artemis Spectrum Battlefield 1 Edition",
+        "Logicool G633 Artemis Spectrum": "Logicool G633 Artemis Spectrum Battlefield 1 Edition"
+    }
+}

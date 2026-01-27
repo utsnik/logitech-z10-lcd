@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='utf-8'?>
+<devicemanifest xmlns="http://www.logitech.com/Cassandra/2010.3/DeviceManifest">
+  <device model="Logitech.Gaming.Mouse.MX518">
+    <probes>
+      <usbfilter_probe pid="0xC051" vid="0x046d"/>
+      <hidfilter_probe pid="0xC051" vid="0x046d"/>
+    </probes>
+    <thumbnails>
+      <thumbnail image="IDR_MX518_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_MX518_DEVICE_REGION" name="device" lu_id="c051_mx518"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="false"/>
+      <dpitable defaultindex="1" shiftindex="2">
+        <dpi x="400" y="400"/>
+        <dpi x="800" y="800"/>
+        <dpi x="1800" y="1800"/>
+      </dpitable>
+      <reportrate default="125"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="280" y="153" scale="0.71"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_MX518_PULSEGLOW" left="288" top="142"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="800" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="200"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="438" y="204" scale="1.0"/>
+      <pulseGlows>
+        <pulseGlow x="449" y="189" image="IDR_MX518_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="81" height="70" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap x="12" y="14" image="IDR_PULSEGLOW_MX518_BTN1" outline="IDR_OUTLINE_MX518_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="558" y="288"/>
+          </context_button>
+          <assignment_label custom="false" x="388" y="270" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap x="199" y="-14" image="IDR_PULSEGLOW_MX518_BTN2" outline="IDR_OUTLINE_MX518_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="812" y="242"/>
+          </context_button>
+          <assignment_label custom="false" x="800" y="230" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap x="139" y="-13" image="IDR_PULSEGLOW_MX518_BTN3" outline="IDR_OUTLINE_MX518_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="656" y="210"/>
+          </context_button>
+          <assignment_label custom="false" x="576" y="174" min_width="110" max_width="200">
+          <connect_line y1="186" x1="636" y2="222" x2="636"/>
+          </assignment_label>
+        </control>
+        <control id="Button4">
+          <pixmap x="119" y="228" image="IDR_PULSEGLOW_MX518_BTN4" outline="IDR_OUTLINE_MX518_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="back"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="632" y="484"/>
+          </context_button>
+          <assignment_label custom="false" x="472" y="498" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap x="49" y="188" image="IDR_PULSEGLOW_MX518_BTN5" outline="IDR_OUTLINE_MX518_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="forward"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="554" y="432"/>
+          </context_button>
+          <assignment_label custom="false" x="396" y="446" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap x="266" y="46" image="IDR_PULSEGLOW_MX518_BTN6" outline="IDR_OUTLINE_MX518_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="defaultdpi"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="712" y="274"/>
+          </context_button>
+          <assignment_label custom="false" x="754" y="304" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap x="113" y="-21" image="IDR_PULSEGLOW_MX518_BTN7" outline="IDR_OUTLINE_MX518_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpiup"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="585" y="208"/>
+          </context_button>
+          <assignment_label custom="false" x="452" y="216" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap x="215" y="11" image="IDR_PULSEGLOW_MX518_BTN8" outline="IDR_OUTLINE_MX518_BTN8"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpidown"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="695" y="244"/>
+          </context_button>
+          <assignment_label custom="false" x="686" y="202" min_width="110" max_width="200">
+            <connect_line y1="214" x1="692" y2="252" x2="692"/>
+          </assignment_label>          
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="36" y="182" scale="0.71"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech MX518</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool MX518</string>
+      </locale>
+    </strings>
+  </device>
+  <device model="Logitech.Gaming.Mouse.MX518_1600">
+    <probes>
+      <usbfilter_probe pid="0xC01E" vid="0x046d"/>
+      <hidfilter_probe pid="0xC01E" vid="0x046d"/>
+    </probes>
+    <thumbnails>
+      <thumbnail image="IDR_MX518_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_MX518_DEVICE_REGION" name="device" lu_id="c051_mx518"/>
+    </image>
+    <profiler category="Logitech.Gaming.Mouse">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Mouse"/>
+      </shiftgroups>
+    </profiler>
+    <pointer>
+      <hardwaremode default="false"/>
+      <dpitable defaultindex="1" shiftindex="2">
+        <dpi x="400" y="400"/>
+        <dpi x="800" y="800"/>
+        <dpi x="1600" y="1600"/>
+      </dpitable>
+      <reportrate default="125"/>
+    </pointer>
+    <feature view_id="device_view"/>
+    <feature icon_on="IDR_BTN_MOUSEBUTTONS_ON" icon_hover="IDR_BTN_MOUSEBUTTONS_HOVER" view_id="macroassignment_view" tooltip="Customize buttons" icon_off="IDR_BTN_MOUSEBUTTONS_OFF"/>
+    <feature view_id="pointersettings_view"/>
+    <deviceviewmetadata viewid="device_view">
+      <transform x="310" y="153" scale="0.71"/>
+      <hotspots>
+        <hotspot viewid="macroassignment_view" image="IDR_MX518_PULSEGLOW" left="318" top="142"/>
+        <hotspot viewid="pointersettings_view" scale="1.0" image="IDR_CALLOUT_POINTER_SETTINGS_GLOW" left="800" background_image="IDR_CALLOUT_POINTER_SETTINGS" top="200"/>
+      </hotspots>
+    </deviceviewmetadata>
+    <macroassignmentmetadata viewid="macroassignment_view">
+      <transform x="438" y="204" scale="1.0"/>
+      <pulseGlows>
+        <pulseGlow x="452" y="190" image="IDR_MX518_PULSEGLOW">
+          <types>
+            <type name="button"/>
+          </types>
+        </pulseGlow>
+      </pulseGlows>
+      <controls width="81" height="70" offsetBasedOnImage="true">
+        <control id="Button1">
+          <pixmap x="12" y="14" image="IDR_PULSEGLOW_MX518_BTN1" outline="IDR_OUTLINE_MX518_BTN1"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="leftclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="558" y="288"/>
+          </context_button>
+          <assignment_label custom="false" x="388" y="270" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button2">
+          <pixmap x="199" y="-14" image="IDR_PULSEGLOW_MX518_BTN2" outline="IDR_OUTLINE_MX518_BTN2"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" cannotbeunassigned="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="rightclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="812" y="242"/>
+          </context_button>
+          <assignment_label custom="false" x="800" y="230" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button3">
+          <pixmap x="139" y="-13" image="IDR_PULSEGLOW_MX518_BTN3" outline="IDR_OUTLINE_MX518_BTN3"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="middleclick"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="656" y="210"/>
+          </context_button>
+          <assignment_label custom="false" x="576" y="174" min_width="110" max_width="200">
+            <connect_line y1="186" x1="636" y2="222" x2="636"/>
+          </assignment_label>
+        </control>
+        <control id="Button4">
+          <pixmap x="119" y="228" image="IDR_PULSEGLOW_MX518_BTN4" outline="IDR_OUTLINE_MX518_BTN4"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="back"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="632" y="484"/>
+          </context_button>
+          <assignment_label custom="false" x="472" y="498" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button5">
+          <pixmap x="49" y="188" image="IDR_PULSEGLOW_MX518_BTN5" outline="IDR_OUTLINE_MX518_BTN5"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="forward"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="554" y="432"/>
+          </context_button>
+          <assignment_label custom="false" x="396" y="446" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button6">
+          <pixmap x="266" y="46" image="IDR_PULSEGLOW_MX518_BTN6" outline="IDR_OUTLINE_MX518_BTN6"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="defaultdpi"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="712" y="274"/>
+          </context_button>
+          <assignment_label custom="false" x="754" y="304" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button7">
+          <pixmap x="113" y="-21" image="IDR_PULSEGLOW_MX518_BTN7" outline="IDR_OUTLINE_MX518_BTN7"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpiup"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="585" y="208"/>
+          </context_button>
+          <assignment_label custom="false" x="452" y="216" min_width="110" max_width="200"/>
+        </control>
+        <control id="Button8">
+          <pixmap x="215" y="11" image="IDR_PULSEGLOW_MX518_BTN8" outline="IDR_OUTLINE_MX518_BTN8"/>
+          <types>
+            <type name="button"/>
+          </types>
+          <generic_assignment shiftstate="1" hidden="true" required="true">
+            <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+              <do task="dpidown"/>
+            </mousefunction>
+          </generic_assignment>
+          <context_button>
+            <point x="695" y="244"/>
+          </context_button>
+          <assignment_label custom="false" x="686" y="202" min_width="110" max_width="200">
+            <connect_line y1="214" x1="692" y2="252" x2="692"/>
+          </assignment_label>
+        </control>
+      </controls>
+    </macroassignmentmetadata>
+    <pointersettingsmetadata viewid="pointersettings_view">
+      <transform x="36" y="182" scale="0.71"/>
+    </pointersettingsmetadata>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech MX518</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool MX518</string>
+      </locale>
+    </strings>
+  </device>
+</devicemanifest>

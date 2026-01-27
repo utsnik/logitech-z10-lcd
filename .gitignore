@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution
+dist/
+build/
+*.spec
+*.exe
+
+# System
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log

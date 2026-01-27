@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='utf-8'?>
+<devicemanifest xmlns="http://www.logitech.com/Cassandra/2010.2/DeviceManifest">
+  <device model="Logitech.Gaming.Wheel.G29">
+    <probes>
+      <joyhidfilter_probe vid="0x046D" pid="0xC24F"/>
+    </probes>
+    <thumbnails>
+      <thumbnail image="IDR_G29_THUMBNAIL_NORMAL" state="normal"/>
+    </thumbnails>
+    <image>
+      <layer image="IDR_G29_DEVICE_WHEEL" name="device" />
+      <layer image="IDR_G29_DEVICE_WHEEL" name="Steering Wheel" />
+      <layer image="IDR_WHEEL_DEVICE_SHIFTER" name="Shifter" />
+      <layer image="IDR_WHEEL_DEVICE_PEDALS" name="Pedals" />
+    </image>
+	<buttons count="25"/>
+	<povs count="1"/>
+	<axes count="5"/>
+	<axis_property dead_zone="false" inverted="false" operating_range="false" mappable="false">
+	  <axis context_id="Axis1" name="steeringWheel" rest_value="128"/>
+	  <axis context_id="Axis3" name="accelerator" rest_value="255"/>
+	  <axis context_id="Axis4" name="brake" rest_value="255"/>
+	  <axis context_id="Axis5" name="clutch" rest_value="255"/>
+	</axis_property>
+	<force_feedback device_has_wheel_options="true">
+	  <force_feedback_options overall_strength="10000" spring_strength="10000" damper_strength="10000" center_spring_enabled="false" center_spring_strength="10000"/>
+	  <wheel_options operating_range="900" min_operating_range="40" max_operating_range="900"/>
+	</force_feedback>
+	<component_properties driver="true">
+		<component component_id="Steering Wheel" required="true" />
+		<component component_id="Shifter" mapping="3" />
+		<component component_id="Pedals" mapping="2" />
+		<component component_id="Power" mapping="1" />
+	</component_properties>
+    <profiler category="Logitech.Gaming.Wheel.G29">
+      <shiftgroups>
+        <group category="Logitech.Gaming.Wheel.G29"/>
+      </shiftgroups>
+    </profiler>
+    <feature view_id="device_view"/>
+	<feature view_id="component_assignment_view" args="Steering Wheel" icon_off="IDR_WHEEL_SETTINGS_OFF" icon_hover="IDR_WHEEL_SETTINGS_HOVER" icon_on="IDR_WHEEL_SETTINGS_ON" tooltip="Steering Wheel" />
+	<feature view_id="component_assignment_view" args="Shifter" icon_off="IDR_SHIFTER_SETTINGS_OFF" icon_hover="IDR_SHIFTER_SETTINGS_HOVER" icon_on="IDR_SHIFTER_SETTINGS_ON" tooltip="Shifter" />
+	<feature view_id="component_assignment_view" args="Pedals" icon_off="IDR_PEDALS_SETTINGS_OFF" icon_hover="IDR_PEDALS_SETTINGS_HOVER" icon_on="IDR_PEDALS_SETTINGS_ON" tooltip="Pedals" />
+    <deviceviewmetadata viewid="device_view">
+      <transform x="65" y="160" scale="1.0"/>
+      <hotspots>
+        <hotspot viewid="component_assignment_view" args="Steering Wheel" image="IDR_G29_WHEEL_HOME_ANGLED_PULSEGLOW" left="452" top="259"/>
+        <hotspot viewid="component_assignment_view" args="Pedals" image="IDR_WHEEL_PEDALS_HOME_PULSEGLOW" left="72" top="299"/>
+        <hotspot viewid="component_assignment_view" args="Shifter" image="IDR_WHEEL_SHIFTER_HOME_PULSEGLOW" left="747" top="324"/>
+      </hotspots>
+    </deviceviewmetadata>
+<command_assignment_metadata viewcontext_id="component_assignment_view">
+	 <transform scale="1" x="350" y="215"/>
+	 <gshift_toggle x="400" y="590"/>
+	 <component_images>
+		<component component_id="Steering Wheel" image="IDR_G29_WHEEL" right_component="Shifter" left_component="Pedals">
+			<transform scale="0.95" x="400" y="160"/>
+			<unfocused_transform scale="0.70" right_x="785" left_x="175" y="225"/>
+		</component>
+	 	<component component_id="Shifter" image="IDR_WHEEL_SHIFTER" right_component="Pedals" left_component="Steering Wheel">
+			<transform scale="1.00" x="470" y="180"/>
+			<unfocused_transform scale="0.70" right_x="825" left_x="220" y="260"/>
+		</component>
+		<component component_id="Pedals" image="IDR_WHEEL_PEDALS" right_component="Steering Wheel" left_component="Shifter">
+			<transform scale="1.00" x="380" y="270"/>
+			<unfocused_transform scale="0.70" right_x="785" left_x="185" y="250"/>
+		</component>
+	 </component_images>
+	 <pulse_glows>
+		<component component_id="Steering Wheel">
+			<pulse_glow image="IDR_G29_WHEEL_BUTTONS_PULSEGLOW" context="Button" relative_x="59" relative_y="113" />
+			<!--<pulse_glow image="IDR_WHEEL_WHEEL_PULSEGLOW" context="Axis" relative_x="129.5" relative_y="-21.1" />-->
+			<pulse_glow image="IDR_WHEEL_DPAD_PULSEGLOW" context="Pov" relative_x="123.2" relative_y="162.2" />
+		</component>
+		<component component_id="Shifter"/>
+		<component component_id="Pedals">
+			<!--<pulse_glow image="IDR_WHEEL_PEDALS_ALL_PULSEGLOW" context="Axis" relative_x="24" relative_y="-17" />-->
+		</component>
+	 </pulse_glows>
+	 <control_types>
+		<control_type context="Button" />
+		<control_type context="Pov" />
+	</control_types>
+	<assignments>
+  <component component_id="Steering Wheel">
+   <assignment context_id="Axis1" locked="true">
+    <editor underlay="IDR_UNDERLAY_AXIS_WHEEL"/>
+    <hotspot relative_x="129.5" relative_y="-21.1" image="IDR_WHEEL_WHEEL_PULSEGLOW" shape="IDR_WHEEL_WHEEL_OUTLINE"/>
+    <text_bubble relative_x="267" relative_y="54" direction="1" image="IDR_ICON_AXIS_WHEEL"/>
+   </assignment>
+   <assignment context_id="Button5">
+    <hotspot relative_x="370" relative_y="128" image="IDR_WHEEL_PADDLE_RIGHT_PULSEGLOW" shape="IDR_WHEEL_PADDLE_RIGHT_OUTLINE">
+     <context_button relative_x="70" relative_y="96"/>
+    </hotspot>
+    <text_bubble relative_x="403" relative_y="126"/>
+   </assignment>
+   <assignment context_id="Button6">
+    <hotspot relative_x="57" relative_y="127" image="IDR_WHEEL_PADDLE_LEFT_PULSEGLOW" shape="IDR_WHEEL_PADDLE_LEFT_OUTLINE">
+     <context_button relative_x="56" relative_y="95"/>
+    </hotspot>
+    <text_bubble relative_x="133" relative_y="126"/>
+   </assignment>
+   <assignment context_id="Button7">
+    <hotspot relative_x="330" relative_y="232" image="IDR_WHEEL_R2_PULSEGLOW" shape="IDR_WHEEL_R2_OUTLINE">
+     <context_button relative_x="27" relative_y="39"/>
+    </hotspot>
+    <text_bubble relative_x="445" relative_y="266"/>
+   </assignment>
+   <assignment context_id="Button8">
+    <hotspot relative_x="149" relative_y="232" image="IDR_WHEEL_L2_PULSEGLOW" shape="IDR_WHEEL_L2_OUTLINE">
+     <context_button relative_x="32" relative_y="36"/>
+    </hotspot>
+    <text_bubble relative_x="93" relative_y="266"/>
+   </assignment>
+   <assignment context_id="Button11">
+    <hotspot relative_x="357.6" relative_y="271" image="IDR_WHEEL_R3_PULSEGLOW" shape="IDR_WHEEL_R3_OUTLINE">
+     <context_button relative_x="33" relative_y="34"/>
+    </hotspot>
+    <text_bubble relative_x="484" relative_y="302"/>
+   </assignment>
+   <assignment context_id="Button12">
+    <hotspot relative_x="109.7" relative_y="271.9" image="IDR_WHEEL_L3_PULSEGLOW" shape="IDR_WHEEL_L3_OUTLINE">
+     <context_button relative_x="43" relative_y="30"/>
+    </hotspot>
+    <text_bubble relative_x="54" relative_y="301"/>
+   </assignment>
+   <assignment context_id="Button24">
+    <hotspot relative_x="296.3" relative_y="288.4" image="IDR_G29_RETURN_BUTTON_PULSEGLOW" shape="IDR_G29_RETURN_BUTTON_OUTLINE">
+     <context_button relative_x="51" relative_y="51"/>
+     <guideline/>
+    </hotspot>
+    <text_bubble relative_x="480" relative_y="435"/>
+   </assignment>
+   <assignment context_id="Pov1">
+    <hotspot relative_x="123.2" relative_y="162.2" image="IDR_WHEEL_DPAD_PULSEGLOW" shape="IDR_WHEEL_DPAD_OUTLINE">
+     <context_button relative_x="51" relative_y="50"/>
+     <guideline/>
+    </hotspot>
+    <text_bubble relative_x="-1" relative_y="206" direction="1" image="IDR_ICON_POV"/>
+   </assignment>
+   <multi_assignment relative_x="543" relative_y="198">
+    <assignment context_id="Button1" order="3">
+     <context_button relative_x="28" relative_y="32"/>
+     <hotspot relative_x="340" relative_y="195" image="IDR_WHEEL_ACTION_BUTTON_PULSEGLOW" shape="IDR_WHEEL_ACTION_BUTTON_OUTLINE">
+      <context_button relative_x="28" relative_y="32"/>
+      <guideline/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_ICON_PS_CROSS"/>
+    </assignment>
+    <assignment context_id="Button2" order="1">
+     <context_button relative_x="28" relative_y="32"/>
+     <hotspot relative_x="321" relative_y="178" image="IDR_WHEEL_ACTION_BUTTON_PULSEGLOW" shape="IDR_WHEEL_ACTION_BUTTON_OUTLINE">
+      <context_button relative_x="28" relative_y="32"/>
+      <guideline/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_ICON_PS_SQUARE"/>
+    </assignment>
+    <assignment context_id="Button3" order="2">
+     <context_button relative_x="28" relative_y="32"/>
+     <hotspot relative_x="360" relative_y="175" image="IDR_WHEEL_ACTION_BUTTON_PULSEGLOW" shape="IDR_WHEEL_ACTION_BUTTON_OUTLINE">
+      <context_button relative_x="28" relative_y="32"/>
+      <guideline/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_ICON_PS_CIRCLE"/>
+    </assignment>
+    <assignment context_id="Button4" order="0">
+     <context_button relative_x="28" relative_y="32"/>
+     <hotspot relative_x="340" relative_y="158" image="IDR_WHEEL_ACTION_BUTTON_PULSEGLOW" shape="IDR_WHEEL_ACTION_BUTTON_OUTLINE">
+      <context_button relative_x="28" relative_y="32"/>
+      <guideline/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_ICON_PS_TRIANGLE"/>
+    </assignment>
+   </multi_assignment>
+   <multi_assignment relative_x="270" relative_y="458">
+    <assignment context_id="Button9" order="0">
+     <context_button relative_x="35" relative_y="27"/>
+     <hotspot relative_x="237" relative_y="319" image="IDR_G29_SHARE_BUTTON_PULSEGLOW" shape="IDR_G29_SHARE_BUTTON_OUTLINE">
+      <context_button relative_x="35" relative_y="27"/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_ICON_PS_SHARE"/>
+    </assignment>
+    <assignment context_id="Button10" order="1">
+     <context_button relative_x="35" relative_y="27"/>
+     <hotspot relative_x="237" relative_y="335" image="IDR_G29_OPTION_BUTTON_PULSEGLOW" shape="IDR_G29_OPTION_BUTTON_OUTLINE">
+      <context_button relative_x="35" relative_y="27"/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_ICON_PS_OPTION"/>
+    </assignment>
+    <assignment context_id="Button25" order="2">
+     <context_button relative_x="35" relative_y="35"/>
+     <hotspot relative_x="237" relative_y="350" image="IDR_G29_PS_BUTTON_PULSEGLOW" shape="IDR_G29_PS_BUTTON_OUTLINE">
+      <context_button relative_x="35" relative_y="35"/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_ICON_PS_HOME"/>
+    </assignment>
+   </multi_assignment>
+   <multi_assignment relative_x="90" relative_y="388">
+    <assignment context_id="Button20" order="0">
+     <context_button relative_x="60.4" relative_y="32.5"/>
+     <hotspot relative_x="152.2" relative_y="289.6" image="IDR_G29_PLUS_BUTTON_PULSEGLOW" shape="IDR_G29_PLUS_BUTTON_OUTLINE">
+      <context_button relative_x="60.4" relative_y="32.5"/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_ICON_PS_PLUS"/>
+    </assignment>
+    <assignment context_id="Button21" order="1">
+     <context_button relative_x="61.5" relative_y="17.6"/>
+     <hotspot relative_x="152.2" relative_y="315" image="IDR_G29_MINUS_BUTTON_PULSEGLOW" shape="IDR_G29_MINUS_BUTTON_OUTLINE">
+      <context_button relative_x="61.5" relative_y="17.6"/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_ICON_PS_MINUS"/>
+    </assignment>
+   </multi_assignment>
+   <multi_assignment relative_x="493" relative_y="385">
+    <assignment context_id="Button22" order="0">
+     <context_button relative_x="24.7" relative_y="46.8"/>
+     <hotspot relative_x="341.5" relative_y="277.3" image="IDR_G29_RIGHTRING_PULSEGLOW" shape="IDR_G29_RIGHTRING_OUTLINE">
+      <context_button relative_x="24.7" relative_y="46.8"/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_CLOCKWISE_ARROW"/>
+    </assignment>
+    <assignment context_id="Button23" order="1">
+     <context_button relative_x="20" relative_y="48.4"/>
+     <hotspot relative_x="274.7" relative_y="275.8" image="IDR_G29_LEFTRING_PULSEGLOW" shape="IDR_G29_LEFTRING_OUTLINE">
+      <context_button relative_x="20" relative_y="48.4"/>
+     </hotspot>
+     <text_bubble direction="0" image="IDR_COUNTERCLOCKWISE_ARROW"/>
+    </assignment>
+   </multi_assignment>
+  </component>
+  <component component_id="Pedals">
+   <assignment context_id="Axis3" locked="true">
+    <editor type="0" underlay="IDR_UNDERLAY_PEDAL"/>
+    <hotspot relative_x="381" relative_y="-17" image="IDR_WHEEL_ACCELERATOR_PULSEGLOW" shape="IDR_WHEEL_ACCELERATOR_OUTLINE">
+     <context_button relative_x="111" relative_y="183"/>
+    </hotspot>
+    <text_bubble relative_x="455" relative_y="-40" direction="1" image="IDR_ICON_AXIS_PEDAL"/>
+   </assignment>
+   <assignment context_id="Axis4" locked="true">
+    <editor type="0" underlay="IDR_UNDERLAY_PEDAL"/>
+    <hotspot relative_x="186" relative_y="-16" image="IDR_WHEEL_PEDAL_PULSEGLOW" shape="IDR_WHEEL_PEDAL_OUTLINE">
+     <context_button relative_x="105" relative_y="170"/>
+    </hotspot>
+    <text_bubble relative_x="260" relative_y="-40" direction="1" image="IDR_ICON_AXIS_PEDAL"/>
+   </assignment>
+   <assignment context_id="Axis5" locked="true">
+    <editor type="0" underlay="IDR_UNDERLAY_PEDAL"/>
+    <hotspot relative_x="23" relative_y="-16" image="IDR_WHEEL_PEDAL_PULSEGLOW" shape="IDR_WHEEL_PEDAL_OUTLINE">
+     <context_button relative_x="105" relative_y="170"/>
+    </hotspot>
+    <text_bubble relative_x="100" relative_y="-40" direction="1" image="IDR_ICON_AXIS_PEDAL"/>
+   </assignment>
+  </component>
+  <component component_id="Shifter">
+   <assignment context_id="Text1" locked="true">
+    <text_bubble font_size="12" relative_x="198" relative_y="345" args="12,18" expand="true" text="Commands cannot be assigned to buttons %1 through %2."/>
+   </assignment>
+  </component>
+ </assignments>
+
+</command_assignment_metadata>
+	<natural_assignments>
+	  <assignment required="true" context_id="Button1" name="Button %1" args="1" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button2" name="Button %1" args="2" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button3" name="Button %1" args="3" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button4" name="Button %1" args="4" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button5" name="Button %1" args="5" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button6" name="Button %1" args="6" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button7" name="Button %1" args="7" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button8" name="Button %1" args="8" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button9" name="Button %1" args="9" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button10" name="Button %1" args="10" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button11" name="Button %1" args="11" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button12" name="Button %1" args="12" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button13" name="Button %1" args="13" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button14" name="Button %1" args="14" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button15" name="Button %1" args="15" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button16" name="Button %1" args="16" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button17" name="Button %1" args="17" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button18" name="Button %1" args="18" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button19" name="Button %1" args="19" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button20" name="Button %1" args="20" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button21" name="Button %1" args="21" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button22" name="Button %1" args="22" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button23" name="Button %1" args="23" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button24" name="Button %1" args="24" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Button25" name="Button %1" args="25" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Pov1" name="D-Pad" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Axis1" name="Steering Wheel" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Axis3" name="Accelerator" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Axis4" name="Brake" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	  <assignment required="true" context_id="Axis5" name="Clutch" xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Natural"/>
+	</natural_assignments>
+    <strings defaultlocale="en-US">
+      <locale name="en-US">
+        <string id="DEVICE_NAME">Logitech G29 Racing Wheel</string>
+      </locale>
+      <locale name="ja-JP">
+        <string id="DEVICE_NAME">Logicool G29 Racing Wheel</string>
+      </locale>
+    </strings>
+  </device>
+</devicemanifest>

@@ -1,0 +1,427 @@
+{
+  "Effects" : 
+    {
+      "current" : "wave",
+	  "fixed/color" : "#00dcff",
+	  "breathing/color" : "#00dcff",
+	  "breathing/speed" : 5000,
+	  "star/star/color" : "#ffff00",
+	  "star/sky/color" : "#000019",
+	  "star/count" : 12,
+	  "star/rate" : 32,
+	  "wave/direction" : 1,
+	  "wave/speed" : 2000,
+	  "cycle/speed" : 10000,
+	  "echo/fg/color" : "#00dcff",
+	  "echo/bg/color" : "#000000",
+	  "echo/rate" : 150
+    },
+  "Command" : 
+    {
+      "background_color" : "#000000",
+      "foreground_color" : "#00cdff",
+      "show_command_color" : true
+    },
+  "PerKey" : 
+    {
+      "0x1" : 
+      {
+        "0x10" : "#00cdff",
+        "0x11" : "#00cdff",
+        "0x12" : "#00cdff",
+        "0x13" : "#00cdff",
+        "0x14" : "#00cdff",
+        "0x15" : "#00cdff",
+        "0x16" : "#00cdff",
+        "0x17" : "#00cdff",
+        "0x18" : "#00cdff",
+        "0x19" : "#00cdff",
+        "0x1a" : "#00cdff",
+        "0x1b" : "#00cdff",
+        "0x1c" : "#00cdff",
+        "0x1d" : "#00cdff",
+        "0x1e" : "#00cdff",
+        "0x1f" : "#00cdff",
+        "0x20" : "#00cdff",
+        "0x21" : "#00cdff",
+        "0x22" : "#00cdff",
+        "0x23" : "#00cdff",
+        "0x24" : "#00cdff",
+        "0x25" : "#00cdff",
+        "0x26" : "#00cdff",
+        "0x27" : "#00cdff",
+        "0x28" : "#00cdff",
+        "0x29" : "#00cdff",
+        "0x2a" : "#00cdff",
+        "0x2b" : "#00cdff",
+        "0x2c" : "#00cdff",
+        "0x2d" : "#00cdff",
+        "0x2e" : "#00cdff",
+        "0x2f" : "#00cdff",
+        "0x30" : "#00cdff",
+        "0x31" : "#00cdff",
+        "0x32" : "#00cdff",
+        "0x33" : "#00cdff",
+        "0x34" : "#00cdff",
+        "0x35" : "#00cdff",
+        "0x36" : "#00cdff",
+        "0x37" : "#00cdff",
+        "0x38" : "#00cdff",
+        "0x39" : "#00cdff",
+        "0x3a" : "#00cdff",
+        "0x3b" : "#00cdff",
+        "0x3c" : "#00cdff",
+        "0x3d" : "#00cdff",
+        "0x3e" : "#00cdff",
+        "0x3f" : "#00cdff",
+        "0x4" : "#00cdff",
+        "0x40" : "#00cdff",
+        "0x41" : "#00cdff",
+        "0x42" : "#00cdff",
+        "0x43" : "#00cdff",
+        "0x44" : "#00cdff",
+        "0x45" : "#00cdff",
+        "0x46" : "#00cdff",
+        "0x47" : "#00cdff",
+        "0x48" : "#00cdff",
+        "0x49" : "#00cdff",
+        "0x4a" : "#00cdff",
+        "0x4b" : "#00cdff",
+        "0x4c" : "#00cdff",
+        "0x4d" : "#00cdff",
+        "0x4e" : "#00cdff",
+        "0x4f" : "#00cdff",
+        "0x5" : "#00cdff",
+        "0x50" : "#00cdff",
+        "0x51" : "#00cdff",
+        "0x52" : "#00cdff",
+        "0x53" : "#00cdff",
+        "0x54" : "#00cdff",
+        "0x55" : "#00cdff",
+        "0x56" : "#00cdff",
+        "0x57" : "#00cdff",
+        "0x58" : "#00cdff",
+        "0x59" : "#00cdff",
+        "0x5a" : "#00cdff",
+        "0x5b" : "#00cdff",
+        "0x5c" : "#00cdff",
+        "0x5d" : "#00cdff",
+        "0x5e" : "#00cdff",
+        "0x5f" : "#00cdff",
+        "0x6" : "#00cdff",
+        "0x60" : "#00cdff",
+        "0x61" : "#00cdff",
+        "0x62" : "#00cdff",
+        "0x64" : "#00cdff",
+        "0x63" : "#00cdff",
+        "0x65" : "#00cdff",
+        "0x7" : "#00cdff",
+        "0x8" : "#00cdff",
+        "0x87" : "#00cdff",
+        "0x88" : "#00cdff",
+        "0x89" : "#00cdff",
+        "0x8a" : "#00cdff",
+        "0x8b" : "#00cdff",
+        "0x9" : "#00cdff",
+        "0xa" : "#00cdff",
+        "0xb" : "#00cdff",
+        "0xc" : "#00cdff",
+        "0xd" : "#00cdff",
+        "0xe" : "#00cdff",
+        "0xe0" : "#00cdff",
+        "0xe1" : "#00cdff",
+        "0xe2" : "#00cdff",
+        "0xe3" : "#00cdff",
+        "0xe4" : "#00cdff",
+        "0xe5" : "#00cdff",
+        "0xe6" : "#00cdff",
+        "0xe7" : "#00cdff",
+        "0xf" : "#00cdff"
+      },
+      "0x10" : 
+      {
+        "0x1" : "#00cdff",
+        "0x2" : "#00cdff"
+      },
+      "0x4" : 
+      {
+        "0x1" : "#00cdff",
+        "0x2" : "#00cdff",
+        "0x3" : "#00cdff",
+        "0x4" : "#00cdff",
+        "0x5" : "#00cdff",
+        "0x6" : "#00cdff",
+        "0x7" : "#00cdff",
+        "0x8" : "#00cdff",
+        "0x9" : "#00cdff"
+      }
+    },
+  "Zone" : 
+    {
+      "selectedZone" : "{2aa879fb-1a6e-4f40-9ef5-dd9f1f8c30ec}",
+"zones" : 
+      {
+	    "{2aa879fb-1a6e-4f40-9ef5-dd9f1f8c30ec}" : 
+        {
+          "color" : "#ff8000",
+          "name" : "Default"
+        },
+        "{7318BB8E-9A17-DEAD-9A4C-21F2EE342DC1}" : 
+        {
+          "color" : "#00cdff",
+          "name" : "Logo", 
+          "keys" : 
+          [
+            {
+              "id" : "0x1",
+              "type" : "0x10"
+            },
+            {
+              "id" : "0x2",
+              "type" : "0x10"
+            }
+          ]
+        },
+        "{985ab4c8-cba1-4dc2-8432-8d02ac623186}" : 
+        {
+          "color" : "#0000ff",
+          "keys" : 
+          [
+            {
+              "id" : "0x50",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x4f",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x52",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x51",
+              "type" : "0x1"
+            }
+          ],
+          "name" : "Arrow Keys"
+        },
+        "{c92b9f78-e103-4a8e-bfd4-331d65aa152a}" : 
+        {
+          "color" : "#00ff00",
+          "keys" : 
+          [
+            {
+              "id" : "0xe5",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0xe2",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0xe1",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0xe3",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0xe7",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0xe4",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0xe0",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0xe6",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x65",
+              "type" : "0x1"
+            }
+          ],
+          "name" : "Modifiers"
+        },
+        "{ddc81010-b337-43b0-905f-d2bd09e58894}" : 
+        {
+          "color" : "#ffff00",
+          "keys" : 
+          [
+            {
+              "id" : "0x1e",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x1f",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x20",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x25",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x27",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x26",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x21",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x22",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x23",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x24",
+              "type" : "0x1"
+            }
+          ],
+          "name" : "Numbers"
+        },
+        "{e5c1024a-1fc2-40d0-a934-cb7116dee284}" : 
+        {
+          "color" : "#ff00ff",
+          "keys" : 
+          [
+            {
+              "id" : "0x3b",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x3f",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x3a",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x44",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x42",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x3e",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x40",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x3d",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x45",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x3c",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x41",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x43",
+              "type" : "0x1"
+            }
+          ],
+          "name" : "Function Keys"
+        },
+        "{e846efbf-89bb-4f21-b4d9-1ce21bf57768}" : 
+        {
+          "color" : "#ff0000",
+          "keys" : 
+          [
+            {
+              "id" : "0x16",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x1a",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x4",
+              "type" : "0x1"
+            },
+            {
+              "id" : "0x7",
+              "type" : "0x1"
+            }
+          ],
+          "name" : "WASD"
+        },
+        "{fcce9ecc-3c13-4855-9101-4547bf6f3e2c}" : 
+        {
+          "color" : "#00cdff",
+          "keys" : 
+          [
+            {
+              "id" : "0x9",
+              "type" : "0x4"
+            },
+            {
+              "id" : "0x4",
+              "type" : "0x4"
+            },
+            {
+              "id" : "0x3",
+              "type" : "0x4"
+            },
+            {
+              "id" : "0x6",
+              "type" : "0x4"
+            },
+            {
+              "id" : "0x5",
+              "type" : "0x4"
+            },
+            {
+              "id" : "0x7",
+              "type" : "0x4"
+            },
+            {
+              "id" : "0x1",
+              "type" : "0x4"
+            },
+            {
+              "id" : "0x8",
+              "type" : "0x4"
+            },
+            {
+              "id" : "0x2",
+              "type" : "0x4"
+            }
+          ],
+          "name" : "G-Keys"
+        }
+      }
+    }
+}

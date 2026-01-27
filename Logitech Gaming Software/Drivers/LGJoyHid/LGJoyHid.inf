@@ -1,0 +1,447 @@
+;; LGJoyHid.inf
+;; Logitech Gaming Devices INF file
+;;
+;; Part of Logitech Gaming Software
+;;
+;; Copyright 2015-2022 Logitech. All rights reserved.
+;; ./tip_hat rucosmer
+
+[Version]
+Signature="$CHICAGO$"
+Class=HIDClass
+ClassGuid={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider=%Vendor%
+DriverVer=04/22/2022, 9.04.030.0
+CatalogFile=LGJoyHid.cat
+PnpLockdown=1
+
+[SourceDisksNames]
+55=%DiskDesc%,,,
+
+[SourceDisksFiles]
+LGJoyHidLo32.sys=55
+LGJoyHidLo64.sys=55
+LGJoyHidFilter32.sys=55
+LGJoyHidFilter64.sys=55
+LGJoyFrc32.dll=55
+LGJoyFrc64.dll=55
+
+[DestinationDirs]
+LGJoy.CopyUsbHidFilter32      = 10,system32\drivers
+LGJoy.CopyUsbHidFilter64      = 10,system32\drivers
+LGJoy.CopyLGJoyHidFilterSYS32 = 10,system32\drivers
+LGJoy.CopyLGJoyHidFilterSYS64 = 10,system32\drivers
+LGJoyFrc.Copy.DLL.SysWow64    = 10,syswow64
+LGJoyFrc.Copy.DLL             = 10,system32\drivers
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%VENDOR%=Standard, NTx86, NTamd64
+
+[Standard.NTx86]
+%USB\VID_046D&PID_C24F.DeviceName%  = G29Inst32,         USB\VID_046D&PID_C24F&MI_00
+%USB\VID_046D&PID_C262.DeviceName%  = G920Inst32,        USB\VID_046D&PID_C262
+%HID\VID_046D&PID_C24F.DeviceName%  = LGJoy.HidFilter32, HID\VID_046D&PID_C24F&MI_00
+%HID\VID_046D&PID_C262.DeviceName%  = LGJoy.HidFilter32, HID\VID_046D&PID_C262&Col01
+%HID\VID_046D&PID_C22D.DeviceName%  = LGJoy.HidFilter32, HID\VID_046D&PID_C22D&MI_01&Col01
+%HID\VID_046D&PID_C22E.DeviceName%  = LGJoy.HidFilter32, HID\VID_046D&PID_C22E&MI_01&Col01
+
+[Standard.NTamd64]
+%USB\VID_046D&PID_C24F.DeviceName%  = G29Inst64,         USB\VID_046D&PID_C24F&MI_00
+%USB\VID_046D&PID_C262.DeviceName%  = G920Inst64,        USB\VID_046D&PID_C262
+%HID\VID_046D&PID_C24F.DeviceName%  = LGJoy.HidFilter64, HID\VID_046D&PID_C24F&MI_00
+%HID\VID_046D&PID_C262.DeviceName%  = LGJoy.HidFilter64, HID\VID_046D&PID_C262&Col01
+%HID\VID_046D&PID_C22D.DeviceName%  = LGJoy.HidFilter64, HID\VID_046D&PID_C22D&MI_01&Col01
+%HID\VID_046D&PID_C22E.DeviceName%  = LGJoy.HidFilter64, HID\VID_046D&PID_C22E&MI_01&Col01
+
+[LGJoy.HidFilter32]
+CopyFiles = LGJoy.CopyLGJoyHidFilterSYS32
+
+[LGJoy.HidFilter64]
+CopyFiles = LGJoy.CopyLGJoyHidFilterSYS64
+
+[G29Inst32]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=LGJoy.CopyUsbHidFilter32, LGJoyFrc.Copy.DLL
+AddReg=G29Inst32.AddReg, G29Inst.AddReg, LGJoy.LGJoyFrcDLL.AddReg32
+
+[G29Inst64]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=LGJoy.CopyUsbHidFilter64, LGJoyFrc.Copy.DLL, LGJoyFrc.Copy.DLL.SysWow64
+AddReg=G29Inst64.AddReg, G29Inst.AddReg, LGJoy.LGJoyFrcDLL.AddReg64
+
+[G29Inst32.HW]
+AddReg=LGJoyHidLo.HW.AddReg
+
+[G29Inst64.HW]
+AddReg=LGJoyHidLo.HW.AddReg
+
+[G920Inst32]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=LGJoy.CopyUsbHidFilter32
+AddReg=G920Inst.AddReg
+
+[G920Inst64]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=LGJoy.CopyUsbHidFilter64
+AddReg=G920Inst.AddReg
+
+[G920Inst32.HW]
+AddReg=LGJoyHidLo.HW.AddReg
+
+[G920Inst64.HW]
+AddReg=LGJoyHidLo.HW.AddReg
+
+[LGJoyHidLo.HW.AddReg]
+HKR,,"LowerFilters",0x00010000,"LGJoyHidLo"
+
+[LGJoy.HidFilter32.Services]
+AddService = LGJoyHidFilter,0x00000002,LGJoyHidFilter_Service_Inst32
+
+[LGJoy.HidFilter64.Services]
+AddService = LGJoyHidFilter,0x00000002,LGJoyHidFilter_Service_Inst64
+
+[G29Inst32.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = LGJoyHidLo,,LGJoyHidLo_Service_Inst32
+
+[G29Inst64.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = LGJoyHidLo,,LGJoyHidLo_Service_Inst64
+
+[G920Inst32.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = LGJoyHidLo,,LGJoyHidLo_Service_Inst32
+
+[G920Inst64.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = LGJoyHidLo,,LGJoyHidLo_Service_Inst64
+
+[LGJoyHidFilter_Service_Inst32]
+DisplayName    = %LGJoyHidFilter32.SvcDesc%
+ServiceType    = 1 ; SERVICE_KERNEL_DRIVER
+StartType      = 3 ; SERVICE_DEMAND_START
+ErrorControl   = 0 ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %12%\LGJoyHidFilter32.sys
+
+[LGJoyHidFilter_Service_Inst64]
+DisplayName    = %LGJoyHidFilter64.SvcDesc%
+ServiceType    = 1 ; SERVICE_KERNEL_DRIVER
+StartType      = 3 ; SERVICE_DEMAND_START
+ErrorControl   = 0 ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %12%\LGJoyHidFilter64.sys
+
+[LGJoyHidLo_Service_Inst32]
+DisplayName    = %LGJoyHidLo32.SvcDesc%
+ServiceType    = 1 ; SERVICE_KERNEL_DRIVER
+StartType      = 3 ; SERVICE_DEMAND_START
+ErrorControl   = 0 ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %12%\LGJoyHidLo32.sys
+
+[LGJoyHidLo_Service_Inst64]
+DisplayName    = %LGJoyHidLo64.SvcDesc%
+ServiceType    = 1 ; SERVICE_KERNEL_DRIVER
+StartType      = 3 ; SERVICE_DEMAND_START
+ErrorControl   = 0 ; SERVICE_ERROR_IGNORE
+ServiceBinary  = %12%\LGJoyHidLo64.sys
+
+;-------------COPY FILEs ---------------------------------------------
+
+[LGJoy.CopyLGJoyHidFilterSYS32]
+LGJoyHidFilter32.sys
+
+[LGJoy.CopyLGJoyHidFilterSYS64]
+LGJoyHidFilter64.sys
+
+[LGJoy.CopyUsbHidFilter32]
+LGJoyHidLo32.sys
+
+[LGJoy.CopyUsbHidFilter64]
+LGJoyHidLo64.sys
+
+[LGJoyFrc.Copy.DLL.SysWow64]
+LGJoyFrc32.dll
+
+[LGJoyFrc.Copy.DLL]
+LGJoyFrc64.dll
+
+;-------------ADD REGs ---------------------------------------------
+[LGJoy.LGJoyFrcDLL.AddReg32]
+HKCR,CLSID\%CLSID_LGJoyFrcDLL_Config%,,,%CLSID_LGJoyFrcDLL_Config.Desc%
+HKCR,CLSID\%CLSID_LGJoyFrcDLL_Config%\InProcServer32,,,%%SystemRoot%%\system32\drivers\LGJoyFrc32.dll
+HKCR,CLSID\%CLSID_LGJoyFrcDLL_Config%\InProcServer32,ThreadingModel,,"Apartment"
+
+[LGJoy.LGJoyFrcDLL.AddReg64]
+HKCR,Wow6432Node\CLSID\%CLSID_LGJoyFrcDLL_Config%,,,%CLSID_LGJoyFrcDLL_Config.Desc%
+HKCR,Wow6432Node\CLSID\%CLSID_LGJoyFrcDLL_Config%\InProcServer32,,,%%SystemRoot%%\SysWow64\LGJoyFrc32.dll
+HKCR,Wow6432Node\CLSID\%CLSID_LGJoyFrcDLL_Config%\InProcServer32,ThreadingModel,,"Apartment"
+HKCR,CLSID\%CLSID_LGJoyFrcDLL_Config%,,,%CLSID_LGJoyFrcDLL_Config.Desc%
+HKCR,CLSID\%CLSID_LGJoyFrcDLL_Config%\InProcServer32,,,%%SystemRoot%%\system32\drivers\LGJoyFrc64.dll
+HKCR,CLSID\%CLSID_LGJoyFrcDLL_Config%\InProcServer32,ThreadingModel,,"Apartment"
+
+[G29Inst32.AddReg]
+HKCR,CLSID\%CLSID_G29_FF%,,,%CLSID_LGFF.Desc%
+HKCR,CLSID\%CLSID_G29_FF%\InProcServer32,,,%%SystemRoot%%\system32\drivers\LGJoyFrc32.dll
+HKCR,CLSID\%CLSID_G29_FF%\InProcServer32,ThreadingModel,,"Both"
+
+[G29Inst64.AddReg]
+HKCR,Wow6432Node\CLSID\%CLSID_G29_FF%,,,%CLSID_LGFF.Desc%
+HKCR,Wow6432Node\CLSID\%CLSID_G29_FF%\InProcServer32,,,%%SystemRoot%%\SysWow64\LGJoyFrc32.dll
+HKCR,Wow6432Node\CLSID\%CLSID_G29_FF%\InProcServer32,ThreadingModel,,"Both"
+HKCR,CLSID\%CLSID_G29_FF%,,,%CLSID_LGFF.Desc%
+HKCR,CLSID\%CLSID_G29_FF%\InProcServer32,,,%%SystemRoot%%\system32\drivers\LGJoyFrc64.dll
+HKCR,CLSID\%CLSID_G29_FF%\InProcServer32,ThreadingModel,,"Both"
+
+[G29Inst.AddReg]
+HKLM,%G29%,OEMName,,%USB\VID_046D&PID_C24F.DeviceName%
+HKLM,%G29%,OEMData,1,43,00,08,10,19,00,00,00
+HKLM,%G29%\Axes\0,,,%WAX%
+HKLM,%G29%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%G29%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%G29%\Axes\2,,,%AAX%
+HKLM,%G29%\Axes\5,,,%BAX%
+HKLM,%G29%\Axes\6,,,%CLAX%
+HKLM,%G29%\Buttons\0,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\1,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\2,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\3,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\4,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\5,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\6,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\7,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\8,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\9,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\10,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\11,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\12,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\13,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\14,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\15,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\16,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\17,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\18,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\19,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\20,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\21,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\22,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\23,Attributes,1,2,80,0,0
+HKLM,%G29%\Buttons\24,Attributes,1,2,80,0,0
+HKLM,%G29%\OEMForceFeedback,Attributes,1,0,0,0,0,E8,3,0,0,E8,3,0,0
+HKLM,%G29%\OEMForceFeedback,CLSID,,"%CLSID_G29_FF%"
+HKLM,%G29FF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%G29FF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%G29FF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%G29FF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%G29FF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%G29FF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%G29FF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%G29FF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%G29FF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%G29FF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%G29FF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%G29FF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%G29FF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%G29FF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[G920Inst.AddReg]
+HKLM,%G920%,OEMName,,%USB\VID_046D&PID_C262.DeviceName%
+HKLM,%G920%,OEMData,1,43,00,08,10,12,00,00,00
+HKLM,%G920%,Version,0x00010001,1
+HKLM,%G920%\Axes\0,,,%WAX%
+HKLM,%G920%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%G920%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%G920%\Axes\2,,,%AAX%
+HKLM,%G920%\Axes\2,Attributes,1,00,00,00,00,01,00,31,00
+HKLM,%G920%\Axes\5,,,%BAX%
+HKLM,%G920%\Axes\5,Attributes,1,00,00,00,00,01,00,32,00
+HKLM,%G920%\Axes\6,,,%CLAX%
+HKLM,%G920%\Axes\6,Attributes,1,00,00,00,00,01,00,35,00
+HKLM,%G920%\Buttons\0,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\1,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\2,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\3,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\4,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\5,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\6,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\7,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\8,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\9,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\10,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\11,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\12,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\13,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\14,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\15,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\16,Attributes,1,2,80,0,0
+HKLM,%G920%\Buttons\17,Attributes,1,2,80,0,0
+HKLM,%G920%\OEMForceFeedback,Attributes,1,0,0,0,0,E8,3,0,0,E8,3,0,0
+HKLM,%G920%\OEMForceFeedback,CLSID,,"%CLSID_LGHppFrcDLL_Config%"
+HKLM,%G920FF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%G920FF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%G920FF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%G920FF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G920FF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%G920FF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G920FF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%G920FF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G920FF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%G920FF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G920FF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%G920FF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G920FF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%G920FF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%G920FF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%G920FF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%G920FF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%G920FF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%G920FF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%G920FF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%G920FF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%G920FF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+
+
+[Strings]
+Vendor                              = "Logitech"
+DiskDesc                            = "Logitech Gaming Software"
+LGJoyHidLo32.SvcDesc                = "Logitech Gaming USB Filter Driver (LGS, 32-bit)"
+LGJoyHidLo64.SvcDesc                = "Logitech Gaming USB Filter Driver (LGS, 64-bit)"
+LGJoyHidFilter32.SvcDesc            = "Logitech Gaming HID Filter Driver (LGS, 32-bit)"
+LGJoyHidFilter64.SvcDesc            = "Logitech Gaming HID Filter Driver (LGS, 64-bit)"
+USB\VID_046D&PID_C24F.DeviceName    = "Logitech G29 Driving Force Racing Wheel USB"
+HID\VID_046D&PID_C24F.DeviceName    = "Logitech G29 Driving Force Racing Wheel USB (HID)"
+USB\VID_046D&PID_C262.DeviceName    = "Logitech G920 Driving Force Racing Wheel USB"
+HID\VID_046D&PID_C262.DeviceName    = "Logitech G920 Driving Force Racing Wheel USB (HID)"
+HID\VID_046D&PID_C22D.DeviceName    = "Logitech G510/G510s (HID)"
+HID\VID_046D&PID_C22E.DeviceName    = "Logitech G510/G510s (HID)"
+
+G29                                 = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C24F"
+G29FF                               = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C24F\OEMForceFeedback\Effects"
+G920                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C262"
+G920FF                              = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C262\OEMForceFeedback\Effects"
+
+CLSID_LGJoyFrcDll_Config            = "{BFDE0402-02ED-40A6-BC30-C7AF99D2D588}"
+CLSID_G29_FF                        = "{920B2620-BE85-4D30-8797-8BA0A23A5D53}"
+CLSID_LGJoyFrcDll_Config.Desc       = "Logitech Force Feedback Configuration DLL (LGS)"
+CLSID_LGFF.Desc	                    = "Logitech Force Feedback DLL (LGS)"
+CLSID_LGHppFrcDll_Config            = "{4DD075CB-CCF0-4A26-B970-2ACD092662DB}"
+CLSID_LGHppFrcDLL_Config.Desc       = "Logitech HID++ Force Feedback DLL"
+
+F_CONST="{13541C20-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_CONST="Constant"
+F_RAMP="{13541C21-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_RAMP="Ramp Force"
+F_SQUARE="{13541C22-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SQUARE="Square Wave"
+F_SINE="{13541C23-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SINE="Sine Wave"
+F_TRI="{13541C24-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_TRI="Triangle Wave"
+F_SAWUP="{13541C25-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SAWUP="Sawtooth Up Wave"
+F_SAWDN="{13541C26-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SAWDN="Sawtooth Down Wave"
+F_SPRING="{13541C27-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SPRING="Spring"
+F_DAMP="{13541C28-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_DAMP="Damper"
+F_INERT="{13541C29-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_INERT="Inertia"
+F_FRIC="{13541C2A-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_FRIC="Friction"
+F_CUST="{13541C2B-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_CUST="CustomForce"
+
+; stuff
+WAX="Wheel axis"
+CAX="Combined pedals"
+AAX="Accelerator"
+BAX="Brake"
+CLAX="Clutch"
+XAX="X axis"
+YAX="Y axis"
+TAX="Throttle"
+RAX="Rudder"
+EAX="Extra"
+
+[Strings.0411]
+Vendor                              = "Logicool"
+DiskDesc                            = "Logicool Gaming Software"
+LGJoyHidLo32.SvcDesc                = "Logicool Gaming USB Filter Driver (LGS, 32-bit)"
+LGJoyHidLo64.SvcDesc                = "Logicool Gaming USB Filter Driver (LGS, 64-bit)"
+LGJoyHidFilter32.SvcDesc            = "Logicool Gaming HID Filter Driver (LGS, 32-bit)"
+LGJoyHidFilter64.SvcDesc            = "Logicool Gaming HID Filter Driver (LGS, 64-bit)"
+USB\VID_046D&PID_C24F.DeviceName    = "Logicool G29 Driving Force Racing Wheel USB"
+HID\VID_046D&PID_C24F.DeviceName    = "Logicool G29 Driving Force Racing Wheel USB (HID)"
+USB\VID_046D&PID_C262.DeviceName    = "Logicool G920 Driving Force Racing Wheel USB"
+HID\VID_046D&PID_C262.DeviceName    = "Logicool G920 Driving Force Racing Wheel USB (HID)"
+HID\VID_046D&PID_C22D.DeviceName    = "Logicool G510/G510s (HID)"
+HID\VID_046D&PID_C22E.DeviceName    = "Logicool G510/G510s (HID)"
+
+G29                                 = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C24F"
+G29FF                               = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C24F\OEMForceFeedback\Effects"
+G920                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C262"
+G920FF                              = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C262\OEMForceFeedback\Effects"
+
+CLSID_LGJoyFrcDll_Config            = "{BFDE0402-02ED-40A6-BC30-C7AF99D2D588}"
+CLSID_G29_FF                        = "{920B2620-BE85-4D30-8797-8BA0A23A5D53}"
+CLSID_LGJoyFrcDll_Config.Desc       = "Logicool Force Feedback Configuration DLL (LGS)"
+CLSID_LGFF.Desc	                    = "Logicool Force Feedback DLL (LGS)"
+CLSID_LGHppFrcDll_Config            = "{4DD075CB-CCF0-4A26-B970-2ACD092662DB}"
+CLSID_LGHppFrcDLL_Config.Desc       = "Logitech HID++ Force Feedback DLL"
+
+F_CONST="{13541C20-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_CONST="Constant"
+F_RAMP="{13541C21-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_RAMP="Ramp Force"
+F_SQUARE="{13541C22-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SQUARE="Square Wave"
+F_SINE="{13541C23-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SINE="Sine Wave"
+F_TRI="{13541C24-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_TRI="Triangle Wave"
+F_SAWUP="{13541C25-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SAWUP="Sawtooth Up Wave"
+F_SAWDN="{13541C26-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SAWDN="Sawtooth Down Wave"
+F_SPRING="{13541C27-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SPRING="Spring"
+F_DAMP="{13541C28-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_DAMP="Damper"
+F_INERT="{13541C29-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_INERT="Inertia"
+F_FRIC="{13541C2A-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_FRIC="Friction"
+F_CUST="{13541C2B-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_CUST="CustomForce"
+
+; stuff
+WAX="Wheel axis"
+CAX="Combined pedals"
+AAX="Accelerator"
+BAX="Brake"
+CLAX="Clutch"
+XAX="X axis"
+YAX="Y axis"
+TAX="Throttle"
+RAX="Rudder"
+EAX="Extra"
