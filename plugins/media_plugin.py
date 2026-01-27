@@ -22,8 +22,9 @@ class MediaPlugin(BasePlugin):
             self.font_small = ImageFont.load_default()
             
         self.media_data = {"artist": "", "title": "No Media", "album": "", "pos": 0, "dur": 1, "status": "Closed"}
-        self.last_check_time = 0
-        self.last_sync_time = 0 # System time of last real data fetch
+        self.render_pos = 0
+        self.last_fetch_time = 0
+        self.last_render_update = 0
         self.tick = 0
         
         # Async background fetcher
@@ -50,20 +51,26 @@ class MediaPlugin(BasePlugin):
                         "album": parts[2],
                         "pos": int(parts[3]),
                         "dur": int(parts[4]) if int(parts[4]) > 0 else 1,
-                        "status": parts[5] if len(parts) > 5 else "Playing" # Assuming PS script might send status
+                        "status": parts[5] if len(parts) > 5 else "Playing"
                     }
                     
-                    # If track changed or seeking happened, reset our local timer sync
-                    if new_data["title"] != self.media_data["title"] or abs(new_data["pos"] - self.media_data["pos"]) > 2:
-                        self.tick = 0 
+                    # Track Change Logic
+                    if new_data["title"] != self.media_data["title"]:
+                        self.render_pos = new_data["pos"]
+                        self.tick = 0
+                    else:
+                        # Sync logic: If the new data is significantly different (> 3s jump), 
+                        # or if our render_pos is lagging way behind, snap to it.
+                        # Otherwise, let the monotonic update handle it to prevent jitter.
+                        if abs(new_data["pos"] - self.render_pos) > 3:
+                            self.render_pos = new_data["pos"]
                     
                     self.media_data = new_data
-                    self.last_sync_time = time.time()
             except:
                 pass
             finally:
                 self.is_fetching = False
-                self.last_check_time = time.time()
+                self.last_fetch_time = time.time()
 
         thread = threading.Thread(target=_fetch, daemon=True)
         thread.start()
@@ -76,16 +83,16 @@ class MediaPlugin(BasePlugin):
             draw.text((2, y), text, font=font, fill=1)
             return
 
-        total_scroll = tw - limit_w + 20
+        total_scroll = tw - limit_w + 30 # Increased padding for smoother loop
         
-        if self.tick < 20: 
+        if self.tick < 25: 
             scroll_x = 0
-        elif self.tick < 20 + total_scroll:
-            scroll_x = -(self.tick - 20)
+        elif self.tick < 25 + (total_scroll * 2): # Slower scroll
+            scroll_x = -(self.tick - 25) // 2
         else:
-            if self.tick > 20 + total_scroll + 20:
+            if self.tick > 25 + (total_scroll * 2) + 25:
                 self.tick = 0
-            scroll_x = -total_scroll
+            scroll_x = -total_scroll // 1 # Keep at end
             
         draw.text((2 + scroll_x, y), text, font=font, fill=1)
 
@@ -93,22 +100,29 @@ class MediaPlugin(BasePlugin):
         img = Image.new('1', (self.width, self.height), 0)
         draw = ImageDraw.Draw(img)
         
-        # 1. Sync data (Throttled Background Fetch)
-        if time.time() - self.last_check_time > 1.5: # Increased to 1.5s to give PS more breathing room
+        now = time.time()
+        
+        # 1. Fetch data throttled
+        if now - self.last_fetch_time > 1.2:
             self.get_track_info_async()
             
+        # 2. Monotonic Timer Interpolation (The Fix)
+        # Every 1 second of real time, we increment our render_pos by 1.
+        # This occurs at the UI render frequency (10Hz).
+        if self.last_render_update == 0:
+            self.last_render_update = now
+        
+        dt = now - self.last_render_update
+        if dt >= 1.0:
+            self.render_pos += 1
+            self.last_render_update = now
+            # Prevent going over duration
+            if self.render_pos > self.media_data['dur']:
+                self.render_pos = self.media_data['dur']
+
         self.tick += 1
         data = self.media_data
         
-        # 2. Timer Interpolation
-        # Calculate how many seconds have passed since the last REAL sync from PowerShell
-        render_pos = data['pos']
-        if self.last_sync_time > 0:
-            elapsed_since_sync = time.time() - self.last_sync_time
-            # Only interpolate if we aren't paused (best guess)
-            render_pos = data['pos'] + int(elapsed_since_sync)
-            if render_pos > data['dur']: render_pos = data['dur']
-
         # 3. Title (Scrolling)
         self.draw_scrolling_text(draw, data['title'], -1, self.font_large, 115)
         
@@ -125,7 +139,7 @@ class MediaPlugin(BasePlugin):
         draw.line([bar_x2, bar_y, bar_x2, bar_y+8], fill=1)
         draw.line([bar_x1, bar_y+4, bar_x2, bar_y+4], fill=1)
         
-        pct = render_pos / data['dur']
+        pct = self.render_pos / data['dur']
         if pct > 1.0: pct = 1.0
         fill_width = int((bar_x2 - bar_x1) * pct)
         if fill_width > 0:
@@ -134,10 +148,9 @@ class MediaPlugin(BasePlugin):
         def fmt_time(s):
             m = s // 60
             s = s % 60
-            f_s = f"{m}:{s:02d}"
-            return f_s
+            return f"{m}:{s:02d}"
             
-        t_str = fmt_time(render_pos)
+        t_str = fmt_time(self.render_pos)
         draw.text((120, 27), t_str, font=self.font_large, fill=1)
             
         return img
