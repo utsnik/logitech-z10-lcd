@@ -2,15 +2,16 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Distribution
+# Large Binaries / Installers
+bin/
+*.exe
+!zadig.exe
+
+# Local Build Artifacts
 dist/
 build/
 *.spec
-*.exe
 
 # System
 Thumbs.db
 Desktop.ini
-
-# Logs
-*.log
