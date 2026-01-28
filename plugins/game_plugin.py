@@ -62,14 +62,35 @@ class GamePlugin(BasePlugin):
             return # Don't spam open retry
             
         self.last_map_open_time = time.time()
-            # print("DEBUG: Attempting to open RTSS Memory...")
-            # Use 0 to map the whole memory segment (Fixes 'seek out of range')
-            self.map_file = mmap.mmap(0, 0, "RTSSSharedMemoryV2")
+        try:
+            # Step 1: Map just the header (safe size) to read dimensions
+            tmp = mmap.mmap(0, 1024, "RTSSSharedMemoryV2")
+            
+            from ctypes import sizeof
+            header_buf = tmp.read(sizeof(RTSS_SHARED_MEMORY_V2))
+            header = RTSS_SHARED_MEMORY_V2.from_buffer_copy(header_buf)
+            
+            # Calculate total needed size
+            # Data layout can vary. We need the max extent.
+            app_end = header.dwAppArrOffset + (header.dwAppArrSize * header.dwAppEntrySize)
+            osd_end = header.dwOSDArrOffset + (header.dwOSDArrSize * header.dwOSDEntrySize)
+            
+            total_size = max(app_end, osd_end)
+            
+            # Sanity check size
+            if total_size < 1024: total_size = 65536 # Default fallback
+            if total_size > 1024 * 1024 * 64: total_size = 1024 * 1024 * 64 # Cap at 64MB
+
+            tmp.close()
+            
+            # Step 2: Map the actual full size
+            self.map_file = mmap.mmap(0, total_size, "RTSSSharedMemoryV2")
             self.has_rtss = True
-            print("DEBUG: RTSS Connected Successfully!")
+            # print(f"DEBUG: RTSS Connected! Size: {total_size}")
+            
         except Exception as e:
             self.last_error = e
-            print(f"DEBUG: RTSS Open Failed: {e}")
+            # print(f"DEBUG: RTSS Open Failed: {e}")
             self.has_rtss = False
             self.map_file = None
 
@@ -109,6 +130,12 @@ class GamePlugin(BasePlugin):
             
             found_app = None
             
+            # Iterate Apps to find foreground 3D app
+            # Logic: Find the active app (Frames > 0) with the MOST RECENT update time (dwTime1)
+            
+            found_app = None
+            last_update_time = 0
+            
             for i in range(header.dwAppArrSize):
                 offset = header.dwAppArrOffset + (i * header.dwAppEntrySize)
                 self.map_file.seek(offset)
@@ -117,11 +144,12 @@ class GamePlugin(BasePlugin):
                 
                 if app.dwProcessId == 0: continue
                 
-                # Check flags assuming 0x4 is foreground 
-                # (Need valid RTSS flag docs, but usually checking FrameTime > 0 is good enough for active game)
+                # Must check for frames > 0 to filter out dummy entries
                 if app.dwFrames > 0:
-                     found_app = app
-                     break # Just take the first active one
+                     # Check if this app is newer than the previous best
+                     if app.dwTime1 > last_update_time:
+                         found_app = app
+                         last_update_time = app.dwTime1
             
             if found_app:
                 # Calculate FPS: 1,000,000 / FrameTime(us)
@@ -137,7 +165,7 @@ class GamePlugin(BasePlugin):
                 draw.text((80, 15), f"{ft:.1f}ms", font=self.font_label, fill=1)
                 
                 # App Name
-                name = found_app.szName.decode('utf-8', errors='ignore')
+                name = found_app.szName.decode('utf-8', errors='ignore').split(chr(0))[0]
                 # Extract exe name
                 if '\\' in name:
                     name = name.split('\\')[-1]
