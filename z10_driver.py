@@ -161,6 +161,11 @@ class Z10LCD:
         
         for y_page in range(0, self.HEIGHT, 8):
             for x in range(self.WIDTH):
+                # Mask Right Edge (x=159) to prevent buffer wrap-around artifacts
+                if x >= 159:
+                    ptr += 1
+                    continue
+
                 byte_val = 0
                 for bit in range(8):
                     y = y_page + bit
@@ -173,10 +178,7 @@ class Z10LCD:
                     ptr += 1
 
         # Write to Endpoint 0x03
-        try:
-            self.dev.write(0x03, buffer, timeout=1000)
-        except Exception as e:
-            print(f"USB Write Error: {e}")
+        self.dev.write(0x03, buffer, timeout=1000)
 
     def clear(self):
         img = Image.new('1', (self.WIDTH, self.HEIGHT), 0)

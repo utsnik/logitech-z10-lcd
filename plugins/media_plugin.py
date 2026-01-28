@@ -25,11 +25,14 @@ class MediaPlugin(BasePlugin):
         self.render_pos = 0
         self.last_fetch_time = 0
         self.last_render_update = 0
-        self.tick = 0
+        
+        # Scrolling State
+        self.scroll_start_time = time.time()
+        self.current_title_hash = ""
         
         # Async background fetcher
         self.is_fetching = False
-        
+
     def get_track_info_async(self):
         """Threaded function to fetch media data without blocking UI"""
         if self.is_fetching:
@@ -57,11 +60,8 @@ class MediaPlugin(BasePlugin):
                     # Track Change Logic
                     if new_data["title"] != self.media_data["title"]:
                         self.render_pos = new_data["pos"]
-                        self.tick = 0
+                        self.scroll_start_time = time.time()
                     else:
-                        # Sync logic: If the new data is significantly different (> 3s jump), 
-                        # or if our render_pos is lagging way behind, snap to it.
-                        # Otherwise, let the monotonic update handle it to prevent jitter.
                         if abs(new_data["pos"] - self.render_pos) > 3:
                             self.render_pos = new_data["pos"]
                     
@@ -83,19 +83,31 @@ class MediaPlugin(BasePlugin):
             draw.text((2, y), text, font=font, fill=1)
             return
 
-        total_scroll = tw - limit_w + 30 # Increased padding for smoother loop
+        # Time-based scrolling
+        # Logic: Wait 2s -> Scroll (25px/s) -> Wait 2s -> Reset
+        now = time.time()
+        elapsed = now - self.scroll_start_time
         
-        if self.tick < 25: 
+        START_DELAY = 2.0
+        SCROLL_SPEED = 8 # px per second (Slower = less blur)
+        END_DELAY = 1.5
+        
+        total_scroll_px = tw - limit_w + 10 # +10 padding
+        scroll_dur = total_scroll_px / SCROLL_SPEED
+        cycle_dur = START_DELAY + scroll_dur + END_DELAY
+        
+        # Loop phase
+        phase = elapsed % cycle_dur
+        
+        if phase < START_DELAY:
             scroll_x = 0
-        elif self.tick < 25 + (total_scroll * 2): # Slower scroll
-            scroll_x = -(self.tick - 25) // 2
+        elif phase < START_DELAY + scroll_dur:
+            scroll_dist = (phase - START_DELAY) * SCROLL_SPEED
+            scroll_x = -int(scroll_dist)
         else:
-            if self.tick > 25 + (total_scroll * 2) + 25:
-                self.tick = 0
-            scroll_x = -total_scroll // 1 # Keep at end
+            scroll_x = -total_scroll_px
             
         draw.text((2 + scroll_x, y), text, font=font, fill=1)
-
     def update(self):
         img = Image.new('1', (self.width, self.height), 0)
         draw = ImageDraw.Draw(img)
@@ -120,7 +132,6 @@ class MediaPlugin(BasePlugin):
             if self.render_pos > self.media_data['dur']:
                 self.render_pos = self.media_data['dur']
 
-        self.tick += 1
         data = self.media_data
         
         # 3. Title (Scrolling)

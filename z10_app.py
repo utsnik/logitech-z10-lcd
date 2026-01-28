@@ -22,13 +22,18 @@ from plugins.monitor_plugin import MonitorPlugin
 from plugins.system_expanded import EnhancedMonitorPlugin
 from plugins.media_plugin import MediaPlugin
 from plugins.input_debug import DebugPlugin
+from plugins.game_plugin import GamePlugin
+from plugins.weather_plugin import WeatherPlugin
+from plugins.clock_plugin import ClockPlugin
 
 class Z10App:
     def __init__(self):
         self.lcd = Z10LCD()
         # Load Plugins
         self.plugins = [
-            MonitorPlugin(160, 43),
+            ClockPlugin(160, 43),
+            WeatherPlugin(160, 43),
+            GamePlugin(160, 43),
             EnhancedMonitorPlugin(160, 43),
             MediaPlugin(160, 43)
         ]
@@ -109,7 +114,7 @@ class Z10App:
                     img = plugin.update()
                     if img:
                         self.lcd.display_image(img)
-                    time.sleep(0.1) # Faster loop for scrolling (10 FPS)
+                    time.sleep(0.02) # Smoother loop (50 FPS target)
             except Exception as e:
                 print(f"Device Error: {e}")
                 self.lcd.disconnect() # Reset driver state
