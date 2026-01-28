@@ -144,7 +144,15 @@ class GamePlugin(BasePlugin):
                 
                 if app.dwProcessId == 0: continue
                 
-                # Must check for frames > 0 to filter out dummy entries
+                # Clean Process Name
+                name = app.szName.decode('utf-8', errors='ignore').split(chr(0))[0]
+                
+                # Filter out known background/overlay apps
+                # This prevents flicking between Game and Overlay
+                IGNORE_LIST = ["Overlay", "Launcher", "FrameView", "Steam", "FvContainer", "SearchApp", "ShellExperienceHost"]
+                if any(x.lower() in name.lower() for x in IGNORE_LIST):
+                    continue
+
                 if app.dwFrames > 0:
                      # Check if this app is newer than the previous best
                      if app.dwTime1 > last_update_time:
@@ -169,6 +177,9 @@ class GamePlugin(BasePlugin):
                 # Extract exe name
                 if '\\' in name:
                     name = name.split('\\')[-1]
+                # Remove extension
+                name = name.replace(".exe", "").replace(".EXE", "")
+                
                 draw.text((80, 28), name[:15], font=self.font_label, fill=1)
                 
             else:
