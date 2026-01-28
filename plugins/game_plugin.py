@@ -62,10 +62,14 @@ class GamePlugin(BasePlugin):
             return # Don't spam open retry
             
         self.last_map_open_time = time.time()
-        try:
-            self.map_file = mmap.mmap(0, 65536, "RTSSSharedMemoryV2")
+            # print("DEBUG: Attempting to open RTSS Memory...")
+            # Use 0 to map the whole memory segment (Fixes 'seek out of range')
+            self.map_file = mmap.mmap(0, 0, "RTSSSharedMemoryV2")
             self.has_rtss = True
-        except FileNotFoundError:
+            print("DEBUG: RTSS Connected Successfully!")
+        except Exception as e:
+            self.last_error = e
+            print(f"DEBUG: RTSS Open Failed: {e}")
             self.has_rtss = False
             self.map_file = None
 
@@ -81,7 +85,8 @@ class GamePlugin(BasePlugin):
         draw.line((0, 12, 160, 12), fill=1)
 
         if not self.has_rtss:
-             draw.text((10, 20), "RTSS Not Found", font=self.font_label, fill=1)
+             err = getattr(self, 'last_error', 'RTSS Not Found')
+             draw.text((10, 20), str(err)[:25], font=self.font_label, fill=1)
              return img
 
         try:
@@ -90,8 +95,11 @@ class GamePlugin(BasePlugin):
             header = RTSS_SHARED_MEMORY_V2.from_buffer_copy(header_buf)
             
             # Signature "RTSS" = 0x53535452
-            if header.dwSignature != 0x53535452:
-                draw.text((10, 20), "Invalid RTSS Sig", font=self.font_label, fill=1)
+            # Signature "RTSS"
+            # Found on user system: 0x52545353 (Reverse endian?)
+            # Standard SDK says: 0x53535452
+            if header.dwSignature != 0x53535452 and header.dwSignature != 0x52545353:
+                draw.text((10, 20), f"Bad Sig: {header.dwSignature:x}", font=self.font_label, fill=1)
                 return img
                 
             # Iterate Apps to find foreground 3D app
@@ -139,8 +147,8 @@ class GamePlugin(BasePlugin):
                 draw.text((10, 20), "No 3D App Active", font=self.font_label, fill=1)
 
         except Exception as e:
-            draw.text((10, 20), "Read Error", font=self.font_label, fill=1)
-            # print(f"RTSS Error: {e}")
+            self.last_error = f"ReadErr: {e}"
+            # draw.text((10, 20), "Read Error", font=self.font_label, fill=1) # Let next frame show it
             self.has_rtss = False # Trigger re-open attempt
             self.map_file = None
 

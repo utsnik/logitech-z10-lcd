@@ -32,10 +32,10 @@ class Z10App:
         # Load Plugins
         self.plugins = [
             ClockPlugin(160, 43),
+            MediaPlugin(160, 43),
             WeatherPlugin(160, 43),
-            GamePlugin(160, 43),
             EnhancedMonitorPlugin(160, 43),
-            MediaPlugin(160, 43)
+            GamePlugin(160, 43)
         ]
         self.current_plugin_idx = 0
         self.running = True
