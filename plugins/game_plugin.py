@@ -149,11 +149,17 @@ class GamePlugin(BasePlugin):
                 if app.dwProcessId == 0: continue
                 
                 # Clean Process Name
-                name = app.szName.decode('utf-8', errors='ignore').split(chr(0))[0]
+                raw_name = app.szName.decode('utf-8', errors='ignore').split(chr(0))[0]
                 
+                # Extract EXE name for filtering (Avoid matching 'Steam' in path)
+                if '\\' in raw_name:
+                    exe_name = raw_name.split('\\')[-1]
+                else:
+                    exe_name = raw_name
+
                 # Filter out known background/overlay apps
                 IGNORE_LIST = ["Overlay", "Launcher", "FrameView", "Steam", "FvContainer", "SearchApp", "ShellExperienceHost"]
-                if any(x.lower() in name.lower() for x in IGNORE_LIST):
+                if any(x.lower() in exe_name.lower() for x in IGNORE_LIST):
                     continue
 
                 # Valid App if it has an update timestamp
