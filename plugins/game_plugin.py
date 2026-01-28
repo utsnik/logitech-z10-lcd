@@ -56,6 +56,10 @@ class GamePlugin(BasePlugin):
         self.last_map_open_time = 0
         self.map_file = None
         self.has_rtss = False
+        
+        # Persistence
+        self.last_valid_app = None
+        self.last_valid_time = 0
 
     def _open_map(self):
         if time.time() - self.last_map_open_time < 5:
@@ -148,17 +152,24 @@ class GamePlugin(BasePlugin):
                 name = app.szName.decode('utf-8', errors='ignore').split(chr(0))[0]
                 
                 # Filter out known background/overlay apps
-                # This prevents flicking between Game and Overlay
                 IGNORE_LIST = ["Overlay", "Launcher", "FrameView", "Steam", "FvContainer", "SearchApp", "ShellExperienceHost"]
                 if any(x.lower() in name.lower() for x in IGNORE_LIST):
                     continue
 
-                if app.dwFrames > 0:
-                     # Check if this app is newer than the previous best
+                # Valid App if it has an update timestamp
+                if app.dwTime1 > 0:
                      if app.dwTime1 > last_update_time:
                          found_app = app
                          last_update_time = app.dwTime1
             
+            # Persistence Logic (Grace Period)
+            if found_app:
+                self.last_valid_app = found_app
+                self.last_valid_time = time.time()
+            elif self.last_valid_app and (time.time() - self.last_valid_time < 3.0):
+                # Keep showing last app for 3 seconds if signal drops (e.g. alt-tab)
+                found_app = self.last_valid_app
+
             if found_app:
                 # Calculate FPS: 1,000,000 / FrameTime(us)
                 fps = 0
@@ -174,10 +185,8 @@ class GamePlugin(BasePlugin):
                 
                 # App Name
                 name = found_app.szName.decode('utf-8', errors='ignore').split(chr(0))[0]
-                # Extract exe name
                 if '\\' in name:
                     name = name.split('\\')[-1]
-                # Remove extension
                 name = name.replace(".exe", "").replace(".EXE", "")
                 
                 draw.text((80, 28), name[:15], font=self.font_label, fill=1)
