@@ -11,6 +11,7 @@ bin/
 dist/
 build/
 *.spec
+Z10_LCD_Plugin.zip
 
 # System
 Thumbs.db

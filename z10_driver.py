@@ -11,6 +11,7 @@ import os
 import threading
 import time
 from PIL import Image, ImageDraw, ImageFont
+from resource_utils import get_resource_path
 
 class Z10LCD:
     VID = 0x046D
@@ -27,9 +28,8 @@ class Z10LCD:
         self._setup_backend()
         
     def _setup_backend(self):
-        # Use the directory of the script/module, not the CWD
-        base_path = os.path.dirname(os.path.abspath(__file__))
-        backend_path = os.path.join(base_path, "libusb-1.0.dll")
+        # Use get_resource_path to find bundled DLL in PyInstaller _MEIPASS
+        backend_path = get_resource_path("libusb-1.0.dll")
         if not os.path.exists(backend_path):
             raise FileNotFoundError(f"libusb-1.0.dll not found at {backend_path}")
         self.backend = usb.backend.libusb1.get_backend(find_library=lambda x: backend_path)

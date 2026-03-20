@@ -3,6 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 import subprocess
 import time
 import threading
+from resource_utils import get_resource_path
 
 try:
     import win32api
@@ -41,7 +42,8 @@ class MediaPlugin(BasePlugin):
         
         def _fetch():
             try:
-                cmd = ["powershell", "-ExecutionPolicy", "Bypass", "-File", "get_media.ps1"]
+                ps_script = get_resource_path("get_media.ps1")
+                cmd = ["powershell", "-ExecutionPolicy", "Bypass", "-File", ps_script]
                 startupinfo = subprocess.STARTUPINFO()
                 startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
                 
