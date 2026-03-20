@@ -1,44 +1,65 @@
-# Logitech Z-10 LCD Driver: Installation Guide 🚀
+# 🚀 Logitech Z-10 LCD Revival
 
-This guide explains how to set up the Z-10 LCD Plugin System on a new machine.
+Modern, high-performance driver and plugin system for the legendary Logitech Z-10 speakers. Bypasses the dead Logitech software to provide real-time stats, weather, and more on your LCD.
 
-## 1. Hardware Driver (The Most Important Step)
-The Z-10 speakers were designed for Windows XP. To work on modern Windows, you must replace the default LCD driver with a generic WinUSB driver.
+---
 
-1.  Download **Zadig** from [zadig.akeo.ie](https://zadig.akeo.ie/).
-2.  Plug in your Z-10 speakers.
-3.  In Zadig, go to **Options** -> **List All Devices**.
-4.  Select **Logitech Z-10 USB Speaker (Interface 2)**.
-    *   *Note: Ensure it's Interface 2. Interface 0 and 1 are for Audio/HID Controls.*
-5.  Select **WinUSB** as the driver.
-6.  Click **Replace Driver**.
+## ⚡ Quick Start (Recommended)
 
-## 2. Software Requirements
-If you are running from source, you need Python 3.10+ and the following libraries:
+1.  **Download the latest [Z10_LCD_Plugin.zip](https://github.com/utsnik/logitech-z10-lcd/releases)**.
+2.  Unzip to a folder.
+3.  Run **`setup.exe`**:
+    *   It will install the app to `C:\Program Files\LogitechZ10`.
+    *   It will automatically set up **Auto-Start with Windows**.
+    *   It will guide you through the **Zadig Driver** setup if needed.
 
-```bash
-pip install pyusb psutil pillow pywin32
-```
+---
 
-You also need `libusb-1.0.dll` in the same folder as `z10_app.py`.
+## 🔌 Included Plugins
+1.  **Clock**: Big font Time/Date. Button 1 toggles a built-in Stopwatch.
+2.  **Media Info**: "Now Playing" with smooth 50 FPS scrolling (Spotify, YouTube, Chrome, etc.).
+3.  **Weather**: Real-time conditions (Auto-fetched from OpenMeteo).
+4.  **System Monitor**: 4 pages of hardware stats (CPU/GPU load, temps, network, and disk).
+5.  **Game Stats**: Real-time FPS & Frametime (Syncs with RivaTuner/RTSS). 
+    *   *Features: Auto-app detection, Alt-Tab persistence, and EXE filtering.*
 
-## 3. Running the App
-Simply run the main script:
-```bash
-python z10_app.py
-```
+---
 
-## 4. Packing for others (Creating an .EXE)
-To send this to someone who doesn't have Python installed, you can use **PyInstaller**:
+## 🛠️ Hardware Driver Setup
+Windows 10/11 requires the **WinUSB** driver to talk to the Z-10.
+1.  Open **Zadig** (included in the ZIP).
+2.  Go to **Options** -> **List All Devices**.
+3.  Select **Logitech Z-10 USB Speaker (Interface 2)**.
+4.  Select **WinUSB** and click **Replace Driver**.
 
-1.  Install PyInstaller: `pip install pyinstaller`
-2.  Run the build command:
-    ```bash
-    pyinstaller --onefile --noconsole --add-data "libusb-1.0.dll;." --add-data "get_media.ps1;." --add-data "plugins;plugins" z10_app.py
-    ```
-3.  The standalone `.exe` will be in the `dist/` folder.
+---
+
+## 💻 Developer Setup (Run from Source)
+If you want to modify the code or add your own plugins:
+
+1. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. **Setup libusb**:
+   Place `libusb-1.0.dll` in the root folder.
+3. **Run**:
+   ```bash
+   python z10_app.py
+   ```
+4. **Build**:
+   Run `BUILD_EXE.bat` to generate the standalone `.exe` and installer.
+
+---
+
+## 🕹️ Controls
+- **Display Button (Short Press)**: Cycle through plugins.
+- **Display Button (Long Press 2s)**: Exit the application.
+- **Buttons 1-4**: Context-specific (e.g., Button 1 toggles Stopwatch in Clock).
+
+---
 
 ## 🛠️ Troubleshooting
-- **Access Denied:** Usually means another process is using the LCD. Unplug and replug the speakers.
-- **Media not showing:** Ensure you are playing music in a supported app (Spotify, Chrome, YouTube, etc.).
-- **GPU Stats missing:** Ensure you have NVIDIA drivers installed and `nvidia-smi` is available in your PATH.
+- **LCD is blank**: Ensure you've performed the Zadig driver swap on **Interface 2**.
+- **FPS is 0**: Ensure RivaTuner Statistics Server (RTSS) is running.
+- **Media info missing**: Check if you have the proper Windows media overlay enabled.
