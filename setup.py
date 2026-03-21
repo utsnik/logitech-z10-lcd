@@ -57,17 +57,20 @@ def install():
         print(f"Failed to create shortcut: {e}")
 
     # 5. Driver Check Prompt
-    choice = input("\nDo you need to install the Z-10 Driver (WinUSB)? (y/n): ")
-    if choice.lower() == 'y':
+    # MB_YESNO = 0x4, IDYES = 6
+    res = ctypes.windll.user32.MessageBoxW(0, 
+        "Setup is almost complete!\n\nDo you need to install/update the Z-10 Driver (WinUSB)?\n\n(Choose 'Yes' if this is a new PC)", 
+        "Logitech Z-10 Setup", 0x4 | 0x20)
+    
+    if res == 6:
         zadig_path = os.path.join(target_dir, "zadig.exe")
         if os.path.exists(zadig_path):
             print("Launching Zadig...")
             os.startfile(zadig_path)
         else:
-            print("Zadig.exe not found in target dir.")
+            ctypes.windll.user32.MessageBoxW(0, "zadig.exe not found in installation folder.", "Error", 0x10)
 
-    print("\nInstallation Complete!")
-    input("Press Enter to finish...")
+    ctypes.windll.user32.MessageBoxW(0, "Installation Successful!\n\nThe app will now start automatically when Windows boots.", "Success", 0x40)
 
 if __name__ == "__main__":
     install()
